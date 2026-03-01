@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EVA CEO Evolve | Business & Organizational Development Consulting</title>
+<meta name="description" content="EVA CEO Evolve — Expert consulting in workforce development, business development, organizational development, coaching, and innovation. NAICS 541611 541612 611430. Management consulting services, administrative management, professional development training.">
+<meta name="keywords" content="management consulting services, administrative management consulting, professional development training, workforce development, business development, organizational development, executive coaching, leadership development, innovation consulting, NAICS 541611, NAICS 541612, NAICS 611430, SMART Systems, EVA Management Solutions, M.O.V.E.-U Lab, business transition, enterprise development, e-commerce events, virtual events, business coaching, team alignment, process optimization, speaking engagements, workshops">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ═══════════ CSS VARIABLES ═══════════ */
+:root {
+  --primary: #2c3e50;
+  --primary-deep: #1e2d3d;
+  --accent: #b8935a;
+  --accent-hover: #a07d4a;
+  --accent-light: #d4b87a;
+  --accent-soft: rgba(184,147,90,0.08);
+  --accent-border: rgba(184,147,90,0.18);
+  --bg-main: #ffffff;
+  --bg-section: #f8f7f4;
+  --bg-subtle: #f2f0ec;
+  --text-dark: #2c3e50;
+  --text-body: #556270;
+  --text-light: #8a95a5;
+  --text-muted: #b0b8c4;
+  --white: #ffffff;
+  --charcoal: #34495e;
+  --success: #5ca87e;
+  --border: rgba(0,0,0,0.06);
+  --border-accent: rgba(184,147,90,0.2);
+  --shadow-xs: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
+  --shadow-md: 0 8px 30px rgba(0,0,0,0.07);
+  --shadow-lg: 0 20px 50px rgba(0,0,0,0.1);
+  --shadow-card: 0 1px 4px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-dark);
+  background: var(--bg-main);
+  line-height: 1.75;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-section); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+::selection { background: rgba(184,147,90,0.2); color: var(--primary); }
+
+/* ═══════════ UTILITY ═══════════ */
+.container { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+.section-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.25;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+.section-subtitle {
+  font-size: 1.02rem;
+  color: var(--text-body);
+  max-width: 560px;
+  line-height: 1.8;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 30px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all var(--transition);
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--white);
+  box-shadow: 0 2px 12px rgba(184,147,90,0.25);
+}
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(184,147,90,0.3); }
+.btn-outline {
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(4px);
+}
+.btn-outline:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.12); color: #fff; }
+.btn-dark-outline {
+  border: 1.5px solid var(--border);
+  color: var(--text-dark);
+  background: transparent;
+}
+.btn-dark-outline:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.btn-sm { padding: 11px 22px; font-size: 0.84rem; }
+
+/* ═══════════ NAVIGATION ═══════════ */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 12px 0;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  transition: all var(--transition);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.logo-mark {
+  width: 38px; height: 38px;
+  background: var(--accent);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 800; font-size: 0.88rem;
+  color: var(--white); flex-shrink: 0;
+}
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.12rem; font-weight: 700;
+  color: var(--primary); line-height: 1.15;
+}
+.logo-text span {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.58rem; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-light);
+  margin-top: 1px;
+}
+
+/* Nav Tab Buttons */
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  list-style: none;
+}
+.nav-tabs li { position: relative; }
+.nav-tab {
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-body);
+  border-radius: 8px;
+  transition: all var(--transition);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.nav-tab:hover { color: var(--primary); background: var(--accent-soft); }
+.nav-tab.active { color: var(--accent); font-weight: 600; }
+.nav-cta {
+  background: var(--accent) !important;
+  color: var(--white) !important;
+  font-weight: 600 !important;
+  padding: 8px 20px !important;
+  border-radius: 10px !important;
+  font-size: 0.84rem !important;
+}
+.nav-cta:hover { background: var(--accent-hover) !important; }
+.nav-cta.active { background: var(--accent-hover) !important; }
+
+/* Dropdown */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px); left: -8px;
+  min-width: 220px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 6px;
+  opacity: 0; visibility: hidden;
+  transform: translateY(6px);
+  transition: all 0.2s ease;
+  border: 1px solid var(--border);
+  z-index: 100;
+}
+.nav-tabs li:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown-menu a {
+  display: block;
+  padding: 9px 14px;
+  text-decoration: none;
+  font-size: 0.83rem;
+  color: var(--text-body);
+  border-radius: 8px;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.dropdown-menu a:hover { background: var(--bg-section); color: var(--primary); }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+.hamburger span {
+  width: 22px; height: 2px;
+  background: var(--primary);
+  transition: all 0.3s;
+  border-radius: 2px;
+}
+
+/* ═══════════ PAGE SECTIONS (Tab Content) ═══════════ */
+.page-section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.page-section.active {
+  display: block;
+  opacity: 1;
+}
+.page-section.fade-in {
+  animation: fadeIn 0.45s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ═══════════ HOME / HERO ═══════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--primary-deep);
+  padding-top: 62px;
+}
+.hero-bg-image {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&q=80') center/cover no-repeat;
+  opacity: 0.22;
+  filter: saturate(0.7);
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(160deg, rgba(30,45,61,0.92) 0%, rgba(30,45,61,0.65) 50%, rgba(30,45,61,0.88) 100%);
+  z-index: 1;
+}
+.hero-grid-pattern {
+  position: absolute; inset: 0; z-index: 1;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 60px 28px 80px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(184,147,90,0.1);
+  border: 1px solid rgba(184,147,90,0.2);
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  animation: fadeInUp 0.8s ease;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.3rem, 4.2vw, 3.4rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.18;
+  margin-bottom: 22px;
+  letter-spacing: -0.02em;
+  animation: fadeInUp 0.8s ease 0.1s both;
+}
+.hero h1 em { font-style: italic; color: var(--accent-light); }
+.hero-desc {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.8;
+  margin-bottom: 36px;
+  max-width: 500px;
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+.hero-btns {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+/* Hero Image Collage */
+.hero-right {
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+.hero-photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  max-width: 460px;
+}
+.hero-photo {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.hero-photo:hover img { transform: scale(1.04); }
+.hero-photo:nth-child(1) {
+  grid-row: 1 / 3;
+  min-height: 330px;
+  border: 1.5px solid rgba(184,147,90,0.2);
+}
+.hero-photo:nth-child(2) { min-height: 155px; }
+.hero-photo:nth-child(3) {
+  min-height: 155px;
+  border: 1.5px solid rgba(184,147,90,0.2);
+}
+.hero-photo-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 12px 14px;
+  background: linear-gradient(transparent, rgba(30,45,61,0.8));
+  font-size: 0.7rem;
+  color: var(--accent-light);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Services Preview Cards on Home */
+.home-services-preview {
+  padding: 90px 0;
+  background: var(--bg-main);
+}
+.home-services-header { text-align: center; margin-bottom: 50px; }
+.home-services-header .section-subtitle { margin: 0 auto; }
+.home-svc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.home-svc-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+  cursor: pointer;
+}
+.home-svc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--border-accent); }
+.home-svc-img {
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.home-svc-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(transparent 50%, rgba(30,45,61,0.5));
+}
+.home-svc-body {
+  padding: 20px 18px;
+}
+.home-svc-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  margin-bottom: 7px;
+  color: var(--primary);
+}
+.home-svc-body p {
+  font-size: 0.82rem;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.home-svc-link {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.3s;
+}
+.home-svc-link:hover { gap: 10px; }
+
+/* Why Choose EVA */
+.why-eva {
+  padding: 90px 0;
+  background: var(--white);
+}
+.why-eva-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.why-eva-image {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  height: 400px;
+  box-shadow: var(--shadow-lg);
+}
+.why-eva-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.why-eva-image:hover img { transform: scale(1.03); }
+.why-eva-points { list-style: none; margin-top: 28px; }
+.why-eva-points li {
+  display: flex;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.why-eva-points li:last-child { border: none; }
+.wep-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  border: 1px solid var(--border-accent);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.wep-text h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 4px; color: var(--primary); }
+.wep-text p { font-size: 0.84rem; color: var(--text-body); line-height: 1.65; }
+
+/* Stats */
+.stats-bar { padding: 40px 0; background: var(--bg-section); border-bottom: 1px solid var(--border); }
+.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 30px; text-align: center; }
+.stat-number { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--accent); }
+.stat-desc { font-size: 0.8rem; color: var(--text-light); margin-top: 4px; letter-spacing: 0.3px; }
+
+/* SMART Pillars */
+.smart-pillars { padding: 90px 0; background: var(--bg-main); }
+.pillars-header { text-align: center; margin-bottom: 50px; }
+.pillars-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.pillar-card {
+  text-align: center;
+  padding: 34px 22px;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+}
+.pillar-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--border-accent); }
+.pillar-icon {
+  width: 66px; height: 66px;
+  border-radius: 14px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 18px;
+}
+.pillar-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.06rem; margin-bottom: 10px; color: var(--primary);
+}
+.pillar-card p { font-size: 0.84rem; color: var(--text-body); line-height: 1.65; }
+
+/* CTA Banner */
+.cta-banner {
+  background: var(--primary);
+  padding: 56px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(184,147,90,0.06), transparent);
+}
+.cta-banner .container { position: relative; z-index: 2; }
+.cta-banner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  color: var(--white); margin-bottom: 12px;
+}
+.cta-banner p { color: rgba(255,255,255,0.55); margin-bottom: 26px; font-size: 1rem; }
+
+/* ═══════════ ABOUT PAGE ═══════════ */
+.about-page { padding: 100px 0 60px; background: var(--bg-main); }
+.about-page-header { text-align: center; padding: 50px 0 60px; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; margin-bottom: 80px; }
+.about-img-wrapper {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, var(--primary), var(--charcoal));
+  position: relative;
+}
+.about-img-wrapper::after {
+  content: 'Founder Photo Coming Soon';
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 20px;
+}
+.about-accent {
+  position: absolute;
+  bottom: -16px; right: -16px;
+  width: 140px; height: 140px;
+  border: 3px solid var(--accent);
+  border-radius: var(--radius-lg);
+  z-index: -1;
+}
+.about-text { color: var(--text-body); margin-bottom: 20px; font-size: 1.02rem; line-height: 1.8; }
+.about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+.about-value {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-subtle);
+  border-radius: var(--radius);
+  font-size: 0.88rem; font-weight: 500;
+}
+.about-value-icon {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; flex-shrink: 0;
+}
+
+/* About sub-tabs */
+.about-sub-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 50px;
+}
+.about-sub-tab {
+  padding: 10px 24px;
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.86rem; font-weight: 600;
+  color: var(--text-body);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.about-sub-tab:hover { border-color: var(--accent); color: var(--primary); }
+.about-sub-tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--primary);
+  box-shadow: 0 4px 15px rgba(184,147,90,0.2);
+}
+.about-sub-panel { display: none; }
+.about-sub-panel.active { display: block; animation: fadeIn 0.4s ease forwards; }
+
+/* Testimonial Grid (for About > Testimonials sub-tab) */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+.testimonial-grid-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: all 0.3s;
+}
+.testimonial-grid-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.tg-stars { color: var(--accent); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 14px; }
+.tg-quote { color: var(--text-body); font-size: 0.93rem; line-height: 1.75; font-style: italic; margin-bottom: 18px; }
+.tg-author { display: flex; align-items: center; gap: 12px; }
+.tg-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: var(--white); font-size: 0.8rem;
+}
+.tg-name { font-weight: 600; font-size: 0.88rem; }
+.tg-role { font-size: 0.76rem; color: var(--text-light); }
+
+/* ═══════════ SERVICES PAGE ═══════════ */
+.services-page { padding: 100px 0 60px; background: var(--bg-main); }
+.services-page-header { text-align: center; padding: 50px 0 40px; }
+.services-page-header .section-subtitle { margin: 0 auto; }
+.service-tabs {
+  display: flex; justify-content: center;
+  gap: 8px; margin-bottom: 50px; flex-wrap: wrap;
+}
+.service-tab-btn {
+  padding: 11px 26px;
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.86rem; font-weight: 600;
+  color: var(--text-body);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.service-tab-btn:hover { border-color: var(--accent); color: var(--primary); }
+.service-tab-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--primary);
+  box-shadow: 0 4px 15px rgba(184,147,90,0.2);
+}
+.service-panel { display: none; }
+.service-panel.active { display: block; animation: fadeIn 0.4s ease forwards; }
+.service-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 24px;
+}
+.service-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 36px 30px;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+.service-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), #c4a460);
+  opacity: 0; transition: opacity 0.3s;
+}
+.service-card:hover::before { opacity: 1; }
+.service-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(184,147,90,0.1), rgba(184,147,90,0.04));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; margin-bottom: 18px;
+}
+.service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+.service-card p { color: var(--text-body); font-size: 0.92rem; line-height: 1.7; margin-bottom: 18px; }
+.service-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--accent); font-weight: 600; font-size: 0.86rem;
+  text-decoration: none; transition: gap 0.3s; cursor: pointer;
+}
+.service-link:hover { gap: 12px; }
+
+/* ═══════════ EVENTS & E-COMMERCE PAGE ═══════════ */
+.events-page { padding: 100px 0 60px; background: var(--bg-subtle); }
+.events-page-header { text-align: center; padding: 50px 0 60px; }
+.events-page-header .section-subtitle { margin: 0 auto; }
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 28px;
+  margin-bottom: 40px;
+}
+.event-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+}
+.event-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.event-image {
+  height: 190px;
+  background: linear-gradient(135deg, var(--primary), var(--charcoal));
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.event-badge {
+  position: absolute; top: 14px; left: 14px;
+  background: var(--accent);
+  color: var(--primary);
+  font-size: 0.7rem; font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.event-price-tag {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  color: var(--white);
+  font-weight: 600; font-size: 1.2rem;
+}
+.event-body { padding: 26px; }
+.event-date {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.8rem; color: var(--accent);
+  font-weight: 600; margin-bottom: 10px;
+}
+.event-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 10px; }
+.event-card p { color: var(--text-body); font-size: 0.88rem; line-height: 1.6; margin-bottom: 18px; }
+.secure-notice {
+  text-align: center; padding: 24px;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  color: var(--text-light); font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ═══════════ BLOG PAGE ═══════════ */
+.blog-page { padding: 100px 0 60px; background: var(--bg-main); }
+.blog-page-header { text-align: center; padding: 50px 0 60px; }
+.blog-page-header .section-subtitle { margin: 0 auto; }
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 28px;
+}
+.blog-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+}
+.blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.blog-thumb {
+  height: 190px;
+  background: linear-gradient(135deg, var(--charcoal), var(--primary));
+  position: relative;
+  display: flex; align-items: flex-end;
+  padding: 14px;
+}
+.blog-category {
+  background: var(--accent);
+  color: var(--primary);
+  font-size: 0.68rem; font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.blog-body { padding: 26px; }
+.blog-meta { font-size: 0.78rem; color: var(--text-light); margin-bottom: 10px; }
+.blog-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 10px; line-height: 1.4; }
+.blog-card h3 a { text-decoration: none; color: var(--primary); transition: color 0.2s; cursor: pointer; }
+.blog-card h3 a:hover { color: var(--accent); }
+.blog-card .excerpt { font-size: 0.88rem; color: var(--text-body); line-height: 1.6; }
+
+/* ═══════════ MEMBERSHIP PAGE ═══════════ */
+.membership-page { padding: 100px 0 60px; background: var(--bg-subtle); }
+.membership-page-header { text-align: center; padding: 50px 0 60px; }
+.membership-page-header .section-subtitle { margin: 0 auto; }
+.membership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 28px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.membership-card {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  text-align: center;
+  transition: all 0.3s;
+  position: relative;
+}
+.membership-card.featured {
+  border-color: var(--accent);
+  background: var(--primary);
+  color: var(--white);
+  transform: scale(1.04);
+  box-shadow: var(--shadow-lg);
+}
+.membership-popular {
+  position: absolute; top: -14px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--primary);
+  font-size: 0.7rem; font-weight: 700;
+  padding: 6px 18px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.membership-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 6px; }
+.membership-price { font-size: 2.6rem; font-weight: 800; font-family: 'Syne', sans-serif; margin: 14px 0 4px; }
+.membership-price span { font-size: 0.95rem; font-weight: 400; }
+.membership-period { font-size: 0.8rem; color: var(--text-light); margin-bottom: 24px; }
+.membership-card.featured .membership-period { color: rgba(255,255,255,0.5); }
+.membership-features { list-style: none; text-align: left; margin-bottom: 28px; }
+.membership-features li {
+  padding: 9px 0; font-size: 0.88rem;
+  display: flex; align-items: center; gap: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.membership-card.featured .membership-features li { border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); }
+.check { color: var(--success); font-weight: 700; }
+
+/* ═══════════ CONTACT PAGE ═══════════ */
+.contact-page { padding: 100px 0 60px; background: var(--bg-main); }
+.contact-page-header { text-align: center; padding: 50px 0 60px; }
+.contact-page-header .section-subtitle { margin: 0 auto; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.contact-detail { display: flex; gap: 16px; margin-bottom: 24px; }
+.contact-icon {
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(184,147,90,0.1), rgba(184,147,90,0.04));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.contact-detail h4 { font-size: 0.92rem; margin-bottom: 2px; }
+.contact-detail p { font-size: 0.86rem; color: var(--text-body); }
+.social-links { display: flex; gap: 12px; margin-top: 28px; }
+.social-link {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  color: var(--text-body); font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.social-link:hover { background: var(--accent); border-color: var(--accent); color: var(--primary); }
+.contact-form-wrapper {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); margin-bottom: 6px; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 13px 16px;
+  border: 2px solid #e8e4dc;
+  border-radius: var(--radius);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem; color: var(--text-dark);
+  transition: border-color 0.3s;
+  background: var(--white);
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
+.form-group textarea { resize: vertical; min-height: 110px; }
+
+/* ═══════════ ROLLING TESTIMONIAL BAR ═══════════ */
+.testimonial-bar {
+  background: var(--primary);
+  padding: 50px 0;
+  overflow: hidden;
+  position: relative;
+}
+.testimonial-bar::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 80% at 50% 50%, rgba(201,168,76,0.06), transparent);
+}
+.testimonial-bar-label {
+  text-align: center;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+}
+.testimonial-track-wrapper { overflow: hidden; position: relative; z-index: 2; }
+.testimonial-track {
+  display: flex; gap: 24px;
+  animation: scrollTestimonials 45s linear infinite;
+  width: max-content;
+}
+.testimonial-track:hover { animation-play-state: paused; }
+@keyframes scrollTestimonials {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.t-card {
+  flex-shrink: 0;
+  width: 380px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(184,147,90,0.1);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  backdrop-filter: blur(10px);
+}
+.t-stars { color: var(--accent); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 14px; }
+.t-card blockquote {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem; line-height: 1.75;
+  font-style: italic; margin-bottom: 18px;
+}
+.t-author { display: flex; align-items: center; gap: 12px; }
+.t-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: var(--white); font-size: 0.8rem;
+}
+.t-name { font-weight: 600; color: var(--white); font-size: 0.86rem; }
+.t-role { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+
+/* ═══════════ FOOTER ═══════════ */
+.footer {
+  background: var(--primary);
+  padding: 60px 0 30px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.footer-desc { color: rgba(255,255,255,0.5); font-size: 0.86rem; line-height: 1.7; max-width: 300px; margin-top: 14px; }
+.footer h4 {
+  color: var(--white); font-size: 0.82rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 10px; }
+.footer ul a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none; font-size: 0.86rem;
+  transition: color 0.2s; cursor: pointer;
+}
+.footer ul a:hover { color: var(--accent); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 28px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.8rem; color: rgba(255,255,255,0.4);
+}
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media(max-width:1024px) {
+  .hero-content { grid-template-columns: 1fr; text-align: center; }
+  .hero-desc { margin: 0 auto 36px; }
+  .hero-btns { justify-content: center; }
+  .hero-right { display: none; }
+  .hero-photo-grid { display: none; }
+  .about-grid, .contact-grid, .why-eva-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .pillars-grid, .home-svc-grid { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:768px) {
+  .nav-tabs { display: none; }
+  .hamburger { display: flex; }
+  .nav-tabs.open {
+    display: flex; flex-direction: column;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--white);
+    padding: 16px 20px;
+    box-shadow: var(--shadow-lg);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    max-height: 80vh; overflow-y: auto;
+  }
+  .nav-tabs.open .dropdown-menu {
+    position: static; opacity: 1; visibility: visible;
+    transform: none; box-shadow: none; border: none; padding-left: 16px;
+  }
+  .stats-grid, .pillars-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .about-values { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  .membership-card.featured { transform: none; }
+  .service-tabs, .about-sub-tabs { gap: 6px; }
+  .service-tab-btn, .about-sub-tab { padding: 9px 18px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAVIGATION ═══════════ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" onclick="navigateTo('home')">
+      <div class="logo-mark">EVA</div>
+      <div class="logo-text">CEO Evolve<span>By EVA Enterprise</span></div>
+    </a>
+    <ul class="nav-tabs" id="navTabs">
+      <li><a class="nav-tab active" data-page="home" onclick="navigateTo('home')">Home</a></li>
+      <li>
+        <a class="nav-tab" data-page="about" onclick="navigateTo('about')">About</a>
+        <div class="dropdown-menu">
+          <a onclick="navigateTo('about','story')">Our Story</a>
+          <a onclick="navigateTo('about','founder')">Meet the Founder</a>
+          <a onclick="navigateTo('about','testimonials')">Testimonials</a>
+        </div>
+      </li>
+      <li>
+        <a class="nav-tab" data-page="services" onclick="navigateTo('services')">Our Services</a>
+        <div class="dropdown-menu">
+          <a onclick="navigateTo('services','coaching')">Coaching</a>
+          <a onclick="navigateTo('services','bizdev')">Business Development</a>
+          <a onclick="navigateTo('services','orgdev')">Organizational Development</a>
+          <a onclick="navigateTo('services','innovation')">Innovation</a>
+        </div>
+      </li>
+      <li><a class="nav-tab" data-page="speaking" onclick="navigateTo('speaking')">Speaking</a></li>
+      <li><a class="nav-tab" data-page="blog" onclick="navigateTo('blog')">Blog</a></li>
+      <li><a class="nav-tab" data-page="events" onclick="navigateTo('events')">Events & Shop</a></li>
+      <li><a class="nav-tab nav-cta" data-page="contact" onclick="navigateTo('contact')">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--                    PAGE: HOME                          -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page-section active" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg-image"></div>
+    <div class="hero-grid-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-badge">Evolve 2026 — Now Enrolling</div>
+        <h1>Building Your Enterprise One <em>SMART Solution</em> at a Time</h1>
+        <p class="hero-desc">Expert consulting in workforce development, business strategy, organizational growth, and executive coaching — designed to help you transition, scale, and sustain your business with proven systems.</p>
+        <div class="hero-btns">
+          <a class="btn btn-primary" onclick="navigateTo('contact')">Book a Consultation →</a>
+          <a class="btn btn-outline" onclick="navigateTo('services')">Explore Services</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-photo-grid">
+          <div class="hero-photo">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&q=80" alt="Business strategy meeting">
+            <div class="hero-photo-overlay">Strategy & Leadership</div>
+          </div>
+          <div class="hero-photo">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&q=80" alt="Team collaboration workshop">
+          </div>
+          <div class="hero-photo">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&q=80" alt="Executive coaching session">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-number">[X]+</div><div class="stat-desc">Years of Experience</div></div>
+        <div class="stat-item"><div class="stat-number">[X]+</div><div class="stat-desc">Clients Served</div></div>
+        <div class="stat-item"><div class="stat-number">[X]+</div><div class="stat-desc">Workshops Delivered</div></div>
+        <div class="stat-item"><div class="stat-number">[X]%</div><div class="stat-desc">Client Satisfaction</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose EVA -->
+  <section class="why-eva">
+    <div class="container">
+      <div class="why-eva-grid">
+        <div class="why-eva-image">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80" alt="Business workshop and team development">
+        </div>
+        <div>
+          <div class="section-label">Why EVA CEO Evolve</div>
+          <h2 class="section-title">Built for Leaders Who Want More Than Advice</h2>
+          <p class="section-subtitle">We don't just consult — we partner with you to build the systems, skills, and strategies that drive real, measurable outcomes.</p>
+          <ul class="why-eva-points">
+            <li>
+              <div class="wep-icon">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 1L14 7.5L21 8.5L16 13.5L17 20.5L11 17.5L5 20.5L6 13.5L1 8.5L8 7.5L11 1Z" stroke="#c9a84c" stroke-width="1.5" fill="rgba(184,147,90,0.1)"/></svg>
+              </div>
+              <div class="wep-text">
+                <h4>Proven SMART Methodology</h4>
+                <p>A structured framework connecting your people, purpose, and processes into a system designed for sustained growth.</p>
+              </div>
+            </li>
+            <li>
+              <div class="wep-icon">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M7 11l3 3 5-6" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="wep-text">
+                <h4>Hands-On, Not Hands-Off</h4>
+                <p>We work alongside you — from coaching sessions to implementation support — ensuring real follow-through.</p>
+              </div>
+            </li>
+            <li>
+              <div class="wep-icon">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="3" stroke="#c9a84c" stroke-width="1.5"/><path d="M7 14V10M11 14V8M15 14V6" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="wep-text">
+                <h4>Measurable Results</h4>
+                <p>Every engagement is designed around clear KPIs and outcomes — so you can see the impact, not just feel it.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SMART Pillars (Educational Content) -->
+  <section class="smart-pillars">
+    <div class="container">
+      <div class="pillars-header">
+        <div class="section-label">The SMART Framework</div>
+        <h2 class="section-title">How We Build Your Success</h2>
+        <p class="section-subtitle" style="margin:0 auto;">Our proven SMART methodology connects every part of your business into a cohesive system for sustained growth.</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <circle cx="18" cy="18" r="7" stroke="#c9a84c" stroke-width="2"/>
+              <circle cx="18" cy="18" r="2.5" fill="#c9a84c"/>
+              <path d="M18 4v5M18 27v5M4 18h5M27 18h5" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8.1 8.1l3.5 3.5M24.4 24.4l3.5 3.5M8.1 27.9l3.5-3.5M24.4 11.6l3.5-3.5" stroke="#1a1a2e" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+              <circle cx="18" cy="18" r="13" stroke="#1a1a2e" stroke-width="1" stroke-dasharray="3 3" opacity="0.15"/>
+            </svg>
+          </div>
+          <h3>SMART Systems</h3>
+          <p>Finding the right people, purpose, and processes that connect the collective whole of all parts in your business.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <rect x="5" y="20" width="6" height="12" rx="1.5" fill="#1a1a2e" opacity="0.2"/>
+              <rect x="15" y="14" width="6" height="18" rx="1.5" fill="#c9a84c" opacity="0.5"/>
+              <rect x="25" y="6" width="6" height="26" rx="1.5" fill="#c9a84c"/>
+              <path d="M6 16L16 10l10-5" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="6" cy="16" r="2.5" fill="#c9a84c" stroke="#fff" stroke-width="1"/>
+              <circle cx="16" cy="10" r="2.5" fill="#c9a84c" stroke="#fff" stroke-width="1"/>
+              <circle cx="26" cy="5" r="2.5" fill="#c9a84c" stroke="#fff" stroke-width="1"/>
+            </svg>
+          </div>
+          <h3>SMART Results</h3>
+          <p>When systems are identified, aligned, and implemented, they increase performance and business viability.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <circle cx="18" cy="18" r="14" stroke="#1a1a2e" stroke-width="1.5" opacity="0.12"/>
+              <circle cx="18" cy="18" r="10" stroke="#c9a84c" stroke-width="1.5" opacity="0.3"/>
+              <circle cx="18" cy="18" r="6" stroke="#c9a84c" stroke-width="2"/>
+              <circle cx="18" cy="18" r="2" fill="#c9a84c"/>
+              <path d="M28 8l-8.5 8.5" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+              <path d="M25 7h4v4" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M30 3l2.5 2.5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+              <path d="M31 7l1.5 0" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+              <path d="M27 3l0-1.5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3>SMART Impact</h3>
+          <p>Consistent and focused outcomes provide favorable results through every stage of business transition.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <path d="M18 32c0 0 0-6-1-10s-3-6-3-10a4 4 0 018 0c0 4-2 6-3 10s-1 10-1 10z" fill="#c9a84c" opacity="0.2"/>
+              <path d="M18 30V14" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+              <path d="M18 18c-3-2-6-1.5-7 1" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <path d="M18 14c3-2.5 6-2 7.5 0.5" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <path d="M18 22c2.5-2 5.5-1.5 6.5 0.5" stroke="#1a1a2e" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.3"/>
+              <ellipse cx="18" cy="8" rx="4" ry="4.5" fill="#c9a84c" opacity="0.35"/>
+              <path d="M16 8c0.5-2 1.5-3.5 2-4" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M20 8c-0.5-2-1.5-3.5-2-4" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M12 32h12" stroke="#1a1a2e" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+            </svg>
+          </div>
+          <h3>SMART Growth</h3>
+          <p>Increasing, enhancing, and improving your systems for results that create lasting, sustained success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rolling Testimonials -->
+  <section class="testimonial-bar">
+    <div class="testimonial-bar-label">
+      <div class="section-label" style="color:var(--accent);">What Our Clients Say</div>
+    </div>
+    <div class="testimonial-track-wrapper">
+      <div class="testimonial-track" id="testimonialTrack">
+        <!-- Cards are duplicated in JS for seamless loop -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Ready to Take <em style="color:var(--accent);font-style:italic;">SMART Action</em> for Your Business?</h2>
+      <p>Schedule your complimentary consultation to see if EVA CEO Evolve is right for you.</p>
+      <a class="btn btn-primary" onclick="navigateTo('contact')">Get Started →</a>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--                    PAGE: ABOUT                         -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page-section" id="page-about">
+  <div class="about-page">
+    <div class="container">
+      <div class="about-page-header">
+        <div class="section-label">About EVA</div>
+        <h2 class="section-title">Empowering Visionary Ambition</h2>
+      </div>
+
+      <!-- About sub-tabs -->
+      <div class="about-sub-tabs">
+        <button class="about-sub-tab active" onclick="switchAboutTab('story')">Our Story</button>
+        <button class="about-sub-tab" onclick="switchAboutTab('founder')">Meet the Founder</button>
+        <button class="about-sub-tab" onclick="switchAboutTab('testimonials')">Testimonials</button>
+      </div>
+
+      <!-- Our Story -->
+      <div class="about-sub-panel active" id="about-story">
+        <div class="about-grid">
+          <div style="position:relative;">
+            <div class="about-img-wrapper" style="aspect-ratio:16/10;"></div>
+          </div>
+          <div>
+            <h3 class="section-title" style="font-size:1.8rem;">Our Mission & Vision</h3>
+            <p class="about-text">EVA Enterprise is dedicated to equipping business leaders and organizations with the systems, strategies, and support they need to thrive through transition and sustained growth. From coaching to consulting, we provide SMART solutions that align your people, purpose, and processes.</p>
+            <p class="about-text">Founded on the belief that every business has the potential to excel, we combine real-world expertise with proven frameworks to drive measurable results across workforce development, business development, organizational development, and innovation.</p>
+            <div class="about-values">
+              <div class="about-value"><div class="about-value-icon">◆</div>Systems Thinking</div>
+              <div class="about-value"><div class="about-value-icon">◆</div>Measurable Results</div>
+              <div class="about-value"><div class="about-value-icon">◆</div>Authentic Leadership</div>
+              <div class="about-value"><div class="about-value-icon">◆</div>Sustainable Growth</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meet the Founder -->
+      <div class="about-sub-panel" id="about-founder">
+        <div class="about-grid">
+          <div style="position:relative;">
+            <div class="about-img-wrapper"></div>
+            <div class="about-accent"></div>
+          </div>
+          <div>
+            <h3 class="section-title" style="font-size:1.8rem;">Meet the Founder</h3>
+            <p class="about-text">With over 15 years of experience in management consulting, workforce development, and organizational leadership, the founder of EVA Enterprise brings a unique blend of academic rigor and real-world business acumen to every engagement.</p>
+            <p class="about-text">Passionate about empowering leaders and organizations to reach their full potential, the founder developed the SMART Systems methodology as a comprehensive framework for building businesses that don't just survive — they thrive.</p>
+            <p class="about-text">Through EVA CEO Evolve, the mission continues: helping visionary leaders build the systems, teams, and strategies they need for lasting impact.</p>
+            <p style="font-size:0.85rem;color:var(--text-light);margin-top:16px;font-style:italic;">* Professional photo coming soon</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="about-sub-panel" id="about-testimonials">
+        <div class="testimonial-grid" id="testimonialGrid">
+          <!-- Populated by JS -->
+        </div>
+        <p style="text-align:center;margin-top:32px;color:var(--text-light);font-size:0.85rem;font-style:italic;">* Additional testimonials will be added as they are collected from clients.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--                    PAGE: SERVICES                      -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page-section" id="page-services">
+  <div class="services-page">
+    <div class="container">
+      <div class="services-page-header">
+        <div class="section-label">What We Offer</div>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive consulting tailored to your business stage — from startup to scale-up and beyond.</p>
+      </div>
+
+      <!-- Service Overview Photo Cards -->
+      <div class="home-svc-grid" style="margin-bottom:60px;">
+        <div class="home-svc-card" onclick="switchServiceTab('coaching',document.querySelector('[data-tab=coaching]'))">
+          <div class="home-svc-img" style="background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&q=75');"></div>
+          <div class="home-svc-body">
+            <h3>Coaching</h3>
+            <p>Executive, workforce, and transition coaching to unlock your leadership potential.</p>
+            <span class="home-svc-link">View Details →</span>
+          </div>
+        </div>
+        <div class="home-svc-card" onclick="switchServiceTab('bizdev',document.querySelector('[data-tab=bizdev]'))">
+          <div class="home-svc-img" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&q=75');"></div>
+          <div class="home-svc-body">
+            <h3>Business Development</h3>
+            <p>Strategy, market positioning, and revenue systems for sustainable growth.</p>
+            <span class="home-svc-link">View Details →</span>
+          </div>
+        </div>
+        <div class="home-svc-card" onclick="switchServiceTab('orgdev',document.querySelector('[data-tab=orgdev]'))">
+          <div class="home-svc-img" style="background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&q=75');"></div>
+          <div class="home-svc-body">
+            <h3>Organizational Dev</h3>
+            <p>Team alignment, culture building, and process optimization for your org.</p>
+            <span class="home-svc-link">View Details →</span>
+          </div>
+        </div>
+        <div class="home-svc-card" onclick="switchServiceTab('innovation',document.querySelector('[data-tab=innovation]'))">
+          <div class="home-svc-img" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&q=75');"></div>
+          <div class="home-svc-body">
+            <h3>Innovation</h3>
+            <p>Innovation strategy and digital transformation to stay ahead of the curve.</p>
+            <span class="home-svc-link">View Details →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service Detail Tabs -->
+      <div style="text-align:center;margin-bottom:12px;">
+        <div class="section-label">Service Details</div>
+      </div>
+      <div class="service-tabs" id="serviceTabs">
+        <button class="service-tab-btn active" data-tab="coaching" onclick="switchServiceTab('coaching',this)">Coaching</button>
+        <button class="service-tab-btn" data-tab="bizdev" onclick="switchServiceTab('bizdev',this)">Business Development</button>
+        <button class="service-tab-btn" data-tab="orgdev" onclick="switchServiceTab('orgdev',this)">Organizational Development</button>
+        <button class="service-tab-btn" data-tab="innovation" onclick="switchServiceTab('innovation',this)">Innovation</button>
+      </div>
+
+      <!-- Coaching -->
+      <div class="service-panel active" id="svc-coaching">
+        <div class="service-card-grid">
+          <div class="service-card">
+            <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#b8935a" stroke-width="1.5"/><circle cx="14" cy="14" r="6" stroke="#b8935a" stroke-width="1.5"/><circle cx="14" cy="14" r="2" fill="#b8935a"/></svg></div>
+            <h3>Executive Coaching</h3>
+            <p>One-on-one coaching designed for C-suite leaders and emerging executives navigating growth, transitions, and high-stakes decisions.</p>
+            <a class="service-link" onclick="navigateTo('contact')">Book a Session →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v20M4 14h20" stroke="#b8935a" stroke-width="1.5" stroke-linecap="round"/><circle cx="14" cy="7" r="3" stroke="#b8935a" stroke-width="1.5"/><circle cx="7" cy="14" r="3" stroke="#b8935a" stroke-width="1.5"/><circle cx="21" cy="14" r="3" stroke="#b8935a" stroke-width="1.5"/><circle cx="14" cy="21" r="3" stroke="#b8935a" stroke-width="1.5"/></svg></div>
+            <h3>Workforce Development Coaching</h3>
+            <p>Develop your team's capacity through targeted coaching programs that build leadership skills, communication, and performance at every level.</p>
+            <a class="service-link" onclick="navigateTo('contact')">Learn More →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 22L22 6" stroke="#b8935a" stroke-width="1.5" stroke-linecap="round"/><path d="M16 6h6v6" stroke="#b8935a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 24h20" stroke="#b8935a" stroke-width="1" opacity="0.3" stroke-linecap="round"/></svg></div>
+            <h3>Transition Coaching</h3>
+            <p>Whether pivoting your business model or stepping into a new role, our transition coaching helps you move forward with clarity and a concrete plan.</p>
+            <a class="service-link" onclick="navigateTo('contact')">Learn More →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="8" width="20" height="14" rx="3" stroke="#b8935a" stroke-width="1.5"/><path d="M10 8V6a4 4 0 018 0v2" stroke="#b8935a" stroke-width="1.5"/><circle cx="14" cy="16" r="2" fill="#b8935a"/></svg></div>
+            <h3>M.O.V.E.-U Lab™</h3>
+            <p>Our signature lab experience combining hands-on coaching, actionable frameworks, and guided support to help leaders create lasting organizational evolution.</p>
+            <a class="service-link" onclick="navigateTo('events')">View Programs →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business Development -->
+      <div class="service-panel" id="svc-bizdev">
+        <div class="service-card-grid">
+          <div class="service-card">
+            <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="16" width="5" height="8" rx="1" stroke="#b8935a" stroke-width="1.5"/><rect x="11.5" y="10" width="5" height="14" rx="1" stroke="#b8935a" stroke-width="1.5"/><rect x="18" y="4" width="5" height="20" rx="1" stroke="#b8935a" stroke-width="1.5"/></svg></div>
+            <h3>Business Strategy & Planning</h3>
+            <p>Build comprehensive business plans, identify market opportunities, and define the systems needed to scale sustainably.</p>
+            <a class="service-link" onclick="navigateTo('contact')">Learn More →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="16" rx="3" stroke="#b8935a" stroke-width="1.5"/><path d="M3 11h22" stroke="#b8935a" stroke-width="1.5"/><circle cx="7" cy="8.5" r="1" fill="#b8935a"/><circle cx="10" cy="8.5" r="1" fill="#b8935a"/></svg></div>
+            <h3>Market Positioning</h3>
+            <p>Stand out with clear positioning, competitive analysis, and branding strategies that attract the clients and partners you want.</p>
+            <a class="service-link" onclick="navigateTo('contact')">Learn More →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20L10 14L15 17L24 8" stroke="#b8935a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 8h6v6" stroke="#b8935a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Revenue Growth Systems</h3>
+            <p>Implement proven systems connecting your sales pipeline, marketing efforts, and operations to drive consistent revenue growth.</p>
+            <a class="service-link" onclick="navigateTo('contact')">Learn More →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Organizational Development -->
+      <div class="service-panel" id="svc-orgdev">
+        <div class="service-card-grid">
+          <div class="service-card">
+            <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="9" height="9" rx="2" stroke="#b8935a" stroke-width="1.5"/><rect x="15" y="4" width="9" height="9" rx="2" stroke="#b8935a" stroke-width="1.5"/><rect x="4" y="15" width="9" height="9" rx="2" stroke="#b8935a" stroke-width="1.5"/><rect x="15" y="15" width="9" height="9" rx="2" stroke="#b8935a" stroke-width="1.5"/></svg></div>
+            <h3>Organizational Assessment</h3>
+            <p>A deep dive into your company's structure, culture, and processes — identifying gaps, strengths, and opportunities for improvement.</p>
+            <a class="service-link" onclick="navigateTo('contact')">Learn More →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="9" cy="10" r="4" stroke="#b8935a" stroke-width="1.5"/><circle cx="19" cy="10" r="4" stroke="#b8935a" stroke-width="1.5"/><path d="M2 22c0-4 3-7 7-7s7 3 7 7" stroke="#b8935a" stroke-width="1.5" stroke-linecap="round"/><path d="M16 22c0-4 3-7 7-7" stroke="#b8935a" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/></svg></div>
+            <h3>Team Alignment & Culture</h3>
+            <p>Align your team around shared goals, values, and accountability systems that foster collaboration and high performance.</p>
+            <a class="service-link" onclick="navigateTo('contact')">Learn More →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#b8935a" stroke-width="1.5"/><path d="M14 8v6l4 4" stroke="#b8935a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Process Optimization</h3>
+            <p>Streamline operations by implementing scalable processes that support sustainable growth and reduce organizational friction.</p>
+            <a class="service-link" onclick="navigateTo('contact')">Learn More →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Innovation -->
+      <div class="service-panel" id="svc-innovation">
+        <div class="service-card-grid">
+          <div class="service-card">
+            <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3v3M3 14h3M25 14h-3M6.5 6.5l2 2M21.5 6.5l-2 2" stroke="#b8935a" stroke-width="1.5" stroke-linecap="round"/><circle cx="14" cy="14" r="6" stroke="#b8935a" stroke-width="1.5"/><circle cx="14" cy="14" r="2" fill="#b8935a"/></svg></div>
+            <h3>Innovation Strategy</h3>
+            <p>Develop a roadmap for innovation that balances creative thinking with practical execution — turning ideas into competitive advantages.</p>
+            <a class="service-link" onclick="navigateTo('contact')">Learn More →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M8 4h12a2 2 0 012 2v16a2 2 0 01-2 2H8a2 2 0 01-2-2V6a2 2 0 012-2z" stroke="#b8935a" stroke-width="1.5"/><path d="M10 10h8M10 14h5" stroke="#b8935a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <h3>Research & Development</h3>
+            <p>Leverage data-driven research and development processes to identify emerging opportunities and build a competitive edge in your industry.</p>
+            <a class="service-link" onclick="navigateTo('contact')">Learn More →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#b8935a" stroke-width="1.5"/><path d="M14 4a10 10 0 000 20" stroke="#b8935a" stroke-width="1.5"/><ellipse cx="14" cy="14" rx="4" ry="10" stroke="#b8935a" stroke-width="1" opacity="0.4"/><path d="M4 14h20" stroke="#b8935a" stroke-width="1" opacity="0.4"/></svg></div>
+            <h3>Digital Transformation</h3>
+            <p>Navigate technology adoption and digital workflows that enhance operations, client experience, and competitive position.</p>
+            <a class="service-link" onclick="navigateTo('contact')">Learn More →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--                    PAGE: SPEAKING                      -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page-section" id="page-speaking">
+  <div class="services-page">
+    <div class="container">
+      <div class="services-page-header">
+        <div class="section-label">Engage & Inspire</div>
+        <h2 class="section-title">Speaking & Workshops</h2>
+        <p class="section-subtitle">Bring the EVA experience to your event, conference, or organization with customized keynotes, workshops, and virtual presentations.</p>
+      </div>
+
+      <div class="service-card-grid" style="max-width:1000px;margin:0 auto;">
+        <div class="service-card">
+          <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="10" r="6" stroke="#b8935a" stroke-width="1.5"/><path d="M14 16v4M10 24h8" stroke="#b8935a" stroke-width="1.5" stroke-linecap="round"/><path d="M8 6l-2-3M20 6l2-3" stroke="#b8935a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <h3>Keynote Speaking</h3>
+          <p>Engaging keynotes on leadership, business systems, workforce development, and innovation — customized for your event audience and goals.</p>
+          <a class="service-link" onclick="navigateTo('contact')">Book a Speaker →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="20" height="20" rx="3" stroke="#b8935a" stroke-width="1.5"/><path d="M9 10h10M9 14h7M9 18h10" stroke="#b8935a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <h3>Workshops & Seminars</h3>
+          <p>Interactive, hands-on workshops equipping participants with practical tools they can apply immediately to their business and leadership roles.</p>
+          <a class="service-link" onclick="navigateTo('contact')">Learn More →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="14" rx="3" stroke="#b8935a" stroke-width="1.5"/><path d="M12 13l4-2.5v5L12 13z" fill="#b8935a"/><path d="M10 22h8" stroke="#b8935a" stroke-width="1.5" stroke-linecap="round"/><path d="M14 20v2" stroke="#b8935a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <h3>Virtual Presentations</h3>
+          <p>Live virtual keynotes and masterclasses accessible from anywhere — bringing the EVA experience directly to your team or audience.</p>
+          <a class="service-link" onclick="navigateTo('events')">View Events →</a>
+        </div>
+      </div>
+
+      <!-- Speaking Topics -->
+      <div style="max-width:800px;margin:60px auto 0;text-align:center;">
+        <div class="section-label">Popular Topics</div>
+        <h3 class="section-title" style="font-size:1.6rem;">What We Speak About</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px;text-align:left;">
+          <div style="display:flex;align-items:center;gap:12px;padding:16px 18px;background:var(--bg-section);border-radius:var(--radius);border:1px solid var(--border);">
+            <span style="color:var(--accent);font-weight:700;">01</span>
+            <span style="font-size:0.9rem;font-weight:500;">Building SMART Systems for Sustainable Growth</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:16px 18px;background:var(--bg-section);border-radius:var(--radius);border:1px solid var(--border);">
+            <span style="color:var(--accent);font-weight:700;">02</span>
+            <span style="font-size:0.9rem;font-weight:500;">Leadership in Transition: Navigating Change</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:16px 18px;background:var(--bg-section);border-radius:var(--radius);border:1px solid var(--border);">
+            <span style="color:var(--accent);font-weight:700;">03</span>
+            <span style="font-size:0.9rem;font-weight:500;">Workforce Development & Team Alignment</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:16px 18px;background:var(--bg-section);border-radius:var(--radius);border:1px solid var(--border);">
+            <span style="color:var(--accent);font-weight:700;">04</span>
+            <span style="font-size:0.9rem;font-weight:500;">Innovation & Organizational Transformation</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:16px 18px;background:var(--bg-section);border-radius:var(--radius);border:1px solid var(--border);">
+            <span style="color:var(--accent);font-weight:700;">05</span>
+            <span style="font-size:0.9rem;font-weight:500;">Business Development Strategy & Execution</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:16px 18px;background:var(--bg-section);border-radius:var(--radius);border:1px solid var(--border);">
+            <span style="color:var(--accent);font-weight:700;">06</span>
+            <span style="font-size:0.9rem;font-weight:500;">Empowering Women in Enterprise Leadership</span>
+          </div>
+        </div>
+        <a class="btn btn-primary" style="margin-top:36px;" onclick="navigateTo('contact')">Book a Speaking Engagement →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--                  PAGE: EVENTS & SHOP                   -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page-section" id="page-events">
+  <div class="events-page">
+    <div class="container">
+      <div class="events-page-header">
+        <div class="section-label">Evolve 2026</div>
+        <h2 class="section-title">Events & Programs</h2>
+        <p class="section-subtitle">Invest in your growth. Register for upcoming virtual and in-person events, workshops, and exclusive programs.</p>
+      </div>
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-image">
+            <div class="event-badge">Virtual</div>
+            <div class="event-price-tag">$197</div>
+          </div>
+          <div class="event-body">
+            <div class="event-date">📅 March 15, 2026 · 10:00 AM EST</div>
+            <h3>Evolve 2026: Leadership Masterclass</h3>
+            <p>A half-day virtual intensive on building SMART systems for organizational leadership and workforce development.</p>
+            <a href="#" class="btn btn-primary btn-sm">Register Now →</a>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-image" style="background:linear-gradient(135deg,#2d2d3f,#1a1a2e);">
+            <div class="event-badge">In-Person</div>
+            <div class="event-price-tag">$349</div>
+          </div>
+          <div class="event-body">
+            <div class="event-date">📅 April 22, 2026 · All Day</div>
+            <h3>Business Development Bootcamp</h3>
+            <p>An immersive full-day experience covering strategy, systems design, and actionable growth plans for your enterprise.</p>
+            <a href="#" class="btn btn-primary btn-sm">Register Now →</a>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-image" style="background:linear-gradient(135deg,#3a2d1e,#1a1a2e);">
+            <div class="event-badge">Program</div>
+            <div class="event-price-tag">$899</div>
+          </div>
+          <div class="event-body">
+            <div class="event-date">📅 Ongoing · 8-Week Cohort</div>
+            <h3>M.O.V.E.-U Lab™ Cohort</h3>
+            <p>Join a cohort of driven leaders in our signature 8-week innovation lab — includes coaching, resources, and certification.</p>
+            <a href="#" class="btn btn-primary btn-sm">Enroll Now →</a>
+          </div>
+        </div>
+      </div>
+      <div class="secure-notice">
+        🔒 <strong>Secure Payments</strong> — All transactions are processed through Shopify's secure payment platform. Your credit card and financial information is never stored on our website. EVA Enterprise uses industry-standard encryption to protect your data.
+      </div>
+
+      <!-- Membership Section within Events & Shop -->
+      <div style="margin-top:80px;">
+        <div style="text-align:center;margin-bottom:50px;">
+          <div class="section-label">Join the Community</div>
+          <h2 class="section-title">Membership Plans</h2>
+          <p class="section-subtitle" style="margin:0 auto;">Get exclusive access to resources, events, coaching sessions, and a community of driven leaders.</p>
+        </div>
+        <div class="membership-grid">
+          <div class="membership-card">
+            <h3>Starter</h3>
+            <div class="membership-price">$29<span>/mo</span></div>
+            <div class="membership-period">Billed monthly</div>
+            <ul class="membership-features">
+              <li><span class="check">✓</span> Access to blog & resource library</li>
+              <li><span class="check">✓</span> Monthly newsletter with insights</li>
+              <li><span class="check">✓</span> Community discussion forum</li>
+              <li><span class="check">✓</span> 10% off events & workshops</li>
+            </ul>
+            <a class="btn btn-dark-outline btn-sm" style="width:100%;justify-content:center;" onclick="navigateTo('contact')">Get Started</a>
+          </div>
+          <div class="membership-card featured">
+            <div class="membership-popular">Most Popular</div>
+            <h3>Professional</h3>
+            <div class="membership-price" style="color:var(--accent);">$99<span>/mo</span></div>
+            <div class="membership-period">Billed monthly</div>
+            <ul class="membership-features">
+              <li><span class="check">✓</span> Everything in Starter</li>
+              <li><span class="check">✓</span> Monthly group coaching session</li>
+              <li><span class="check">✓</span> Exclusive webinars & masterclasses</li>
+              <li><span class="check">✓</span> 25% off events & workshops</li>
+              <li><span class="check">✓</span> Priority event registration</li>
+            </ul>
+            <a class="btn btn-primary btn-sm" style="width:100%;justify-content:center;" onclick="navigateTo('contact')">Join Now</a>
+          </div>
+          <div class="membership-card">
+            <h3>Executive</h3>
+            <div class="membership-price">$249<span>/mo</span></div>
+            <div class="membership-period">Billed monthly</div>
+            <ul class="membership-features">
+              <li><span class="check">✓</span> Everything in Professional</li>
+              <li><span class="check">✓</span> 1-on-1 coaching session monthly</li>
+              <li><span class="check">✓</span> Free access to all virtual events</li>
+              <li><span class="check">✓</span> Direct access to the Founder</li>
+              <li><span class="check">✓</span> Custom growth plan & roadmap</li>
+            </ul>
+            <a class="btn btn-dark-outline btn-sm" style="width:100%;justify-content:center;" onclick="navigateTo('contact')">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--                      PAGE: BLOG                        -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page-section" id="page-blog">
+  <div class="blog-page">
+    <div class="container">
+      <div class="blog-page-header">
+        <div class="section-label">Insights & Resources</div>
+        <h2 class="section-title">From the Blog</h2>
+        <p class="section-subtitle">Practical insights on leadership, business systems, workforce development, and organizational growth.</p>
+      </div>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <div class="blog-thumb"><span class="blog-category">Leadership</span></div>
+          <div class="blog-body">
+            <div class="blog-meta">March 1, 2026 · 5 min read</div>
+            <h3><a>5 Systems Every Growing Business Needs in 2026</a></h3>
+            <p class="excerpt">Discover the five foundational systems that separate businesses that scale from those that stall — and how to implement them today.</p>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-thumb" style="background:linear-gradient(135deg,#3a2d1e,#1a1a2e);"><span class="blog-category">Coaching</span></div>
+          <div class="blog-body">
+            <div class="blog-meta">February 20, 2026 · 4 min read</div>
+            <h3><a>Why Executive Coaching Is No Longer Optional</a></h3>
+            <p class="excerpt">The modern business landscape demands leaders invest in themselves. Here's why coaching has become a competitive necessity.</p>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-thumb" style="background:linear-gradient(135deg,#2d3f2d,#1a1a2e);"><span class="blog-category">Innovation</span></div>
+          <div class="blog-body">
+            <div class="blog-meta">February 12, 2026 · 6 min read</div>
+            <h3><a>From Idea to Impact: The M.O.V.E.-U Framework</a></h3>
+            <p class="excerpt">A behind-the-scenes look at our signature innovation framework and how organizations are using it to drive real change.</p>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-thumb" style="background:linear-gradient(135deg,#2d2d4f,#1a1a2e);"><span class="blog-category">Workforce Dev</span></div>
+          <div class="blog-body">
+            <div class="blog-meta">February 5, 2026 · 5 min read</div>
+            <h3><a>Building a Workforce That Thrives Through Change</a></h3>
+            <p class="excerpt">How to develop resilient teams that don't just survive organizational transitions — they use them as catalysts for growth.</p>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-thumb" style="background:linear-gradient(135deg,#3f2d2d,#1a1a2e);"><span class="blog-category">Org Development</span></div>
+          <div class="blog-body">
+            <div class="blog-meta">January 28, 2026 · 7 min read</div>
+            <h3><a>The Cost of Misalignment: Why Culture Eats Strategy</a></h3>
+            <p class="excerpt">When your team isn't aligned, even the best strategies fail. Here's how to diagnose and fix organizational misalignment.</p>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-thumb" style="background:linear-gradient(135deg,#2d3a3f,#1a1a2e);"><span class="blog-category">Business Dev</span></div>
+          <div class="blog-body">
+            <div class="blog-meta">January 15, 2026 · 4 min read</div>
+            <h3><a>Revenue Systems: Stop Chasing, Start Building</a></h3>
+            <p class="excerpt">The difference between businesses that plateau and those that scale is the systems underneath. Learn how to build yours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--                    PAGE: CONTACT                       -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page-section" id="page-contact">
+  <div class="contact-page">
+    <div class="container">
+      <div class="contact-page-header">
+        <div class="section-label">Get in Touch</div>
+        <h2 class="section-title">Let's Build Your Next Chapter</h2>
+        <p class="section-subtitle">Schedule a complimentary consultation to see how EVA CEO Evolve can help transform your business.</p>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <p class="about-text" style="margin-bottom:36px;">Whether you're exploring coaching, looking to develop your organization, or ready to register for an Evolve 2026 event — we'd love to hear from you. Let's start a conversation about your goals.</p>
+          <div class="contact-detail">
+            <div class="contact-icon">📧</div>
+            <div><h4>Email</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c2abaca4ad82a7b4a3a1a7ada7b4adaeb4a7eca1adaf">[email&#160;protected]</a></p></div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">📱</div>
+            <div><h4>Phone</h4><p>(555) 123-4567</p></div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">📍</div>
+            <div><h4>Location</h4><p>Virtual & In-Person Consulting Available</p></div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link" title="LinkedIn">in</a>
+            <a href="#" class="social-link" title="Facebook">f</a>
+            <a href="#" class="social-link" title="Instagram">ig</a>
+            <a href="#" class="social-link" title="YouTube">▶</a>
+          </div>
+        </div>
+        <div class="contact-form-wrapper">
+          <form onsubmit="event.preventDefault(); document.getElementById('formSuccess').style.display='block'; this.reset();">
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="Jane" required>
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Doe" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="jane@example.com" required>
+            </div>
+            <div class="form-group">
+              <label>I'm Interested In</label>
+              <select required>
+                <option value="">Select a service...</option>
+                <option>Executive Coaching</option>
+                <option>Workforce Development Coaching</option>
+                <option>Business Development</option>
+                <option>Organizational Development</option>
+                <option>Innovation & M.O.V.E.-U Lab™</option>
+                <option>Speaking / Workshop</option>
+                <option>Evolve 2026 Events</option>
+                <option>Membership</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea placeholder="Tell us about your goals and how we can help..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message →</button>
+            <div id="formSuccess" style="display:none;margin-top:16px;padding:16px;background:rgba(74,158,109,0.1);border-radius:var(--radius);text-align:center;color:var(--success);font-weight:600;">
+              ✓ Thank you! We'll be in touch within 24 hours.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════ FOOTER (Always Visible) ═══════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo-text" style="color:#fff;font-family:'Playfair Display',serif;font-size:1.2rem;">
+          EVA CEO Evolve
+          <span style="display:block;font-family:'DM Sans',sans-serif;font-size:0.62rem;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-top:4px;">By EVA Enterprise</span>
+        </div>
+        <p class="footer-desc">Empowering Visionary Ambition — building your enterprise one SMART solution at a time through expert consulting, coaching, and innovation.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a onclick="navigateTo('services','coaching')">Coaching</a></li>
+          <li><a onclick="navigateTo('services','bizdev')">Business Development</a></li>
+          <li><a onclick="navigateTo('services','orgdev')">Organizational Development</a></li>
+          <li><a onclick="navigateTo('services','innovation')">Innovation</a></li>
+          <li><a onclick="navigateTo('speaking')">Speaking</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a onclick="navigateTo('about','story')">About</a></li>
+          <li><a onclick="navigateTo('about','founder')">Meet the Founder</a></li>
+          <li><a onclick="navigateTo('about','testimonials')">Testimonials</a></li>
+          <li><a onclick="navigateTo('blog')">Blog</a></li>
+          <li><a onclick="navigateTo('events')">Events & Shop</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a onclick="navigateTo('contact')">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="https://www.smartsystems2excel.com/" target="_blank">Smart Systems 2 Excel ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 E.V.A. Enterprise, LLC. All Rights Reserved.</span>
+      <span>NAICS: 541611 · 541612 · 611430</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+// ── Testimonial Data ──
+const testimonials = [
+  { quote: "Working with EVA completely changed how I approach business systems. The coaching was transformative — I finally have a clear roadmap for growth.", initials: "JM", name: "Client Testimonial", role: "Business Owner" },
+  { quote: "The organizational development work helped our team align around shared goals. We've seen measurable improvement in productivity and morale.", initials: "SK", name: "Client Testimonial", role: "Executive Director" },
+  { quote: "The M.O.V.E.-U Lab experience was unlike any workshop I've attended. Practical, actionable, and the coaching follow-up was invaluable.", initials: "DR", name: "Client Testimonial", role: "Startup Founder" },
+  { quote: "EVA helped us pivot during a critical growth phase. Their business development strategies gave us the confidence and tools to scale successfully.", initials: "LT", name: "Client Testimonial", role: "CEO, Tech Company" },
+  { quote: "The workforce development coaching transformed our leadership team. We now have systems in place that sustain performance even during transitions.", initials: "MW", name: "Client Testimonial", role: "HR Director" },
+  { quote: "Innovation isn't just a buzzword with EVA — they gave us practical frameworks and the coaching to actually implement change across our organization.", initials: "AP", name: "Client Testimonial", role: "Operations Manager" },
+];
+
+// Build rolling testimonials (duplicated for seamless loop)
+function buildRollingTestimonials() {
+  const track = document.getElementById('testimonialTrack');
+  const all = [...testimonials, ...testimonials]; // duplicate for infinite scroll
+  track.innerHTML = all.map(t => `
+    <div class="t-card">
+      <div class="t-stars">★★★★★</div>
+      <blockquote>"${t.quote}"</blockquote>
+      <div class="t-author">
+        <div class="t-avatar">${t.initials}</div>
+        <div><div class="t-name">${t.name}</div><div class="t-role">${t.role}</div></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Build testimonial grid for About page
+function buildTestimonialGrid() {
+  const grid = document.getElementById('testimonialGrid');
+  grid.innerHTML = testimonials.map(t => `
+    <div class="testimonial-grid-card">
+      <div class="tg-stars">★★★★★</div>
+      <p class="tg-quote">"${t.quote}"</p>
+      <div class="tg-author">
+        <div class="tg-avatar">${t.initials}</div>
+        <div><div class="tg-name">${t.name}</div><div class="tg-role">${t.role}</div></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ── Main Navigation ──
+function navigateTo(page, subTab) {
+  // Hide all pages
+  document.querySelectorAll('.page-section').forEach(p => {
+    p.classList.remove('active', 'fade-in');
+  });
+
+  // Show target page
+  const target = document.getElementById('page-' + page);
+  if (target) {
+    target.classList.add('active', 'fade-in');
+  }
+
+  // Update active nav tab
+  document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+  const activeTab = document.querySelector('.nav-tab[data-page="' + page + '"]');
+  if (activeTab) activeTab.classList.add('active');
+
+  // Handle sub-tabs
+  if (page === 'about' && subTab) {
+    setTimeout(() => switchAboutTab(subTab), 100);
+  }
+  if (page === 'services' && subTab) {
+    setTimeout(() => {
+      const btn = document.querySelector('.service-tab-btn[data-tab="' + subTab + '"]');
+      if (btn) switchServiceTab(subTab, btn);
+    }, 100);
+  }
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Close mobile nav
+  document.getElementById('navTabs').classList.remove('open');
+}
+
+// ── Service Sub-Tabs ──
+function switchServiceTab(tab, btnEl) {
+  document.querySelectorAll('.service-tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.service-panel').forEach(p => p.classList.remove('active'));
+
+  if (btnEl) {
+    btnEl.classList.add('active');
+  } else {
+    const btn = document.querySelector('.service-tab-btn[data-tab="' + tab + '"]');
+    if (btn) btn.classList.add('active');
+  }
+
+  const panel = document.getElementById('svc-' + tab);
+  if (panel) panel.classList.add('active');
+}
+
+// ── About Sub-Tabs ──
+function switchAboutTab(tab) {
+  document.querySelectorAll('.about-sub-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.about-sub-panel').forEach(p => p.classList.remove('active'));
+
+  // Activate the correct button
+  document.querySelectorAll('.about-sub-tab').forEach(b => {
+    const txt = b.textContent.toLowerCase();
+    if (
+      (tab === 'story' && txt.includes('story')) ||
+      (tab === 'founder' && txt.includes('founder')) ||
+      (tab === 'testimonials' && txt.includes('testimonial'))
+    ) {
+      b.classList.add('active');
+    }
+  });
+
+  const panel = document.getElementById('about-' + tab);
+  if (panel) panel.classList.add('active');
+}
+
+// ── Mobile Nav Toggle ──
+function toggleMobileNav() {
+  document.getElementById('navTabs').classList.toggle('open');
+}
+
+// ── Init ──
+document.addEventListener('DOMContentLoaded', function() {
+  buildRollingTestimonials();
+  buildTestimonialGrid();
+});
+</script>
+</body>
+</html>
