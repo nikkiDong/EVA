@@ -1,0 +1,62 @@
+.testimonialBar {
+  background: var(--primary);
+  padding: 50px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.testimonialBar::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 80% at 50% 50%, rgba(201,168,76,0.06), transparent);
+}
+
+.testimonialBarLabel {
+  text-align: center;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonialTrackWrapper { overflow: hidden; position: relative; z-index: 2; }
+
+.testimonialTrack {
+  display: flex;
+  gap: 24px;
+  animation: scrollTestimonials 45s linear infinite;
+  width: max-content;
+}
+
+.testimonialTrack:hover { animation-play-state: paused; }
+
+.tCard {
+  flex-shrink: 0;
+  width: 380px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(184,147,90,0.1);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.tStars { color: var(--accent); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 14px; }
+
+.tCard blockquote {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem; line-height: 1.75;
+  font-style: italic; margin-bottom: 18px;
+}
+
+.tAuthor { display: flex; align-items: center; gap: 12px; }
+
+.tAvatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: var(--white); font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.tName { font-weight: 600; color: var(--white); font-size: 0.86rem; }
+.tRole { font-size: 0.75rem; color: rgba(255,255,255,0.5); }

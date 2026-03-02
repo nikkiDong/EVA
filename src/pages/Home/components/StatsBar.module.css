@@ -1,0 +1,30 @@
+.statsBar {
+  padding: 40px 0;
+  background: var(--bg-section);
+  border-bottom: 1px solid var(--border);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  text-align: center;
+}
+
+.statNumber {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.statDesc {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 4px;
+  letter-spacing: 0.3px;
+}
+
+@media(max-width: 768px) {
+  .statsGrid { grid-template-columns: 1fr 1fr; gap: 20px; }
+}

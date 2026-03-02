@@ -1,0 +1,147 @@
+.aboutPage { padding: 100px 0 60px; background: var(--bg-main); }
+
+.aboutPageHeader { text-align: center; padding: 50px 0 60px; }
+
+.aboutSubTabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 50px;
+}
+
+.aboutSubTab {
+  padding: 10px 24px;
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.86rem; font-weight: 600;
+  color: var(--text-body);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.aboutSubTab:hover { border-color: var(--accent); color: var(--primary); }
+
+.aboutSubTab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--primary);
+  box-shadow: 0 4px 15px rgba(184,147,90,0.2);
+}
+
+.aboutPanel {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* About Grid */
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.aboutImgWrapper {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, var(--primary), var(--charcoal));
+  position: relative;
+}
+
+.aboutImgWrapper::after {
+  content: 'Founder Photo Coming Soon';
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 20px;
+}
+
+.storyImgWrapper {
+  aspect-ratio: 16/10;
+}
+
+.aboutAccent {
+  position: absolute;
+  bottom: -16px; right: -16px;
+  width: 140px; height: 140px;
+  border: 3px solid var(--accent);
+  border-radius: var(--radius-lg);
+  z-index: -1;
+}
+
+.aboutText { color: var(--text-body); margin-bottom: 20px; font-size: 1.02rem; line-height: 1.8; }
+
+.aboutValues {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.aboutValue {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-subtle);
+  border-radius: var(--radius);
+  font-size: 0.88rem; font-weight: 500;
+}
+
+.aboutValueIcon {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; flex-shrink: 0;
+}
+
+/* Testimonial Grid */
+.testimonialGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.testimonialGridCard {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: all 0.3s;
+}
+
+.testimonialGridCard:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+.tgStars { color: var(--accent); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 14px; }
+.tgQuote { color: var(--text-body); font-size: 0.93rem; line-height: 1.75; font-style: italic; margin-bottom: 18px; }
+.tgAuthor { display: flex; align-items: center; gap: 12px; }
+
+.tgAvatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: var(--white); font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.tgName { font-weight: 600; font-size: 0.88rem; }
+.tgRole { font-size: 0.76rem; color: var(--text-light); }
+
+.note { text-align: center; margin-top: 32px; color: var(--text-light); font-size: 0.85rem; font-style: italic; }
+
+@media(max-width: 1024px) {
+  .aboutGrid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media(max-width: 768px) {
+  .aboutValues { grid-template-columns: 1fr; }
+  .aboutSubTabs { gap: 6px; }
+  .aboutSubTab { padding: 9px 18px; font-size: 0.8rem; }
+}

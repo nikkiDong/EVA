@@ -1,0 +1,84 @@
+.speakingPage { padding: 100px 0 60px; background: var(--bg-main); }
+
+.pageHeader { text-align: center; padding: 50px 0 40px; }
+.pageHeader .section-subtitle { margin: 0 auto; }
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.serviceCard {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 36px 30px;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceCard:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+
+.serviceCard::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), #c4a460);
+  opacity: 0; transition: opacity 0.3s;
+}
+
+.serviceCard:hover::before { opacity: 1; }
+
+.serviceIcon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(184,147,90,0.1), rgba(184,147,90,0.04));
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+
+.serviceCard h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+.serviceCard p { color: var(--text-body); font-size: 0.92rem; line-height: 1.7; margin-bottom: 18px; }
+
+.serviceLink {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--accent); font-weight: 600; font-size: 0.86rem;
+  cursor: pointer; background: none; border: none; font-family: inherit; padding: 0;
+  transition: gap 0.3s;
+}
+
+.serviceLink:hover { gap: 12px; }
+
+/* Topics Section */
+.topicsSection {
+  max-width: 800px;
+  margin: 60px auto 0;
+  text-align: center;
+}
+
+.topicsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.topicItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  background: var(--bg-section);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.topicNum { color: var(--accent); font-weight: 700; }
+.topicText { font-size: 0.9rem; font-weight: 500; }
+
+.ctaWrap { margin-top: 36px; }

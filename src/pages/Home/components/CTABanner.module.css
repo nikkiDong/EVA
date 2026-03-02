@@ -1,0 +1,22 @@
+.ctaBanner {
+  background: var(--primary);
+  padding: 56px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaBanner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(184,147,90,0.06), transparent);
+}
+
+.ctaBanner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.ctaBanner p { color: rgba(255,255,255,0.55); margin-bottom: 26px; font-size: 1rem; }

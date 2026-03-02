@@ -1,0 +1,146 @@
+.eventsPage { padding: 100px 0 60px; background: var(--bg-subtle); }
+
+.pageHeader { text-align: center; padding: 50px 0 60px; }
+.pageHeader .section-subtitle { margin: 0 auto; }
+
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.eventCard {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+}
+
+.eventCard:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.eventImage {
+  height: 190px;
+  background: linear-gradient(135deg, var(--primary), var(--charcoal));
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.eventBadge {
+  position: absolute; top: 14px; left: 14px;
+  background: var(--accent);
+  color: var(--primary);
+  font-size: 0.7rem; font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.eventPriceTag {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  color: var(--white);
+  font-weight: 600; font-size: 1.2rem;
+}
+
+.eventBody { padding: 26px; }
+
+.eventDate {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.8rem; color: var(--accent);
+  font-weight: 600; margin-bottom: 10px;
+}
+
+.eventCard h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 10px; }
+.eventCard p { color: var(--text-body); font-size: 0.88rem; line-height: 1.6; margin-bottom: 18px; }
+
+.secureNotice {
+  text-align: center; padding: 24px;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  color: var(--text-light); font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Membership */
+.membershipSection { margin-top: 80px; }
+
+.membershipHeader { text-align: center; margin-bottom: 50px; }
+.membershipHeader .section-subtitle { margin: 0 auto; }
+
+.membershipGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 28px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.membershipCard {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  text-align: center;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.membershipCard.featured {
+  border-color: var(--accent);
+  background: var(--primary);
+  color: var(--white);
+  transform: scale(1.04);
+  box-shadow: var(--shadow-lg);
+}
+
+.membershipPopular {
+  position: absolute; top: -14px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--primary);
+  font-size: 0.7rem; font-weight: 700;
+  padding: 6px 18px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.membershipCard h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 6px; }
+
+.membershipPrice {
+  font-size: 2.6rem; font-weight: 800;
+  font-family: 'Syne', sans-serif;
+  margin: 14px 0 4px;
+}
+
+.membershipPrice span { font-size: 0.95rem; font-weight: 400; }
+
+.membershipPeriod { font-size: 0.8rem; color: var(--text-light); margin-bottom: 24px; }
+.membershipCard.featured .membershipPeriod { color: rgba(255,255,255,0.5); }
+
+.membershipFeatures {
+  list-style: none; text-align: left; margin-bottom: 28px; padding: 0;
+}
+
+.membershipFeatures li {
+  padding: 9px 0; font-size: 0.88rem;
+  display: flex; align-items: center; gap: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.membershipCard.featured .membershipFeatures li { border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); }
+
+.check { color: var(--success); font-weight: 700; }
+
+.btnFull { width: 100%; justify-content: center; }
+
+@media(max-width: 768px) {
+  .membershipCard.featured { transform: none; }
+}
