@@ -42,10 +42,15 @@
   background: linear-gradient(to left, var(--primary) 0%, transparent 100%);
 }
 
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 .testimonialTrack {
   display: flex;
   gap: 24px;
-  animation: scrollTestimonials 30s linear infinite;
+  animation: scrollLeft 30s linear infinite;
   width: max-content;
 }
 

@@ -22,7 +22,6 @@ export default function Navbar() {
         <button className={styles.navLogo} onClick={() => { navigate('/'); setMobileOpen(false) }}>
           <div className={styles.logoMark}>EVA</div>
           <div className={styles.logoText}>
-            CEO Evolve
             <span>By EVA Enterprise</span>
           </div>
         </button>
