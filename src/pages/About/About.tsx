@@ -70,7 +70,7 @@ export default function About() {
                 <h3 className="section-title" style={{ fontSize: '1.8rem' }}>Meet the Founder</h3>
                 <p className={styles.aboutText}>With over 15 years of experience in management consulting, workforce development, and organizational leadership, the founder of EVA Enterprise brings a unique blend of academic rigor and real-world business acumen to every engagement.</p>
                 <p className={styles.aboutText}>Passionate about empowering leaders and organizations to reach their full potential, the founder developed the SMART Systems methodology as a comprehensive framework for building businesses that don't just survive — they thrive.</p>
-                <p className={styles.aboutText}>Through EVA CEO Evolve, the mission continues: helping visionary leaders build the systems, teams, and strategies they need for lasting impact.</p>
+                <p className={styles.aboutText}>Through Empowerment that Values All, the mission continues: helping visionary leaders build the systems, teams, and strategies they need for lasting impact.</p>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-light)', marginTop: '16px', fontStyle: 'italic' }}>* Professional photo coming soon</p>
               </div>
             </div>

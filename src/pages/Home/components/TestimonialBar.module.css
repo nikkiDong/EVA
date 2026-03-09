@@ -18,12 +18,34 @@
   z-index: 2;
 }
 
-.testimonialTrackWrapper { overflow: hidden; position: relative; z-index: 2; }
+.testimonialTrackWrapper {
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonialTrackWrapper::before,
+.testimonialTrackWrapper::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 160px;
+  z-index: 4;
+  pointer-events: none;
+}
+.testimonialTrackWrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--primary) 0%, transparent 100%);
+}
+.testimonialTrackWrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--primary) 0%, transparent 100%);
+}
 
 .testimonialTrack {
   display: flex;
   gap: 24px;
-  animation: scrollTestimonials 45s linear infinite;
+  animation: scrollTestimonials 30s linear infinite;
   width: max-content;
 }
 

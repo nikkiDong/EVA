@@ -22,14 +22,24 @@
   cursor: pointer;
 }
 
-.homeSvcCard:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--border-accent); }
+.homeSvcCard:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--border-accent); }
+
+.homeSvcImgWrap {
+  height: 160px;
+  overflow: hidden;
+  position: relative;
+}
 
 .homeSvcImg {
-  height: 150px;
+  height: 100%;
+  width: 100%;
   background-size: cover;
   background-position: center;
   position: relative;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.homeSvcCard:hover .homeSvcImg { transform: scale(1.07); }
 
 .homeSvcImg::after {
   content: '';

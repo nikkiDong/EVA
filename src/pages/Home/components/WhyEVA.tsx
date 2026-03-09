@@ -1,6 +1,9 @@
+import { useInView } from '../../../hooks/useInView'
 import styles from './WhyEVA.module.css'
 
 export default function WhyEVA() {
+  const [ref, inView] = useInView<HTMLDivElement>()
+
   const points = [
     {
       title: 'Proven SMART Methodology',
@@ -36,17 +39,21 @@ export default function WhyEVA() {
   return (
     <section className={styles.whyEva}>
       <div className="container">
-        <div className={styles.whyEvaGrid}>
-          <div className={styles.whyEvaImage}>
+        <div ref={ref} className={styles.whyEvaGrid}>
+          <div className={`${styles.whyEvaImage} revealLeft ${inView ? 'visible' : ''}`}>
             <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80" alt="Business workshop and team development" />
           </div>
-          <div>
-            <div className="section-label">Why EVA CEO Evolve</div>
+          <div className={`revealRight ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.15s' }}>
+            <div className="section-label">Why Empowerment that Values All</div>
             <h2 className="section-title">Built for Leaders Who Want More Than Advice</h2>
             <p className="section-subtitle">We don't just consult — we partner with you to build the systems, skills, and strategies that drive real, measurable outcomes.</p>
             <ul className={styles.whyEvaPoints}>
-              {points.map((p) => (
-                <li key={p.title}>
+              {points.map((p, i) => (
+                <li
+                  key={p.title}
+                  className={`reveal ${inView ? 'visible' : ''}`}
+                  style={{ transitionDelay: `${0.25 + i * 0.12}s` }}
+                >
                   <div className={styles.wepIcon}>{p.icon}</div>
                   <div className={styles.wepText}>
                     <h4>{p.title}</h4>

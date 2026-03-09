@@ -17,7 +17,11 @@
   transition: all var(--transition);
 }
 
-.pillarCard:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--border-accent); }
+.pillarCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-accent);
+}
 
 .pillarIcon {
   width: 66px; height: 66px;
@@ -26,6 +30,13 @@
   border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto 18px;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.pillarCard:hover .pillarIcon {
+  background: var(--accent-soft);
+  border-color: var(--border-accent);
+  transform: scale(1.1) rotate(-3deg);
 }
 
 .pillarCard h3 {

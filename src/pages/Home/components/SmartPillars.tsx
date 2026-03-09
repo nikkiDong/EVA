@@ -1,3 +1,4 @@
+import { useInView } from '../../../hooks/useInView'
 import styles from './SmartPillars.module.css'
 
 const pillars = [
@@ -66,17 +67,27 @@ const pillars = [
 ]
 
 export default function SmartPillars() {
+  const [headerRef, headerInView] = useInView<HTMLDivElement>()
+  const [gridRef, gridInView] = useInView<HTMLDivElement>()
+
   return (
     <section className={styles.smartPillars}>
       <div className="container">
-        <div className={styles.pillarsHeader}>
+        <div
+          ref={headerRef}
+          className={`${styles.pillarsHeader} reveal ${headerInView ? 'visible' : ''}`}
+        >
           <div className="section-label">The SMART Framework</div>
           <h2 className="section-title">How We Build Your Success</h2>
           <p className="section-subtitle" style={{ margin: '0 auto' }}>Our proven SMART methodology connects every part of your business into a cohesive system for sustained growth.</p>
         </div>
-        <div className={styles.pillarsGrid}>
-          {pillars.map((p) => (
-            <div key={p.title} className={styles.pillarCard}>
+        <div ref={gridRef} className={styles.pillarsGrid}>
+          {pillars.map((p, i) => (
+            <div
+              key={p.title}
+              className={`${styles.pillarCard} reveal ${gridInView ? 'visible' : ''}`}
+              style={{ transitionDelay: `${i * 0.12}s` }}
+            >
               <div className={styles.pillarIcon}>{p.icon}</div>
               <h3>{p.title}</h3>
               <p>{p.desc}</p>

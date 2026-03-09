@@ -29,7 +29,7 @@ export default function Contact() {
         <div className={styles.pageHeader}>
           <div className="section-label">Get in Touch</div>
           <h2 className="section-title">Let's Build Your Next Chapter</h2>
-          <p className="section-subtitle">Schedule a complimentary consultation to see how EVA CEO Evolve can help transform your business.</p>
+          <p className="section-subtitle">Schedule a complimentary consultation to see how Empowerment that Values All can help transform your business.</p>
         </div>
 
         <div className={styles.contactGrid}>

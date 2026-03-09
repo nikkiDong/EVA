@@ -10,7 +10,7 @@ export default function Footer() {
         <div className={styles.footerGrid}>
           <div>
             <div className={styles.footerBrand}>
-              EVA CEO Evolve
+              Empowerment that Values All
               <span>By EVA Enterprise</span>
             </div>
             <p className={styles.footerDesc}>
