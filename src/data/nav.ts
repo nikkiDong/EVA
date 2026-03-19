@@ -17,15 +17,15 @@ export const navItems: NavItem[] = [
     ],
   },
   {
-    label: "Our Services",
+    label: "Smart Solutions",
     path: "/services",
     dropdown: [
-      { label: "Coaching", path: "/services", hash: "coaching" },
       { label: "Business Development", path: "/services", hash: "bizdev" },
       { label: "Organizational Development", path: "/services", hash: "orgdev" },
       { label: "Innovation", path: "/services", hash: "innovation" },
     ],
   },
+  { label: "Coaching", path: "/coaching" },
   { label: "Speaking", path: "/speaking" },
   { label: "Blog", path: "/blog" },
   { label: "Events & Shop", path: "/events" },

@@ -33,6 +33,8 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+body.custom-cursor,
+body.custom-cursor * { cursor: none !important; }
 html { scroll-behavior: smooth; }
 body {
   font-family: 'DM Sans', sans-serif;

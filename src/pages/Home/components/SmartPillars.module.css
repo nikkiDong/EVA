@@ -1,57 +1,93 @@
-.smartPillars { padding: 90px 0; background: var(--bg-main); }
+.smartPillars {
+  padding: 96px 0;
+  background: var(--bg-section);
+  position: relative;
+  overflow: hidden;
+}
 
-.pillarsHeader { text-align: center; margin-bottom: 50px; }
+/* Subtle gold top accent */
+.smartPillars::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--accent-light), transparent);
+}
+
+.pillarsHeader {
+  text-align: center;
+  margin-bottom: 56px;
+}
 
 .pillarsGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 16px;
 }
 
 .pillarCard {
   text-align: center;
-  padding: 34px 22px;
+  padding: 40px 24px 32px;
   border-radius: var(--radius-lg);
   background: var(--white);
   border: 1px solid var(--border);
-  transition: all var(--transition);
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.pillarCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
 }
 
 .pillarCard:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-7px);
+  box-shadow: 0 20px 52px rgba(44,62,80,0.09);
   border-color: var(--border-accent);
 }
 
+.pillarCard:hover::before { transform: scaleX(1); }
+
 .pillarIcon {
-  width: 66px; height: 66px;
-  border-radius: 14px;
-  background: var(--white);
-  border: 1px solid var(--border);
+  width: 70px; height: 70px;
+  border-radius: 18px;
+  background: var(--accent-soft);
+  border: 1px solid var(--border-accent);
   display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 18px;
-  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+  margin: 0 auto 22px;
+  transition: background 0.3s, transform 0.3s;
 }
 
 .pillarCard:hover .pillarIcon {
-  background: var(--accent-soft);
-  border-color: var(--border-accent);
-  transform: scale(1.1) rotate(-3deg);
+  background: rgba(184,147,90,0.15);
+  transform: scale(1.1) rotate(-4deg);
 }
 
 .pillarCard h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.06rem;
-  margin-bottom: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 12px;
   color: var(--primary);
+  letter-spacing: -0.01em;
 }
 
-.pillarCard p { font-size: 0.84rem; color: var(--text-body); line-height: 1.65; }
+.pillarCard p {
+  font-size: 0.84rem;
+  color: var(--text-body);
+  line-height: 1.7;
+}
 
-@media(max-width: 1024px) {
+@media (max-width: 1024px) {
   .pillarsGrid { grid-template-columns: 1fr 1fr; }
 }
-
-@media(max-width: 768px) {
-  .pillarsGrid { grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 640px) {
+  .pillarsGrid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pillarCard { padding: 28px 16px; }
 }

@@ -18,9 +18,9 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <h4>Services</h4>
+            <h4>Smart Solutions</h4>
             <ul>
-              <li><a onClick={() => navigate('/services', { state: { tab: 'coaching' } })}>Coaching</a></li>
+              <li><a onClick={() => navigate('/coaching')}>Coaching</a></li>
               <li><a onClick={() => navigate('/services', { state: { tab: 'bizdev' } })}>Business Development</a></li>
               <li><a onClick={() => navigate('/services', { state: { tab: 'orgdev' } })}>Organizational Development</a></li>
               <li><a onClick={() => navigate('/services', { state: { tab: 'innovation' } })}>Innovation</a></li>
