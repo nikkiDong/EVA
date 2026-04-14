@@ -14,8 +14,8 @@ export default function Home() {
       <ServicePreviewCards />
       <WhyEVA />
       <SmartPillars />
-      <TestimonialBar />
       <CTABanner />
+      <TestimonialBar />
     </>
   )
 }

@@ -7,7 +7,7 @@ export default function TestimonialBar() {
   return (
     <section className={styles.testimonialBar}>
       <div className={styles.testimonialBarLabel}>
-        <div className="section-label" style={{ color: 'var(--accent)' }}>What Our Clients Say</div>
+        <div className="section-label" style={{ color: '#ffffff' }}>What Our Clients Say</div>
       </div>
       <div className={styles.testimonialTrackWrapper}>
         <div className={styles.testimonialTrack}>

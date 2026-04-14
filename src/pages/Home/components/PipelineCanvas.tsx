@@ -103,7 +103,7 @@ export default function PipelineCanvas() {
             ctx.beginPath()
             ctx.moveTo(p.x, p.y)
             ctx.lineTo(q.x, q.y)
-            ctx.strokeStyle = `rgba(184,147,90,${p.active})`
+            ctx.strokeStyle = `rgba(65,105,225,${p.active})`
             ctx.stroke()
           }
         }
@@ -112,7 +112,7 @@ export default function PipelineCanvas() {
         if (p.cActive > 0) {
           ctx.beginPath()
           ctx.arc(p.x, p.y, p.cr, 0, Math.PI * 2)
-          ctx.fillStyle = `rgba(184,147,90,${p.cActive})`
+          ctx.fillStyle = `rgba(65,105,225,${p.cActive})`
           ctx.fill()
         }
       }

@@ -29,7 +29,7 @@
   padding: 40px 24px 32px;
   border-radius: var(--radius-lg);
   background: var(--white);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--accent);
   transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s, border-color 0.3s;
   position: relative;
   overflow: hidden;
@@ -65,7 +65,7 @@
 }
 
 .pillarCard:hover .pillarIcon {
-  background: rgba(184,147,90,0.15);
+  background: rgba(65,105,225,0.15);
   transform: scale(1.1) rotate(-4deg);
 }
 

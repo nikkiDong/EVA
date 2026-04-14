@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import type { ReactNode } from 'react'
-import styles from './Services.module.css'
+import styles from './SmartSolutions.module.css'
 
-type Tab = 'bizdev' | 'orgdev' | 'innovation'
+type Tab = 'bizdev' | 'commercialization' | 'innovation'
 
 /* ─── Tab definitions ──────────────────────────────────────────── */
 const tabs: { key: Tab; label: string; sub: string; num: string; icon: ReactNode }[] = [
@@ -21,16 +21,15 @@ const tabs: { key: Tab; label: string; sub: string; num: string; icon: ReactNode
     ),
   },
   {
-    key: 'orgdev',
-    label: 'Organizational Development',
-    sub: 'Culture, people & alignment',
+    key: 'commercialization',
+    label: 'Commercialization',
+    sub: 'Market readiness & ICP validation',
     num: '02',
     icon: (
       <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
-        <circle cx="9" cy="10" r="4" stroke="currentColor" strokeWidth="1.8" />
-        <circle cx="19" cy="10" r="4" stroke="currentColor" strokeWidth="1.8" />
-        <path d="M2 22c0-4 3-7 7-7s7 3 7 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M16 22c0-4 3-7 7-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" opacity="0.5" />
+        <path d="M4 20L10 14L15 17L24 8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M18 8h6v6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="14" cy="14" r="12" stroke="currentColor" strokeWidth="1" opacity="0.3" />
       </svg>
     ),
   },
@@ -64,47 +63,47 @@ const panelData: Record<Tab, {
     highlights: ['Funding sources to launch & grow', 'Strategic planning for new ideas', 'Key partnership networks', 'Financial management optimization', 'Proof of concept & customer dev', 'Marketing plans for distribution', 'Workforce development & onboarding', 'Successful scaling to growth models'],
     cards: [
       {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="16" width="5" height="8" rx="1" stroke="#b8935a" strokeWidth="1.5"/><rect x="11.5" y="10" width="5" height="14" rx="1" stroke="#b8935a" strokeWidth="1.5"/><rect x="18" y="4" width="5" height="20" rx="1" stroke="#b8935a" strokeWidth="1.5"/></svg>,
+        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="16" width="5" height="8" rx="1" stroke="#4169E1" strokeWidth="1.5"/><rect x="11.5" y="10" width="5" height="14" rx="1" stroke="#4169E1" strokeWidth="1.5"/><rect x="18" y="4" width="5" height="20" rx="1" stroke="#4169E1" strokeWidth="1.5"/></svg>,
         title: 'Program Development',
         desc: 'Custom programs addressing small business development, workforce development, emotional intelligence, soft skills, diversity/equity/inclusion, and services for diverse populations.',
         link: 'Explore Programs →', linkTo: 'contact',
       },
       {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="16" rx="3" stroke="#b8935a" strokeWidth="1.5"/><path d="M3 11h22" stroke="#b8935a" strokeWidth="1.5"/><circle cx="7" cy="8.5" r="1" fill="#b8935a"/><circle cx="10" cy="8.5" r="1" fill="#b8935a"/></svg>,
+        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="16" rx="3" stroke="#4169E1" strokeWidth="1.5"/><path d="M3 11h22" stroke="#4169E1" strokeWidth="1.5"/><circle cx="7" cy="8.5" r="1" fill="#4169E1"/><circle cx="10" cy="8.5" r="1" fill="#4169E1"/></svg>,
         title: 'Training & Workshops',
         desc: 'One-time or series options for custom training in business ownership and workforce development, delivered in hybrid formats tailored to your team\'s needs.',
         link: 'Learn More →', linkTo: 'contact',
       },
       {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20L10 14L15 17L24 8" stroke="#b8935a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M18 8h6v6" stroke="#b8935a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20L10 14L15 17L24 8" stroke="#4169E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M18 8h6v6" stroke="#4169E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
         title: 'Mastermind & Think Tanks',
         desc: 'Facilitated Mastermind Groups, Think Tanks, and Incubator/Accelerator Programs that bring together leaders to solve problems and scale breakthrough ideas.',
         link: 'Get Started →', linkTo: 'contact',
       },
     ],
   },
-  orgdev: {
+  commercialization: {
     img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=85',
-    tagline: 'Turning Blind Spots into opportunities for innovation and progression',
-    desc: "E.V.A. Management Solutions helps clients identify warning signs or organizational 'Blind Spots.' Through a systemic and creative approach, these Blind Spots become opportunities for innovation and progression — building the internal structures, culture, and processes that enable your team to perform at their highest level.",
-    highlights: ['Assessments, evaluations & feedback', 'Culture connection', 'Performance evaluations', 'Relationship building', 'Meditation techniques', 'Systemic & creative approach'],
+    tagline: 'Define and validate your Ideal Customer Profile',
+    desc: "Driving innovation and commercialization to define and validate your Ideal Customer Profile (ICP). We help founders and subject-matter experts strengthen value, positioning, and market readiness — moving from concept to viable, market-ready offerings.",
+    highlights: ['Ideal Customer Profile validation', 'Customer discovery', 'Value positioning', 'Market readiness', 'Pitch & funding preparation', 'Commercialization strategy'],
     cards: [
       {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="9" height="9" rx="2" stroke="#b8935a" strokeWidth="1.5"/><rect x="15" y="4" width="9" height="9" rx="2" stroke="#b8935a" strokeWidth="1.5"/><rect x="4" y="15" width="9" height="9" rx="2" stroke="#b8935a" strokeWidth="1.5"/><rect x="15" y="15" width="9" height="9" rx="2" stroke="#b8935a" strokeWidth="1.5"/></svg>,
-        title: 'Assessments & Evaluations',
-        desc: "Deep-dive assessments, evaluations, and feedback tools that surface organizational Blind Spots — revealing gaps, strengths, and hidden opportunities for growth.",
+        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#4169E1" strokeWidth="1.5"/><circle cx="14" cy="14" r="5" stroke="#4169E1" strokeWidth="1.5"/><circle cx="14" cy="14" r="1.5" fill="#4169E1"/></svg>,
+        title: 'ICP Validation',
+        desc: "Define and validate your Ideal Customer Profile through structured customer discovery, interviews, and market testing — grounding decisions in real signal.",
         link: 'Learn More →', linkTo: 'contact',
       },
       {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="9" cy="10" r="4" stroke="#b8935a" strokeWidth="1.5"/><circle cx="19" cy="10" r="4" stroke="#b8935a" strokeWidth="1.5"/><path d="M2 22c0-4 3-7 7-7s7 3 7 7" stroke="#b8935a" strokeWidth="1.5" strokeLinecap="round"/><path d="M16 22c0-4 3-7 7-7" stroke="#b8935a" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/></svg>,
-        title: 'Culture Connection',
-        desc: 'Build authentic culture through relationship-centered practices, performance evaluations, and meditation techniques that foster collaboration and sustained high performance.',
+        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20L10 14L15 17L24 8" stroke="#4169E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M18 8h6v6" stroke="#4169E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+        title: 'Market Readiness',
+        desc: 'Sharpen value, positioning, and messaging so your offer lands with the right audience at the right time — with pricing and packaging built for traction.',
         link: 'Learn More →', linkTo: 'contact',
       },
       {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 14l6 6L24 8" stroke="#b8935a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><circle cx="14" cy="14" r="11" stroke="#b8935a" strokeWidth="1" opacity="0.3"/></svg>,
-        title: 'Systemic & Creative Solutions',
-        desc: 'Transform organizational warning signs into innovation opportunities using systemic thinking and creative problem-solving approaches tailored to your mission and philosophy.',
+        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4l3 6 6 1-4.5 4.5 1 6.5-5.5-3-5.5 3 1-6.5L5 11l6-1z" stroke="#4169E1" strokeWidth="1.5" strokeLinejoin="round"/></svg>,
+        title: 'Pitch & Funding Prep',
+        desc: 'Strengthen your narrative, financials, and investor-facing materials — moving from strong idea to fundable, scalable opportunity.',
         link: 'Get Started →', linkTo: 'contact',
       },
     ],
@@ -116,19 +115,19 @@ const panelData: Record<Tab, {
     highlights: ['Innovation roadmap & strategy', 'Research & development process', 'Digital workflow adoption', 'Competitive intelligence'],
     cards: [
       {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3v3M3 14h3M25 14h-3M6.5 6.5l2 2M21.5 6.5l-2 2" stroke="#b8935a" strokeWidth="1.5" strokeLinecap="round"/><circle cx="14" cy="14" r="6" stroke="#b8935a" strokeWidth="1.5"/><circle cx="14" cy="14" r="2" fill="#b8935a"/></svg>,
+        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3v3M3 14h3M25 14h-3M6.5 6.5l2 2M21.5 6.5l-2 2" stroke="#4169E1" strokeWidth="1.5" strokeLinecap="round"/><circle cx="14" cy="14" r="6" stroke="#4169E1" strokeWidth="1.5"/><circle cx="14" cy="14" r="2" fill="#4169E1"/></svg>,
         title: 'Innovation Strategy',
         desc: 'Develop a roadmap for innovation that balances creative thinking with practical execution — turning ideas into competitive advantages.',
         link: 'Learn More →', linkTo: 'contact',
       },
       {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M8 4h12a2 2 0 012 2v16a2 2 0 01-2 2H8a2 2 0 01-2-2V6a2 2 0 012-2z" stroke="#b8935a" strokeWidth="1.5"/><path d="M10 10h8M10 14h5" stroke="#b8935a" strokeWidth="1.5" strokeLinecap="round"/></svg>,
+        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M8 4h12a2 2 0 012 2v16a2 2 0 01-2 2H8a2 2 0 01-2-2V6a2 2 0 012-2z" stroke="#4169E1" strokeWidth="1.5"/><path d="M10 10h8M10 14h5" stroke="#4169E1" strokeWidth="1.5" strokeLinecap="round"/></svg>,
         title: 'Research & Development',
         desc: 'Leverage data-driven research and development processes to identify emerging opportunities and build a competitive edge in your industry.',
         link: 'Learn More →', linkTo: 'contact',
       },
       {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#b8935a" strokeWidth="1.5"/><path d="M14 4a10 10 0 000 20" stroke="#b8935a" strokeWidth="1.5"/><ellipse cx="14" cy="14" rx="4" ry="10" stroke="#b8935a" strokeWidth="1" opacity="0.4"/><path d="M4 14h20" stroke="#b8935a" strokeWidth="1" opacity="0.4"/></svg>,
+        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#4169E1" strokeWidth="1.5"/><path d="M14 4a10 10 0 000 20" stroke="#4169E1" strokeWidth="1.5"/><ellipse cx="14" cy="14" rx="4" ry="10" stroke="#4169E1" strokeWidth="1" opacity="0.4"/><path d="M4 14h20" stroke="#4169E1" strokeWidth="1" opacity="0.4"/></svg>,
         title: 'Digital Transformation',
         desc: 'Navigate technology adoption and digital workflows that enhance operations, client experience, and competitive position.',
         link: 'Learn More →', linkTo: 'contact',
@@ -138,17 +137,28 @@ const panelData: Record<Tab, {
 }
 
 /* ─── Component ────────────────────────────────────────────────── */
-export default function Services() {
+export default function SmartSolutions() {
   const location = useLocation()
   const navigate = useNavigate()
-  const [activeTab, setActiveTab] = useState<Tab>('bizdev')
+  const getTabFromState = (state: unknown): Tab | null => {
+    const tab = (state as { tab?: string } | null)?.tab
+    return tab && ['bizdev', 'commercialization', 'innovation'].includes(tab)
+      ? (tab as Tab)
+      : null
+  }
 
-  useEffect(() => {
-    const state = location.state as { tab?: string } | null
-    if (state?.tab && ['bizdev', 'orgdev', 'innovation'].includes(state.tab)) {
-      setActiveTab(state.tab as Tab)
+  const [activeTab, setActiveTab] = useState<Tab>(
+    () => getTabFromState(location.state) ?? 'bizdev'
+  )
+  const [prevLocationState, setPrevLocationState] = useState(location.state)
+
+  if (location.state !== prevLocationState) {
+    setPrevLocationState(location.state)
+    const nextTab = getTabFromState(location.state)
+    if (nextTab) {
+      setActiveTab(nextTab)
     }
-  }, [location.state])
+  }
 
   const panel = panelData[activeTab]
   const activeTabDef = tabs.find(t => t.key === activeTab)!
@@ -161,15 +171,15 @@ export default function Services() {
         <div className="container">
           <div className={styles.headerRow}>
             <div className={styles.headerLeft}>
-              <span className={styles.headerEyebrow}>Smart Solutions</span>
+              <span className={styles.headerEyebrow}>Consulting</span>
               <h1 className={styles.headerTitle}>
-                Strategic consulting<br />
-                <em>that moves</em>
+                High-touch consulting<br />
+                <em>that delivers ROI</em>
               </h1>
             </div>
             <div className={styles.headerRight}>
               <p className={styles.headerDesc}>
-                From business development to organizational transformation and innovation — comprehensive solutions built for your ambition.
+                High-touch consulting across sectors seeking stronger stakeholder alignment, organizational effectiveness, and scalable systems that drive viable ROI.
               </p>
               <button className="btn btn-primary" onClick={() => navigate('/contact')}>
                 Book a Consultation →

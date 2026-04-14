@@ -15,15 +15,17 @@
 
 .homeServicesHeader {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 24px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
   margin-bottom: 52px;
-  flex-wrap: wrap;
+  text-align: center;
 }
 
-.homeServicesHeader .section-title { margin-bottom: 0; text-align: left; }
-.homeServicesHeader .section-subtitle { text-align: left; margin: 0; max-width: 380px; }
+.homeServicesHeader .section-label { font-size: 0.90rem; }
+.homeServicesHeader .section-title { margin-bottom: 0; text-align: center; font-size: clamp(2.2rem, 4vw, 3.2rem); }
+.homeServicesHeader .section-subtitle { text-align: center; margin: 0 auto; max-width: 560px; font-size: 1.12rem; }
 
 .homeSvcGrid {
   display: grid;
@@ -83,13 +85,14 @@
   z-index: 2;
   transform: translateY(8px);
   transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  text-align: center;
 }
 
 .homeSvcCard:hover .homeSvcBody { transform: translateY(0); }
 
 .homeSvcBody h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 8px;

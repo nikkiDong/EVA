@@ -36,7 +36,7 @@
 .serviceIcon {
   width: 52px; height: 52px;
   border-radius: 14px;
-  background: linear-gradient(135deg, rgba(184,147,90,0.1), rgba(184,147,90,0.04));
+  background: linear-gradient(135deg, rgba(65,105,225,0.1), rgba(65,105,225,0.04));
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 18px;
 }

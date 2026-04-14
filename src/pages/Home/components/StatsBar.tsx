@@ -2,10 +2,30 @@ import styles from './StatsBar.module.css'
 
 export default function StatsBar() {
   const stats = [
-    { number: '[X]+', desc: 'Years of Experience' },
-    { number: '[X]+', desc: 'Clients Served' },
-    { number: '[X]+', desc: 'Workshops Delivered' },
-    { number: '[X]%', desc: 'Client Satisfaction' },
+    {
+      number: '14+',
+      label: 'Years',
+      desc: 'Coaching & Consulting Experience',
+      subdesc: 'Business Development & Organizational Effectiveness, Innovation & Commercialization',
+    },
+    {
+      number: '1,700+',
+      label: 'Events, Programs & Workshops',
+      desc: 'Managed, Designed & Delivered',
+      subdesc: '',
+    },
+    {
+      number: '125K+',
+      label: 'Client Support Hours',
+      desc: 'Includes Clients Coached, Trained & Program Delivery',
+      subdesc: '',
+    },
+    {
+      number: '100%',
+      label: 'Client-Centered',
+      desc: 'Small Businesses, Founders, Non-Profits, Government, and Corporate',
+      subdesc: '',
+    },
   ]
 
   return (
@@ -13,8 +33,9 @@ export default function StatsBar() {
       <div className="container">
         <div className={styles.statsGrid}>
           {stats.map((s) => (
-            <div key={s.desc} className={styles.statItem}>
+            <div key={s.label} className={styles.statItem}>
               <div className={styles.statNumber}>{s.number}</div>
+              <div className={styles.statLabel}>{s.label}</div>
               <div className={styles.statDesc}>{s.desc}</div>
             </div>
           ))}

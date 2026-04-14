@@ -1,0 +1,147 @@
+.evolvePage { padding: 100px 0 60px; background: var(--bg-subtle); }
+
+.pageHeader { text-align: center; padding: 50px 0 60px; }
+.pageHeader :global(.section-subtitle) { margin: 0 auto; max-width: 760px; }
+
+.tierGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 28px;
+  margin-bottom: 60px;
+}
+
+.tierCard {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 38px 30px;
+  position: relative;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.tierCard:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.tierFeatured {
+  border-color: var(--accent);
+  border-width: 2px;
+  box-shadow: 0 8px 24px rgba(65, 105, 225, 0.12);
+}
+
+.tierBadge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 6px 16px;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+
+.tierName {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.tierPrice {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.tierPriceAmount {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.tierPricePeriod {
+  font-size: 1rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.tierPeriod {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+
+.tierFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px 0;
+  flex: 1;
+}
+
+.tierFeatures li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.tierFeatures li:last-child { border-bottom: none; }
+
+.tierCheck {
+  color: var(--accent);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.subSections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.subCard {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.subCard:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+
+.subCard h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 10px 0;
+}
+
+.subCard p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+.subLink {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.ctaWrap {
+  text-align: center;
+  padding: 30px 0;
+}

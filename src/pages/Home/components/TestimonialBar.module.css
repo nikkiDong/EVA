@@ -1,6 +1,6 @@
 .testimonialBar {
-  background: var(--primary);
-  padding: 50px 0;
+  background: #0a1628;
+  padding: 64px 0;
   overflow: hidden;
   position: relative;
 }
@@ -8,12 +8,13 @@
 .testimonialBar::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 50% 80% at 50% 50%, rgba(201,168,76,0.06), transparent);
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(65,105,225,0.08), transparent);
+  pointer-events: none;
 }
 
 .testimonialBarLabel {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 36px;
   position: relative;
   z-index: 2;
 }
@@ -35,11 +36,11 @@
 }
 .testimonialTrackWrapper::before {
   left: 0;
-  background: linear-gradient(to right, var(--primary) 0%, transparent 100%);
+  background: linear-gradient(to right, #0a1628 0%, transparent 100%);
 }
 .testimonialTrackWrapper::after {
   right: 0;
-  background: linear-gradient(to left, var(--primary) 0%, transparent 100%);
+  background: linear-gradient(to left, #0a1628 0%, transparent 100%);
 }
 
 @keyframes scrollLeft {
@@ -58,32 +59,34 @@
 
 .tCard {
   flex-shrink: 0;
-  width: 380px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(184,147,90,0.1);
+  width: 400px;
+  background: #ffffff;
+  border: 1.5px solid rgba(65,105,225,0.15);
   border-radius: var(--radius-lg);
-  padding: 30px;
-  backdrop-filter: blur(10px);
+  padding: 34px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
 }
 
-.tStars { color: var(--accent); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 14px; }
+.tStars { color: #4169E1; font-size: 1rem; letter-spacing: 3px; margin-bottom: 16px; }
 
 .tCard blockquote {
-  color: rgba(255,255,255,0.8);
-  font-size: 0.9rem; line-height: 1.75;
-  font-style: italic; margin-bottom: 18px;
+  color: #2c3e50;
+  font-size: 1rem;
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 20px;
 }
 
 .tAuthor { display: flex; align-items: center; gap: 12px; }
 
 .tAvatar {
-  width: 40px; height: 40px;
+  width: 44px; height: 44px;
   border-radius: 50%;
-  background: var(--accent);
+  background: #4169E1;
   display: flex; align-items: center; justify-content: center;
-  font-weight: 700; color: var(--white); font-size: 0.8rem;
+  font-weight: 700; color: #fff; font-size: 0.85rem;
   flex-shrink: 0;
 }
 
-.tName { font-weight: 600; color: var(--white); font-size: 0.86rem; }
-.tRole { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+.tName { font-weight: 700; color: #4169E1; font-size: 0.95rem; }
+.tRole { font-size: 0.8rem; color: #8a95a5; margin-top: 2px; }

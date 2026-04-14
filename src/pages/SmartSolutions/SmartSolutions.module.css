@@ -18,8 +18,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 70% 50%, rgba(184,147,90,0.14) 0%, transparent 55%),
-    radial-gradient(circle at 10% 80%, rgba(184,147,90,0.08) 0%, transparent 40%);
+    radial-gradient(circle at 70% 50%, rgba(65,105,225,0.14) 0%, transparent 55%),
+    radial-gradient(circle at 10% 80%, rgba(65,105,225,0.08) 0%, transparent 40%);
   pointer-events: none;
 }
 
@@ -42,9 +42,9 @@
   font-weight: 700;
   margin-bottom: 20px;
   padding: 6px 14px;
-  border: 1px solid rgba(184,147,90,0.3);
+  border: 1px solid rgba(65,105,225,0.3);
   border-radius: 4px;
-  background: rgba(184,147,90,0.06);
+  background: rgba(65,105,225,0.06);
 }
 
 .headerTitle {
@@ -134,7 +134,7 @@
 .tabBtnActive {
   border-bottom-color: var(--accent) !important;
   color: var(--primary) !important;
-  background: rgba(184,147,90,0.04) !important;
+  background: rgba(65,105,225,0.04) !important;
 }
 
 .tabNum {
@@ -161,7 +161,7 @@
 }
 
 .tabBtnActive .tabIcon {
-  background: rgba(184,147,90,0.12);
+  background: rgba(65,105,225,0.12);
   color: var(--accent);
 }
 
@@ -322,7 +322,7 @@
 
 .highlights li:hover {
   border-color: var(--border-accent);
-  background: rgba(184,147,90,0.04);
+  background: rgba(65,105,225,0.04);
 }
 
 .hlDot {
@@ -386,7 +386,7 @@
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 24px 60px rgba(0,0,0,0.10);
-  border-color: rgba(184,147,90,0.25);
+  border-color: rgba(65,105,225,0.25);
 }
 
 /* Bold left accent bar */
@@ -414,13 +414,13 @@
 .cardIcon {
   width: 52px; height: 52px;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(184,147,90,0.1), rgba(184,147,90,0.04));
+  background: linear-gradient(135deg, rgba(65,105,225,0.1), rgba(65,105,225,0.04));
   display: flex; align-items: center; justify-content: center;
   transition: background 0.3s, transform 0.3s;
 }
 
 .card:hover .cardIcon {
-  background: rgba(184,147,90,0.16);
+  background: rgba(65,105,225,0.16);
   transform: scale(1.06) rotate(-2deg);
 }
 
@@ -434,7 +434,7 @@
   transition: color 0.3s;
 }
 
-.card:hover .cardNum { color: rgba(184,147,90,0.18); }
+.card:hover .cardNum { color: rgba(65,105,225,0.18); }
 
 .card h3 {
   font-family: 'Playfair Display', serif;
@@ -482,7 +482,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(184,147,90,0.12) 0%, transparent 60%);
+  background: radial-gradient(circle at 30% 50%, rgba(65,105,225,0.12) 0%, transparent 60%);
   pointer-events: none;
 }
 

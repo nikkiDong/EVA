@@ -7,6 +7,9 @@ export interface NavItem {
 
 export const navItems: NavItem[] = [
   { label: "Home", path: "/" },
+  { label: "Coaching", path: "/coaching" },
+  { label: "Consulting", path: "/consulting" },
+  { label: "Speaking", path: "/speaking" },
   {
     label: "About",
     path: "/about",
@@ -16,18 +19,7 @@ export const navItems: NavItem[] = [
       { label: "Testimonials", path: "/about", hash: "testimonials" },
     ],
   },
-  {
-    label: "Smart Solutions",
-    path: "/services",
-    dropdown: [
-      { label: "Business Development", path: "/services", hash: "bizdev" },
-      { label: "Organizational Development", path: "/services", hash: "orgdev" },
-      { label: "Innovation", path: "/services", hash: "innovation" },
-    ],
-  },
-  { label: "Coaching", path: "/coaching" },
-  { label: "Speaking", path: "/speaking" },
-  { label: "Blog", path: "/blog" },
-  { label: "Events & Shop", path: "/events" },
-  { label: "Contact", path: "/contact", cta: true },
+  { label: "Events", path: "/events" },
+  { label: "EVOLVE Community", path: "/evolve-community" },
+  { label: "Connect", path: "/contact", cta: true },
 ];
