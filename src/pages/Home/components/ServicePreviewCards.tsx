@@ -49,7 +49,7 @@ export default function ServicePreviewCards() {
             <div className="section-label">What We Offer</div>
             <h2 className="section-title">SMART Services</h2>
           </div>
-          <p className="section-subtitle">Designed to support at every stage — from emerging vision to sustainable expansion.</p>
+          <p className="section-subtitle">Designed to support at every growth stage,<br />from emerging vision to sustainable expansion.</p>
         </div>
 
         <div ref={gridRef} className={styles.homeSvcGrid}>

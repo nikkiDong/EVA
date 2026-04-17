@@ -1,167 +1,80 @@
-import { useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import type { ReactNode } from 'react'
 import styles from './SmartSolutions.module.css'
 
-type Tab = 'bizdev' | 'commercialization' | 'innovation'
-
-/* ─── Tab definitions ──────────────────────────────────────────── */
-const tabs: { key: Tab; label: string; sub: string; num: string; icon: ReactNode }[] = [
+const boxes: {
+  key: string
+  num: string
+  label: string
+  tagline: string
+  desc: string
+  bullets: string[]
+  icon: ReactNode
+}[] = [
   {
     key: 'bizdev',
-    label: 'Business Development',
-    sub: 'Strategy & sustainable growth',
     num: '01',
+    label: 'Business Development',
+    tagline: 'Strategy & sustainable growth',
+    desc: 'Partnering with organizations to close gaps and scale mission-aligned solutions — from Mastermind Groups and Think Tanks to Incubator and Accelerator Programs.',
+    bullets: [
+      'Program Development',
+      'Training & Workshops',
+      'Mastermind & Think Tanks',
+      'Strategic planning for new ideas',
+    ],
     icon: (
-      <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
-        <rect x="5" y="16" width="5" height="8" rx="1" stroke="currentColor" strokeWidth="1.8" />
-        <rect x="11.5" y="10" width="5" height="14" rx="1" stroke="currentColor" strokeWidth="1.8" />
-        <rect x="18" y="4" width="5" height="20" rx="1" stroke="currentColor" strokeWidth="1.8" />
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <rect x="5" y="16" width="5" height="8" rx="1" stroke="#4169E1" strokeWidth="1.5" />
+        <rect x="11.5" y="10" width="5" height="14" rx="1" stroke="#4169E1" strokeWidth="1.5" />
+        <rect x="18" y="4" width="5" height="20" rx="1" stroke="#4169E1" strokeWidth="1.5" />
       </svg>
     ),
   },
   {
     key: 'commercialization',
-    label: 'Commercialization',
-    sub: 'Market readiness & ICP validation',
     num: '02',
+    label: 'Commercialization',
+    tagline: 'Market readiness & ICP validation',
+    desc: 'Helping founders and subject-matter experts move from concept to viable, market-ready offerings with sharper positioning and validated demand.',
+    bullets: [
+      'Ideal Customer Profile validation',
+      'Market readiness & positioning',
+      'Pitch & funding preparation',
+      'Commercialization strategy',
+    ],
     icon: (
-      <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
-        <path d="M4 20L10 14L15 17L24 8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M18 8h6v6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="14" cy="14" r="12" stroke="currentColor" strokeWidth="1" opacity="0.3" />
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <path d="M4 20L10 14L15 17L24 8" stroke="#4169E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M18 8h6v6" stroke="#4169E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="14" cy="14" r="12" stroke="#4169E1" strokeWidth="1" opacity="0.3" />
       </svg>
     ),
   },
   {
     key: 'innovation',
-    label: 'Innovation',
-    sub: 'R&D & digital transformation',
     num: '03',
+    label: 'Innovation',
+    tagline: 'R&D & digital transformation',
+    desc: 'Building the mindset, processes, and systems to stay ahead of the curve — turning new ideas into durable competitive advantages.',
+    bullets: [
+      'Innovation roadmap & strategy',
+      'Research & development process',
+      'Digital workflow adoption',
+      'Competitive intelligence',
+    ],
     icon: (
-      <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
-        <path d="M14 3v3M3 14h3M25 14h-3M6.5 6.5l2 2M21.5 6.5l-2 2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <circle cx="14" cy="14" r="6" stroke="currentColor" strokeWidth="1.8" />
-        <circle cx="14" cy="14" r="2" fill="currentColor" />
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <path d="M14 3v3M3 14h3M25 14h-3M6.5 6.5l2 2M21.5 6.5l-2 2" stroke="#4169E1" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="14" cy="14" r="6" stroke="#4169E1" strokeWidth="1.5" />
+        <circle cx="14" cy="14" r="2" fill="#4169E1" />
       </svg>
     ),
   },
 ]
 
-/* ─── Panel content data ───────────────────────────────────────── */
-const panelData: Record<Tab, {
-  img: string
-  tagline: string
-  desc: string
-  highlights: string[]
-  cards: { icon: ReactNode; title: string; desc: string; link: string; linkTo: string }[]
-}> = {
-  bizdev: {
-    img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=85',
-    tagline: 'How does your organization create impact with its stakeholders?',
-    desc: 'We partner with organizations to identify gaps and develop customized solutions aligned with each client\'s mission and philosophy — from Mastermind Groups and Think Tanks to Incubator and Accelerator Programs. SMART SYSTEMS help you pivot in times of change, transition, or crisis through strengths-based perspectives.',
-    highlights: ['Funding sources to launch & grow', 'Strategic planning for new ideas', 'Key partnership networks', 'Financial management optimization', 'Proof of concept & customer dev', 'Marketing plans for distribution', 'Workforce development & onboarding', 'Successful scaling to growth models'],
-    cards: [
-      {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="16" width="5" height="8" rx="1" stroke="#4169E1" strokeWidth="1.5"/><rect x="11.5" y="10" width="5" height="14" rx="1" stroke="#4169E1" strokeWidth="1.5"/><rect x="18" y="4" width="5" height="20" rx="1" stroke="#4169E1" strokeWidth="1.5"/></svg>,
-        title: 'Program Development',
-        desc: 'Custom programs addressing small business development, workforce development, emotional intelligence, soft skills, diversity/equity/inclusion, and services for diverse populations.',
-        link: 'Explore Programs →', linkTo: 'contact',
-      },
-      {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="16" rx="3" stroke="#4169E1" strokeWidth="1.5"/><path d="M3 11h22" stroke="#4169E1" strokeWidth="1.5"/><circle cx="7" cy="8.5" r="1" fill="#4169E1"/><circle cx="10" cy="8.5" r="1" fill="#4169E1"/></svg>,
-        title: 'Training & Workshops',
-        desc: 'One-time or series options for custom training in business ownership and workforce development, delivered in hybrid formats tailored to your team\'s needs.',
-        link: 'Learn More →', linkTo: 'contact',
-      },
-      {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20L10 14L15 17L24 8" stroke="#4169E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M18 8h6v6" stroke="#4169E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-        title: 'Mastermind & Think Tanks',
-        desc: 'Facilitated Mastermind Groups, Think Tanks, and Incubator/Accelerator Programs that bring together leaders to solve problems and scale breakthrough ideas.',
-        link: 'Get Started →', linkTo: 'contact',
-      },
-    ],
-  },
-  commercialization: {
-    img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=85',
-    tagline: 'Define and validate your Ideal Customer Profile',
-    desc: "Driving innovation and commercialization to define and validate your Ideal Customer Profile (ICP). We help founders and subject-matter experts strengthen value, positioning, and market readiness — moving from concept to viable, market-ready offerings.",
-    highlights: ['Ideal Customer Profile validation', 'Customer discovery', 'Value positioning', 'Market readiness', 'Pitch & funding preparation', 'Commercialization strategy'],
-    cards: [
-      {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#4169E1" strokeWidth="1.5"/><circle cx="14" cy="14" r="5" stroke="#4169E1" strokeWidth="1.5"/><circle cx="14" cy="14" r="1.5" fill="#4169E1"/></svg>,
-        title: 'ICP Validation',
-        desc: "Define and validate your Ideal Customer Profile through structured customer discovery, interviews, and market testing — grounding decisions in real signal.",
-        link: 'Learn More →', linkTo: 'contact',
-      },
-      {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20L10 14L15 17L24 8" stroke="#4169E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M18 8h6v6" stroke="#4169E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-        title: 'Market Readiness',
-        desc: 'Sharpen value, positioning, and messaging so your offer lands with the right audience at the right time — with pricing and packaging built for traction.',
-        link: 'Learn More →', linkTo: 'contact',
-      },
-      {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4l3 6 6 1-4.5 4.5 1 6.5-5.5-3-5.5 3 1-6.5L5 11l6-1z" stroke="#4169E1" strokeWidth="1.5" strokeLinejoin="round"/></svg>,
-        title: 'Pitch & Funding Prep',
-        desc: 'Strengthen your narrative, financials, and investor-facing materials — moving from strong idea to fundable, scalable opportunity.',
-        link: 'Get Started →', linkTo: 'contact',
-      },
-    ],
-  },
-  innovation: {
-    img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=85',
-    tagline: 'Turn ideas into competitive advantages',
-    desc: "Innovation isn't just about new technology — it's about building the mindset, processes, and systems that help your organization stay ahead of the curve and capitalize on emerging opportunities.",
-    highlights: ['Innovation roadmap & strategy', 'Research & development process', 'Digital workflow adoption', 'Competitive intelligence'],
-    cards: [
-      {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3v3M3 14h3M25 14h-3M6.5 6.5l2 2M21.5 6.5l-2 2" stroke="#4169E1" strokeWidth="1.5" strokeLinecap="round"/><circle cx="14" cy="14" r="6" stroke="#4169E1" strokeWidth="1.5"/><circle cx="14" cy="14" r="2" fill="#4169E1"/></svg>,
-        title: 'Innovation Strategy',
-        desc: 'Develop a roadmap for innovation that balances creative thinking with practical execution — turning ideas into competitive advantages.',
-        link: 'Learn More →', linkTo: 'contact',
-      },
-      {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M8 4h12a2 2 0 012 2v16a2 2 0 01-2 2H8a2 2 0 01-2-2V6a2 2 0 012-2z" stroke="#4169E1" strokeWidth="1.5"/><path d="M10 10h8M10 14h5" stroke="#4169E1" strokeWidth="1.5" strokeLinecap="round"/></svg>,
-        title: 'Research & Development',
-        desc: 'Leverage data-driven research and development processes to identify emerging opportunities and build a competitive edge in your industry.',
-        link: 'Learn More →', linkTo: 'contact',
-      },
-      {
-        icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#4169E1" strokeWidth="1.5"/><path d="M14 4a10 10 0 000 20" stroke="#4169E1" strokeWidth="1.5"/><ellipse cx="14" cy="14" rx="4" ry="10" stroke="#4169E1" strokeWidth="1" opacity="0.4"/><path d="M4 14h20" stroke="#4169E1" strokeWidth="1" opacity="0.4"/></svg>,
-        title: 'Digital Transformation',
-        desc: 'Navigate technology adoption and digital workflows that enhance operations, client experience, and competitive position.',
-        link: 'Learn More →', linkTo: 'contact',
-      },
-    ],
-  },
-}
-
-/* ─── Component ────────────────────────────────────────────────── */
 export default function SmartSolutions() {
-  const location = useLocation()
   const navigate = useNavigate()
-  const getTabFromState = (state: unknown): Tab | null => {
-    const tab = (state as { tab?: string } | null)?.tab
-    return tab && ['bizdev', 'commercialization', 'innovation'].includes(tab)
-      ? (tab as Tab)
-      : null
-  }
-
-  const [activeTab, setActiveTab] = useState<Tab>(
-    () => getTabFromState(location.state) ?? 'bizdev'
-  )
-  const [prevLocationState, setPrevLocationState] = useState(location.state)
-
-  if (location.state !== prevLocationState) {
-    setPrevLocationState(location.state)
-    const nextTab = getTabFromState(location.state)
-    if (nextTab) {
-      setActiveTab(nextTab)
-    }
-  }
-
-  const panel = panelData[activeTab]
-  const activeTabDef = tabs.find(t => t.key === activeTab)!
 
   return (
     <div className={styles.servicesPage}>
@@ -190,83 +103,37 @@ export default function SmartSolutions() {
         <div className={styles.headerAccentLine} />
       </div>
 
-      {/* ── Tab selector ── */}
-      <div className={styles.tabStrip}>
+      {/* ── Three overview boxes ── */}
+      <div className={styles.panelWrap}>
         <div className="container">
-          <div className={styles.tabList}>
-            {tabs.map((t) => (
-              <button
-                key={t.key}
-                className={`${styles.tabBtn} ${activeTab === t.key ? styles.tabBtnActive : ''}`}
-                onClick={() => setActiveTab(t.key)}
-              >
-                <span className={styles.tabNum}>{t.num}</span>
-                <span className={styles.tabIcon}>{t.icon}</span>
-                <span className={styles.tabMeta}>
-                  <span className={styles.tabLabel}>{t.label}</span>
-                  <span className={styles.tabSub}>{t.sub}</span>
-                </span>
-                <span className={styles.tabArrow}>→</span>
-              </button>
+          <div className={styles.cardGrid}>
+            {boxes.map((b, i) => (
+              <div key={b.key} className={styles.card} style={{ animationDelay: `${i * 0.1}s` }}>
+                <div className={styles.cardTop}>
+                  <div className={styles.cardIcon}>{b.icon}</div>
+                  <span className={styles.cardNum}>{b.num}</span>
+                </div>
+                <h3>{b.label}</h3>
+                <p className={styles.boxTagline}>{b.tagline}</p>
+                <p>{b.desc}</p>
+                <ul className={styles.boxBullets}>
+                  {b.bullets.map((x) => (
+                    <li key={x}>
+                      <span className={styles.boxCheck}>
+                        <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+                          <path d="M3 7.5L6 10.5L11 4.5" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                      {x}
+                    </li>
+                  ))}
+                </ul>
+                <button className={styles.cardLink} onClick={() => navigate('/contact')}>
+                  Learn More →
+                </button>
+              </div>
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* ── Active panel ── */}
-      <div className={styles.panelWrap} key={activeTab}>
-        <div className="container">
-
-          {/* Hero image strip */}
-          <div className={styles.panelHero}>
-            <div className={styles.panelHeroImg}>
-              <img src={panel.img} alt={activeTabDef.label} />
-              <div className={styles.panelHeroOverlay} />
-              <div className={styles.panelHeroText}>
-                <div className={styles.panelHeroNum}>{activeTabDef.num}</div>
-                <div className={styles.panelHeroLabel}>{activeTabDef.label}</div>
-              </div>
-            </div>
-            <div className={styles.panelHeroContent}>
-              <p className={styles.panelTagline}>{panel.tagline}</p>
-              <p className={styles.panelDesc}>{panel.desc}</p>
-              <ul className={styles.highlights}>
-                {panel.highlights.map((h) => (
-                  <li key={h}>
-                    <span className={styles.hlDot} />
-                    {h}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Service cards */}
-          <div className={styles.cardsSection}>
-            <div className={styles.cardsSectionHeader}>
-              <span className={styles.cardsSectionLabel}>Included Services</span>
-              <div className={styles.cardsSectionLine} />
-            </div>
-            <div className={styles.cardGrid}>
-              {panel.cards.map((card, i) => (
-                <div key={card.title} className={styles.card} style={{ animationDelay: `${i * 0.1}s` }}>
-                  <div className={styles.cardTop}>
-                    <div className={styles.cardIcon}>{card.icon}</div>
-                    <span className={styles.cardNum}>0{i + 1}</span>
-                  </div>
-                  <h3>{card.title}</h3>
-                  <p>{card.desc}</p>
-                  <button
-                    className={styles.cardLink}
-                    onClick={() => navigate('/' + card.linkTo)}
-                  >
-                    {card.link}
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-
         </div>
       </div>
 

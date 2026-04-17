@@ -559,53 +559,74 @@
   line-height: 1.85;
 }
 
-.labLetters {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.labStepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 16px;
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
 }
 
-.labLetterCard {
+.labStep {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding-top: 56px;
+}
+
+.labStep::before {
+  content: '';
+  position: absolute;
+  top: 17px;
+  right: 50%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, rgba(65,105,225,0.25), var(--border));
+  z-index: 0;
+}
+
+.labStep:first-child::before { display: none; }
+
+.labStepDot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 32px 20px;
-  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s, border-color 0.3s;
-  animation: fadeInUp 0.5s both;
+  border: 2px solid var(--accent);
+  z-index: 1;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
-.labLetterCard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 48px rgba(0,0,0,0.09);
-  border-color: var(--border-accent);
+.labStep:hover .labStepDot {
+  background: var(--accent);
+  transform: translateX(-50%) scale(1.1);
+  box-shadow: 0 6px 18px rgba(65,105,225,0.35);
 }
 
-.labLetterBig {
+.labStepWord {
   font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: var(--accent);
-  line-height: 1;
-  letter-spacing: -0.04em;
-  margin-bottom: 8px;
-}
-
-.labLetterWord {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.88rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--primary);
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: -0.01em;
   margin-bottom: 10px;
 }
 
-.labLetterDesc {
-  font-size: 0.83rem;
+.labStepDesc {
+  font-size: 0.84rem;
   color: var(--text-body);
-  line-height: 1.65;
+  line-height: 1.6;
+  padding: 0 6px;
 }
 
 .labFooter {
@@ -671,7 +692,39 @@
   .heroImg { height: 360px; }
   .introGrid { grid-template-columns: 1fr; gap: 40px; }
   .servicesGrid { grid-template-columns: 1fr 1fr; }
-  .labLetters { grid-template-columns: 1fr 1fr; }
+  .labStepper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+    max-width: 520px;
+  }
+  .labStep {
+    flex-direction: row;
+    text-align: left;
+    padding-top: 0;
+    padding-left: 56px;
+    align-items: flex-start;
+  }
+  .labStep::before {
+    top: 0;
+    right: auto;
+    left: 17px;
+    width: 2px;
+    height: calc(100% + 28px);
+    background: linear-gradient(to bottom, rgba(65,105,225,0.25), var(--border));
+  }
+  .labStepDot {
+    top: 2px;
+    left: 0;
+    transform: none;
+  }
+  .labStep:hover .labStepDot { transform: scale(1.1); }
+  .labStepContent {
+    display: flex;
+    flex-direction: column;
+  }
+  .labStepWord { margin-bottom: 6px; }
+  .labStepDesc { padding: 0; }
 }
 
 @media (max-width: 768px) {
@@ -681,9 +734,4 @@
   .statsGrid { flex-wrap: wrap; }
   .statItem { flex: 1 1 50%; }
   .servicesGrid { grid-template-columns: 1fr; }
-  .labLetters { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 480px) {
-  .labLetters { grid-template-columns: 1fr 1fr; }
 }

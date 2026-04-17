@@ -39,7 +39,7 @@ export default function Hero() {
 
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '1.5rem' }}>
             <button className={styles.heroBtn} onClick={() => navigate('/contact')}>
-              Book a Discovery Call →
+              Book a Call →
             </button>
             <button className={styles.heroBtnOutline} onClick={() => navigate('/consulting')}>
               Explore Consulting →

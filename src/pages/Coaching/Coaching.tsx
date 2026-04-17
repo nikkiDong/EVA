@@ -146,12 +146,12 @@ export default function Coaching() {
               </p>
             </div>
 
-            <div className={styles.labLetters}>
-              {stages.map((m, i) => (
-                <div key={m.letter} className={styles.labLetterCard} style={{ animationDelay: `${i * 0.1}s` }}>
-                  <div className={styles.labLetterBig}>{i + 1}</div>
-                  <div className={styles.labLetterWord}>{m.letter}</div>
-                  <div className={styles.labLetterDesc}>{m.desc}</div>
+            <div className={styles.labStepper}>
+              {stages.map((m) => (
+                <div key={m.letter} className={styles.labStep}>
+                  <span className={styles.labStepDot} />
+                  <div className={styles.labStepWord}>{m.letter}</div>
+                  <div className={styles.labStepDesc}>{m.desc}</div>
                 </div>
               ))}
             </div>
@@ -179,7 +179,6 @@ export default function Coaching() {
             <div className={styles.introRight}>
               {['Critical thinking & problem-solving', 'Commercialization insight', 'Viable systems & structure', 'Aligned growth strategy', 'Accountability & practical support', 'Strategic thought partnership'].map((item, i) => (
                 <div key={item} className={styles.introItem} style={{ animationDelay: `${i * 0.08}s` }}>
-                  <span className={styles.introItemNum}>0{i + 1}</span>
                   <span className={styles.introItemText}>{item}</span>
                   <span className={styles.introItemArrow}>↗</span>
                 </div>
@@ -204,7 +203,6 @@ export default function Coaching() {
                 <div className={styles.serviceCardImg}>
                   <img src={s.img} alt={s.title} />
                   <div className={styles.serviceCardImgOverlay} />
-                  <div className={styles.serviceCardNum}>{s.num}</div>
                 </div>
                 <div className={styles.serviceCardBody}>
                   <h3 className={styles.serviceCardTitle}>{s.title}</h3>

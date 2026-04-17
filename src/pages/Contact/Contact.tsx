@@ -35,6 +35,7 @@ export default function Contact() {
     email: '',
     phone: '',
     company: '',
+    title: '',
     service: '',
     hearAbout: '',
     preferredMethod: '',
@@ -50,6 +51,7 @@ export default function Contact() {
       email: '',
       phone: '',
       company: '',
+      title: '',
       service: '',
       hearAbout: '',
       preferredMethod: '',
@@ -143,6 +145,15 @@ export default function Contact() {
                   placeholder="Your Company"
                   value={form.company}
                   onChange={(e) => setForm({ ...form, company: e.target.value })}
+                />
+              </div>
+              <div className={styles.formGroup}>
+                <label>Your Title</label>
+                <input
+                  type="text"
+                  placeholder="Add Your Title"
+                  value={form.title}
+                  onChange={(e) => setForm({ ...form, title: e.target.value })}
                 />
               </div>
               <div className={styles.formGroup}>
