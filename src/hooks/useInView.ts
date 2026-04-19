@@ -6,6 +6,10 @@ export function useInView<T extends Element = HTMLDivElement>(
   const ref = useRef<T>(null)
   const [inView, setInView] = useState(false)
 
+  const threshold = options?.threshold ?? 0.12
+  const rootMargin = options?.rootMargin ?? '0px 0px -60px 0px'
+  const root = options?.root ?? null
+
   useEffect(() => {
     const el = ref.current
     if (!el) return
@@ -16,11 +20,11 @@ export function useInView<T extends Element = HTMLDivElement>(
           observer.disconnect()
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -60px 0px', ...options }
+      { threshold, rootMargin, root }
     )
     observer.observe(el)
     return () => observer.disconnect()
-  }, [])
+  }, [threshold, rootMargin, root])
 
   return [ref, inView] as const
 }
