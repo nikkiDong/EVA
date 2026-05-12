@@ -1,92 +1,527 @@
-.contactPage { padding: 100px 0 60px; background: var(--bg-main); }
+/* ════════════════════════════════════════════════════════════════════
+   CONNECT (Contact) PAGE — full rebuild 2026-04-26 to match Troy's
+   reference mockup. Same architectural pattern as the Coaching/Consulting
+   rebuilds: contained hero, sectioned content, royal-blue bottom CTA.
+   ════════════════════════════════════════════════════════════════════ */
 
-.pageHeader { text-align: center; padding: 50px 0 60px; }
-.pageHeader .section-subtitle { margin: 0 auto; }
+.contactPage {
+  background: #ffffff;
+  min-height: 100vh;
+  padding-top: 128px;         /* clear of fixed navbar (~120px after logo bump) */
+}
 
-.contactGrid {
+/* ═══════════ HERO (2-column: services list + form card) ═══════════ */
+.hero {
+  background: #ffffff;
+  padding: 32px 0 56px;
+}
+
+.heroInner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
   align-items: start;
 }
 
-.introText { color: var(--text-body); margin-bottom: 36px; font-size: 1.02rem; line-height: 1.8; }
-
-.contactDetail { display: flex; gap: 16px; margin-bottom: 24px; }
-
-.contactIcon {
-  width: 46px; height: 46px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(65,105,225,0.1), rgba(65,105,225,0.04));
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; flex-shrink: 0;
+/* ── LEFT COLUMN ── */
+.heroLeft {
+  padding-right: 16px;
 }
 
-.contactDetail h4 { font-size: 0.92rem; margin-bottom: 2px; }
-.contactDetail p { font-size: 0.86rem; color: var(--text-body); }
-
-.socialLinks { display: flex; gap: 12px; margin-top: 28px; }
-
-.socialLink {
-  width: 42px; height: 42px;
-  border-radius: 50%;
-  border: 2px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  text-decoration: none;
-  color: var(--text-body); font-size: 0.85rem;
+.heroEyebrow {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+  font-size: 1rem;
   font-weight: 600;
-  transition: all 0.3s;
+  color: var(--eva-turquoise);
+  margin: 0 0 18px;
 }
 
-.socialLink:hover { background: var(--accent); border-color: var(--accent); color: var(--primary); }
-
-.formWrapper {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 40px;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border);
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 700;
+  color: var(--eva-navy);
+  line-height: 1.05;
+  letter-spacing: -0.018em;
+  margin: 0 0 18px;
 }
 
-.formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-.formGroup { margin-bottom: 16px; }
+.heroLead {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--eva-royal);
+  line-height: 1.35;
+  margin: 0 0 22px;
+  max-width: 460px;
+}
 
-.formGroup label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); margin-bottom: 6px; }
+.heroDesc {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--eva-text);
+  margin: 0 0 32px;
+  max-width: 520px;
+}
+
+.inquiryList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.inquiryList li {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--eva-text);
+  margin-bottom: 14px;
+}
+
+.inquiryLabel {
+  color: var(--eva-royal);
+  font-weight: 600;
+}
+
+.inquirySep {
+  color: var(--eva-text);
+}
+
+.inquiryDesc {
+  color: var(--eva-text);
+}
+
+/* ── RIGHT COLUMN — form card ── */
+.heroRight { width: 100%; }
+
+.formCard {
+  background: #ffffff;
+  border: 1px solid rgba(15, 39, 71, 0.1);
+  border-radius: 14px;
+  padding: 40px 36px;
+  box-shadow: 0 16px 36px rgba(15, 39, 71, 0.06);
+}
+
+.formTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+  font-weight: 700;
+  color: var(--eva-navy);
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+.formIntro {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--eva-text);
+  line-height: 1.55;
+  margin: 0 0 24px;
+}
+
+.formGroup {
+  margin-bottom: 14px;
+}
 
 .formGroup input,
-.formGroup select,
 .formGroup textarea {
-  width: 100%; padding: 13px 16px;
-  border: 2px solid #e8e4dc;
-  border-radius: var(--radius);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem; color: var(--text-dark);
-  transition: border-color 0.3s;
-  background: var(--white);
+  width: 100%;
+  padding: 14px 16px;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  color: var(--eva-text);
+  background: #ffffff;
+  border: 1px solid rgba(15, 39, 71, 0.18);
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  resize: vertical;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: rgba(29, 39, 64, 0.5);
 }
 
 .formGroup input:focus,
-.formGroup select:focus,
-.formGroup textarea:focus { outline: none; border-color: var(--accent); }
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--eva-royal);
+  box-shadow: 0 0 0 3px rgba(31, 95, 175, 0.1);
+}
 
-.formGroup textarea { resize: vertical; min-height: 110px; }
+.formGroup textarea {
+  min-height: 130px;
+}
 
-.submitBtn { width: 100%; justify-content: center; }
+/* CEO Visionary checkbox */
+.checkboxRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  margin: 8px 0 18px;
+  background: rgba(31, 95, 175, 0.06);
+  border: 1px solid rgba(31, 95, 175, 0.18);
+  border-radius: 8px;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--eva-text);
+  line-height: 1.45;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.checkboxRow:hover { border-color: var(--eva-royal); }
+.checkboxRow input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  accent-color: var(--eva-royal);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Form buttons */
+.btnSubmit,
+.btnWaitlist {
+  display: block;
+  width: 100%;
+  padding: 14px 24px;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+}
+
+.btnSubmit {
+  background: var(--eva-royal);
+  color: #ffffff;
+  border: 1.5px solid var(--eva-royal);
+  margin-bottom: 10px;
+  box-shadow: 0 4px 14px rgba(31, 95, 175, 0.22);
+}
+.btnSubmit:hover {
+  background: var(--eva-navy);
+  border-color: var(--eva-navy);
+  transform: translateY(-1px);
+}
+
+.btnWaitlist {
+  background: #ffffff;
+  color: var(--eva-royal);
+  border: 1.5px solid var(--eva-royal);
+}
+.btnWaitlist:hover {
+  background: var(--eva-royal);
+  color: #ffffff;
+}
+
+.disclaimer {
+  margin: 18px 0 0;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(29, 39, 64, 0.7);
+  line-height: 1.55;
+  text-align: left;
+}
 
 .successMsg {
-  margin-top: 16px;
-  padding: 16px;
-  background: rgba(74,158,109,0.1);
-  border-radius: var(--radius);
+  margin-top: 14px;
+  padding: 14px;
+  background: rgba(46, 125, 50, 0.08);
+  border: 1px solid rgba(46, 125, 50, 0.3);
+  border-radius: 8px;
+  color: #1f6324;
+  font-size: 0.9rem;
+}
+
+/* ═══════════ HOW CAN WE WORK TOGETHER ═══════════ */
+.servicesSection {
+  background: #ffffff;
+  padding: 72px 0 88px;
+}
+
+.servicesTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-weight: 700;
+  color: var(--eva-navy);
   text-align: center;
-  color: var(--success);
+  margin: 0 0 36px;
+}
+
+.tabRow {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  border-bottom: 1px solid rgba(15, 39, 71, 0.08);
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--eva-text);
+  background: none;
+  border: none;
+  padding: 14px 32px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.tab:hover {
+  color: var(--eva-royal);
+}
+
+.tabActive {
+  color: var(--eva-royal);
+  font-weight: 700;
+}
+
+.tabActive::after {
+  content: '';
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  bottom: -1px;
+  height: 2px;
+  background: var(--eva-royal);
+  border-radius: 2px;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.serviceCard {
+  background: #ffffff;
+  border: 1px solid rgba(15, 39, 71, 0.1);
+  border-radius: 10px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+}
+.serviceCard:hover {
+  box-shadow: 0 12px 28px rgba(15, 39, 71, 0.08);
+  transform: translateY(-2px);
+  border-color: rgba(31, 95, 175, 0.3);
+}
+.serviceCardActive {
+  border-color: var(--eva-royal);
+  box-shadow: 0 12px 28px rgba(31, 95, 175, 0.12);
+}
+
+.serviceCardTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--eva-royal);
+  margin: 0 0 14px;
+  text-align: center;
+}
+
+.serviceCardDesc {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--eva-text);
+  margin: 0 0 22px;
+  flex-grow: 1;
+}
+
+.serviceCardLink {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.85rem;
   font-weight: 600;
+  color: var(--eva-royal);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s;
+}
+.serviceCardLink:hover {
+  color: var(--eva-navy);
 }
 
-@media(max-width: 1024px) {
-  .contactGrid { grid-template-columns: 1fr; gap: 40px; }
+/* ═══════════ LET'S STAY IN TOUCH (2-col with photo) ═══════════ */
+.stayTouchSection {
+  background: #ffffff;
+  padding: 0;
 }
 
-@media(max-width: 768px) {
-  .formRow { grid-template-columns: 1fr; }
+.stayTouchText {
+  background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+  display: flex;
+  align-items: center;
+  padding: 72px 0;
 }
+
+.stayTouchContent {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 0 28px;
+  text-align: center;
+}
+
+.stayTouchTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.7rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  color: var(--eva-navy);
+  margin: 0 0 10px;
+}
+
+.stayTouchDesc {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--eva-text);
+  margin: 0 0 28px;
+}
+
+.contactRow {
+  margin-bottom: 18px;
+}
+
+.contactLabel {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--eva-royal);
+  margin-bottom: 4px;
+}
+
+.contactValue {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--eva-navy);
+  text-decoration: none;
+  display: block;
+  line-height: 1.5;
+}
+
+a.contactValue:hover {
+  color: var(--eva-royal);
+  text-decoration: underline;
+}
+
+/* ═══════════ BOTTOM CTA (royal blue band) ═══════════ */
+.ctaSection {
+  background: var(--eva-royal);
+  padding: 60px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.ctaInner {
+  position: relative;
+  text-align: center;
+}
+
+.ctaTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 14px;
+  line-height: 1.25;
+}
+
+.ctaDesc {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 28px;
+}
+
+.ctaBtns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btnCtaWhite,
+.btnCtaWhiteOutline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1.5px solid transparent;
+  padding: 14px 28px;
+}
+
+.btnCtaWhite {
+  background: #ffffff;
+  color: var(--eva-royal);
+}
+.btnCtaWhite:hover {
+  background: var(--eva-navy);
+  color: #fff;
+}
+
+.btnCtaWhiteOutline {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+.btnCtaWhiteOutline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media (max-width: 1024px) {
+  .heroInner { grid-template-columns: 1fr; gap: 48px; }
+  .heroLeft { padding-right: 0; }
+  .servicesGrid { grid-template-columns: repeat(3, 1fr); }
+  .servicesGrid > :nth-child(4),
+  .servicesGrid > :nth-child(5) {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .servicesGrid { grid-template-columns: 1fr; gap: 16px; }
+  .tabRow { gap: 0; }
+  .tab { padding: 12px 16px; font-size: 0.92rem; }
+}
+
+/* ═══════════ LEGACY classes — no-ops ═══════════ */
+.pageHeader,
+.contactGrid,
+.introText,
+.contactDetail,
+.contactIcon,
+.socialLinks,
+.socialLink,
+.formWrapper,
+.formRow,
+.connectPortraitWrap,
+.connectPortrait { display: none; }

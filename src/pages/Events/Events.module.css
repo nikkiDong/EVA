@@ -1,83 +1,827 @@
-.eventsPage { padding: 100px 0 60px; background: var(--bg-subtle); }
+/* ════════════════════════════════════════════════════════════════════
+   EVENTS PAGE — rebuilt to match the SECOND EVENTS PAGE reference:
+   full-bleed scenic hero with overlay text, "Designed for Impact"
+   two-column section with quote card, 3-card upcoming events row,
+   featured EVOLVE Retreat band, 4-column pillars, royal CTA.
+   ════════════════════════════════════════════════════════════════════ */
 
-.pageHeader { text-align: center; padding: 50px 0 60px; }
-.pageHeader .section-subtitle { margin: 0 auto; }
+.page {
+  background: #ffffff;
+  min-height: 90vh;
+}
 
-.eventsGrid {
+/* ─────────────── HERO (full-bleed scenic) ─────────────── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  background: var(--eva-navy);
+  padding: 140px 0 96px;
+}
+
+.heroMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(15, 39, 71, 0.78) 0%, rgba(15, 39, 71, 0.55) 45%, rgba(15, 39, 71, 0.18) 100%),
+    linear-gradient(to bottom, rgba(15, 39, 71, 0.25) 0%, rgba(15, 39, 71, 0.55) 100%);
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  color: #fff;
+}
+
+.heroEyebrow {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.6px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--eva-turquoise);
+  line-height: 1.55;
+  margin: 0 0 22px;
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 4.8vw, 4rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  margin: 0 0 24px;
+  text-wrap: balance;
+}
+
+.heroAccent {
+  color: var(--eva-turquoise);
+  font-weight: 700;
+}
+
+.heroSubtitle {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 32px;
+  max-width: 560px;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ─────────────── BUTTONS (page-scoped) ─────────────── */
+.btnPrimary,
+.btnOutline,
+.btnRetreatCta,
+.btnRetreatGhost,
+.btnCtaWhite,
+.btnCtaWhiteOutline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.btnPrimary {
+  background: var(--eva-royal);
+  color: #fff;
+  padding: 13px 24px;
+  box-shadow: 0 4px 14px rgba(31, 95, 175, 0.35);
+}
+.btnPrimary:hover {
+  background: #fff;
+  color: var(--eva-navy);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+}
+
+.btnOutline {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+  padding: 13px 24px;
+}
+.btnOutline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+}
+
+/* ─────────────── EYEBROW / SECTION TITLES ─────────────── */
+.eyebrow {
+  display: block;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.6px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--eva-turquoise);
+  margin-bottom: 14px;
+}
+
+.eyebrowCenter {
+  display: block;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--eva-turquoise);
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--eva-navy);
+  margin: 0 0 22px;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+
+.sectionTitleCenter {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--eva-navy);
+  text-align: center;
+  margin: 0 0 14px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+/* ─────────────── DESIGNED FOR IMPACT ─────────────── */
+.impactSection {
+  padding: 80px 0 64px;
+  background: #ffffff;
+}
+
+.impactInner {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  gap: 28px;
-  margin-bottom: 40px;
+  grid-template-columns: 1fr 1.55fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.impactList {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.impactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--eva-text);
+}
+
+.impactCheck {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(51, 199, 201, 0.15);
+  color: var(--eva-turquoise);
+  margin-top: 2px;
+}
+
+/* Quote card (right side of Designed for Impact) */
+.quoteCard {
+  background: #ffffff;
+  border: 1px solid rgba(15, 39, 71, 0.08);
+  border-radius: 18px;
+  padding: 32px 36px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 32px;
+  align-items: center;
+  box-shadow: 0 18px 40px rgba(15, 39, 71, 0.08);
+}
+
+.quoteImageWrap {
+  position: relative;
+  width: 300px;
+  height: 360px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: transparent;
+}
+
+.quoteImageWrap::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+    rgba(51, 199, 201, 0.22) 0%,
+    rgba(51, 199, 201, 0.10) 55%,
+    rgba(51, 199, 201, 0) 75%);
+  z-index: 0;
+}
+
+.quoteImage {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 10px 20px rgba(15, 39, 71, 0.15));
+}
+
+.quoteBody {
+  position: relative;
+  padding-top: 6px;
+}
+
+.quoteMark {
+  position: absolute;
+  top: -22px;
+  left: -4px;
+  font-family: 'Playfair Display', serif;
+  font-size: 4.2rem;
+  line-height: 1;
+  color: var(--eva-turquoise);
+  font-weight: 700;
+}
+
+.quoteText {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: var(--eva-navy);
+  margin: 0 0 14px;
+}
+
+.quoteAttr {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--eva-text);
+  line-height: 1.5;
+}
+
+.quoteAttr strong {
+  color: var(--eva-navy);
+  font-weight: 700;
+}
+
+/* ─────────────── UPCOMING EVENTS ─────────────── */
+.upcomingSection {
+  padding: 56px 0 72px;
+  background: #ffffff;
+}
+
+.upcomingHeader {
+  text-align: center;
+  margin-bottom: 36px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.upcomingSub {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--eva-text);
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+.upcomingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
 }
 
 .eventCard {
-  background: var(--white);
-  border-radius: var(--radius-lg);
+  background: #ffffff;
+  border: 1px solid rgba(15, 39, 71, 0.08);
+  border-radius: 14px;
   overflow: hidden;
-  border: 1px solid var(--border);
-  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+}
+.eventCard:hover {
+  box-shadow: 0 18px 40px rgba(15, 39, 71, 0.1);
+  transform: translateY(-3px);
+  border-color: rgba(31, 95, 175, 0.2);
 }
 
-.eventCard:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.eventImageWrap {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: var(--eva-navy);
+}
 
 .eventImage {
-  height: 190px;
-  background: linear-gradient(135deg, var(--primary), var(--charcoal));
-  position: relative;
-  display: flex; align-items: center; justify-content: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.eventCard:hover .eventImage {
+  transform: scale(1.04);
+}
+
+.eventBody {
+  padding: 22px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .eventBadge {
-  position: absolute; top: 14px; left: 14px;
-  background: var(--accent);
-  color: var(--primary);
-  font-size: 0.7rem; font-weight: 700;
-  padding: 5px 14px;
-  border-radius: 50px;
-  letter-spacing: 1px;
+  display: inline-block;
+  align-self: flex-start;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--eva-royal);
+  background: rgba(31, 95, 175, 0.08);
+  padding: 5px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
   text-transform: uppercase;
 }
 
-.eventPriceTag {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
-  padding: 10px 18px;
-  border-radius: var(--radius);
-  color: var(--white);
-  font-weight: 600; font-size: 1.2rem;
+.eventTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--eva-navy);
+  margin: 0 0 10px;
+  line-height: 1.25;
 }
 
-.eventBody { padding: 26px; }
-
-.eventDate {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 0.8rem; color: var(--accent);
-  font-weight: 600; margin-bottom: 10px;
-}
-
-.eventCard h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 10px; }
-.eventCard p { color: var(--text-body); font-size: 0.88rem; line-height: 1.6; margin-bottom: 18px; }
-
-.secureNotice {
-  text-align: center; padding: 24px;
-  background: var(--white);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  color: var(--text-light); font-size: 0.85rem;
+.eventDesc {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--eva-text);
   line-height: 1.6;
-  margin-bottom: 40px;
+  margin: 0 0 16px;
+  flex-grow: 1;
 }
 
-.pricingCta {
-  text-align: center;
-  padding: 40px;
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
+.eventLink {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--eva-royal);
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s, gap 0.2s;
+}
+.eventLink:hover {
+  color: var(--eva-navy);
+  gap: 10px;
 }
 
-.pricingCta p {
-  color: var(--text-body);
-  font-size: 1rem;
+/* ─────────────── FEATURED EVOLVE RETREAT ─────────────── */
+.retreatSection {
+  padding: 56px 0 80px;
+  background: #ffffff;
+}
+
+.retreatInner {
+  position: relative;
+  background: var(--eva-navy);
+  border-radius: 18px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 420px;
+  box-shadow: 0 18px 40px rgba(15, 39, 71, 0.12);
+}
+
+.retreatImageWrap {
+  position: relative;
+  overflow: hidden;
+  min-height: 360px;
+}
+
+.retreatImageWrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to left,
+    rgba(15, 39, 71, 0) 60%,
+    rgba(15, 39, 71, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+.retreatImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.retreatContent {
+  padding: 52px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+}
+
+.retreatEyebrow {
+  display: inline-block;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--eva-turquoise);
   margin-bottom: 16px;
 }
+
+.retreatTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.7rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 18px;
+  line-height: 1.2;
+}
+
+.retreatTagline {
+  display: inline-block;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--eva-turquoise);
+  font-size: 0.78em;
+  margin-top: 4px;
+}
+
+.retreatDesc {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 20px;
+  max-width: 520px;
+}
+
+.retreatList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.retreatList li {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  padding-left: 18px;
+  position: relative;
+}
+
+.retreatList li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--eva-turquoise);
+}
+
+.retreatCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btnRetreatCta {
+  background: var(--eva-turquoise);
+  color: var(--eva-navy);
+  padding: 13px 26px;
+  font-weight: 700;
+}
+.btnRetreatCta:hover {
+  background: #fff;
+  color: var(--eva-navy);
+  transform: translateY(-1px);
+}
+
+.btnRetreatGhost {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+  padding: 13px 26px;
+}
+.btnRetreatGhost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+}
+
+/* ─────────────── PILLARS (4-column band) ─────────────── */
+.pillarsSection {
+  padding: 64px 0 72px;
+  background: var(--eva-light-blue);
+}
+
+.pillarsHeader {
+  margin-bottom: 44px;
+  text-align: center;
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  text-align: center;
+}
+
+.pillarCol {
+  padding: 0 22px;
+  border-right: 1px solid rgba(15, 39, 71, 0.15);
+}
+.pillarCol:last-child {
+  border-right: none;
+}
+
+.pillarTitle {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--eva-royal);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.pillarDesc {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--eva-text);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ─────────────── BOTTOM CTA (royal blue band) ─────────────── */
+.ctaSection {
+  background: var(--eva-royal);
+  padding: 72px 0 76px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.ctaInner {
+  position: relative;
+  text-align: center;
+}
+
+.ctaTitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 auto 16px;
+  line-height: 1.25;
+  max-width: 760px;
+  text-wrap: balance;
+}
+
+.ctaSub {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 auto 28px;
+  max-width: 640px;
+}
+
+.ctaBtns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btnCtaWhite {
+  background: #ffffff;
+  color: var(--eva-royal);
+  padding: 14px 28px;
+}
+.btnCtaWhite:hover {
+  background: var(--eva-navy);
+  color: #fff;
+}
+
+.btnCtaWhiteOutline {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+  padding: 14px 28px;
+}
+.btnCtaWhiteOutline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+/* ─────────────── RESPONSIVE ─────────────── */
+@media (max-width: 1024px) {
+  .impactInner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .upcomingGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .retreatInner {
+    grid-template-columns: 1fr;
+  }
+  .retreatImageWrap {
+    min-height: 260px;
+    height: 260px;
+    order: -1;
+  }
+  .retreatImageWrap::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(15, 39, 71, 0) 50%,
+      rgba(15, 39, 71, 0.6) 100%
+    );
+  }
+  .retreatContent {
+    padding: 36px 32px 40px;
+  }
+  .pillarsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 8px;
+  }
+  .pillarCol:nth-child(2n) {
+    border-right: none;
+  }
+  .quoteCard {
+    grid-template-columns: 280px 1fr;
+    padding: 28px;
+    gap: 26px;
+  }
+  .quoteImageWrap {
+    width: 280px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 0;
+    padding: 100px 0 64px;
+  }
+  .heroInner {
+    max-width: none;
+  }
+  .heroOverlay {
+    background:
+      linear-gradient(to bottom, rgba(15, 39, 71, 0.4) 0%, rgba(15, 39, 71, 0.7) 100%);
+  }
+  .upcomingGrid {
+    grid-template-columns: 1fr;
+  }
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+  }
+  .pillarCol {
+    border-right: none;
+    border-bottom: 1px solid rgba(15, 39, 71, 0.15);
+    padding: 0 16px 24px;
+  }
+  .pillarCol:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .retreatContent {
+    padding: 28px 22px 32px;
+  }
+  .quoteCard {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .quoteImageWrap {
+    width: 300px;
+    height: 360px;
+    margin: 0 auto;
+  }
+  .quoteMark {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    text-align: center;
+  }
+  .quoteAttr {
+    align-items: center;
+  }
+  .impactList {
+    margin-top: 4px;
+  }
+}
+
+/* ─────────────── LEGACY CLASSES (kept as no-ops) ─────────────── */
+.eventsPage,
+.pageHeader,
+.eventsGrid,
+.eventBadge:global(.legacy),
+.eventPriceTag,
+.eventDate,
+.secureNotice,
+.pricingCta,
+.typesSection,
+.typesInner,
+.typesGrid,
+.typeCard,
+.typeImageWrap,
+.typeImage,
+.typeBody,
+.typeTitle,
+.typeDesc { /* unused legacy class names */ }

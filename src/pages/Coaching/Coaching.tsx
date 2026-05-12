@@ -2,58 +2,115 @@ import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './Coaching.module.css'
 
-/* ─── Data ────────────────────────────────────────────────────── */
-const stages = [
+// Per Troy 2026-04-25:
+//   COACHING hero MUST use the burgundy-blazer photo (her explicit pick).
+//   File `troy-business-times.jpg` is that burgundy/wine portrait.
+const troyImg = `${import.meta.env.BASE_URL}troy-sideways-building.jpg`
+
+/* ────────────────────────────────────────────────────────────────────
+   FIVE STAGES — horizontal pathway (rebuilt 2026-04-25 to match the
+   user's reference Coaching mockup). Numbers (01–05) are restored as
+   elegant column-header glyphs (light teal, Playfair Display) — visually
+   different from the circular badges Troy originally objected to.
+   ──────────────────────────────────────────────────────────────────── */
+type Stage = {
+  name: string
+  desc: string
+  smartLabel: string
+  smart: string
+}
+
+const stages: Stage[] = [
   {
-    letter: 'Envision',
-    desc: 'Clarify the vision, direction, and possibilities for what comes next.',
+    name: 'Envision',
+    desc: "Gain clarity on your vision, purpose, and the impact you're here to make.",
+    smartLabel: 'SMART ACTION:',
+    smart: 'Define your vision and core values.',
   },
   {
-    letter: 'Establish',
-    desc: 'Strengthen your foundation through structure, systems, and focused decisions.',
+    name: 'Establish',
+    desc: 'Build a strong foundation with aligned systems, offerings, and positioning.',
+    smartLabel: 'SMART ACTION:',
+    smart: 'Map your systems and ideal client.',
   },
   {
-    letter: 'Elevate',
-    desc: 'Refine the business, sharpen execution, and raise readiness for the next level.',
+    name: 'Elevate',
+    desc: 'Refine your strategy, strengthen your leadership, and create scalable structures.',
+    smartLabel: 'SMART ACTION:',
+    smart: 'Optimize your offers and operations.',
   },
   {
-    letter: 'Expand',
-    desc: 'Scale with stronger positioning, viable systems, and aligned momentum.',
+    name: 'Expand',
+    desc: 'Increase visibility, deepen client impact, and grow revenue with intention.',
+    smartLabel: 'SMART ACTION:',
+    smart: 'Build strategic partnerships and expand reach.',
   },
   {
-    letter: 'Evolve',
-    desc: 'Step into premium coaching and advisory for deeper transformation and sustained growth.',
+    name: 'Evolve',
+    desc: 'Sustain growth, lead innovation, and create lasting legacy.',
+    smartLabel: 'SMART ACTION:',
+    smart: 'Document, delegate, and design freedom.',
   },
 ]
 
-const contentBlocks = [
+/* ────────────────────────────────────────────────────────────────────
+   COACHING OFFERINGS — three service cards
+   ──────────────────────────────────────────────────────────────────── */
+const offerings = [
   {
-    num: '01',
-    title: '1:1 Advisory',
-    desc: 'Private strategic support for leaders working through growth decisions, offer refinement, commercialization opportunities, client strategy, and business structure.',
-    tags: ['Private', 'Strategic', 'Advisory'],
-    cta: 'Book a Coaching Call',
-    img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80',
+    name: '1:1 Coaching',
+    desc: "Personalized, high-impact coaching for consultants and founders ready to break through what's next.",
+    bullets: [
+      'Deep-dive strategy and clarity',
+      'Accountability and action planning',
+      'Systems and leadership support',
+      'Measurable results',
+    ],
   },
   {
-    num: '02',
-    title: 'Group Coaching',
-    desc: 'A guided space for shared learning, live coaching, and strategic momentum with other growth-minded leaders.',
-    tags: ['Group', 'Live', 'Momentum'],
-    cta: 'Join a Group',
-    img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80',
+    name: 'Group Coaching',
+    desc: 'Collaborative coaching in a small group setting to grow your business and leadership—together.',
+    bullets: [
+      'Peer insights and shared learning',
+      'Real-time feedback and support',
+      'Action-focused sessions',
+      'Stronger together',
+    ],
   },
   {
-    num: '03',
-    title: 'Retreat Intensives',
-    desc: 'Focused experiences for reflection, reset, planning, and deeper strategy work away from daily business demands.',
-    tags: ['Retreat', 'Deep Work', 'Strategy'],
-    cta: 'Learn More',
-    img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80',
+    name: 'EVOLVE Retreats',
+    desc: 'Transformative retreat experiences that combine strategy, reflection, and focused growth.',
+    bullets: [
+      'Immersive strategy and planning',
+      'Clarity, renewal, and breakthrough',
+      'Community and connection',
+      'Sustainable momentum',
+    ],
   },
 ]
 
-/* ─── Reveal hook ─────────────────────────────────────────────── */
+/* ────────────────────────────────────────────────────────────────────
+   WHY EVA COACHING — 4 reasons (dark navy band)
+   ──────────────────────────────────────────────────────────────────── */
+const whyReasons = [
+  {
+    title: 'Systematize your business',
+    desc: 'Build operations that create freedom and scalability.',
+  },
+  {
+    title: 'Elevate your leadership',
+    desc: 'Lead with confidence, vision, and impact.',
+  },
+  {
+    title: 'Make smarter decisions',
+    desc: 'Gain clarity to move forward with certainty.',
+  },
+  {
+    title: 'Achieve measurable growth',
+    desc: 'Create consistent results that align with your vision.',
+  },
+]
+
 function useReveal(threshold = 0.12) {
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
@@ -71,9 +128,9 @@ function useReveal(threshold = 0.12) {
 
 export default function Coaching() {
   const navigate = useNavigate()
-  const introRef = useReveal()
-  const servicesRef = useReveal(0.05)
-  const stagesRef = useReveal()
+  const pathwayRef = useReveal(0.08)
+  const offeringsRef = useReveal(0.08)
+  const whyRef = useReveal(0.12)
   const ctaRef = useReveal()
 
   return (
@@ -81,106 +138,71 @@ export default function Coaching() {
 
       {/* ══ HERO ══ */}
       <section className={styles.hero}>
-        <div className={styles.heroBg} />
-        <div className={styles.heroGradient} />
-        <div className={styles.heroNoise} />
+        {/* Photo lives outside the container so its right edge bleeds to the
+            viewport edge; left edge fades into the text area. */}
+        <div className={styles.heroRight}>
+          <img
+            src={troyImg}
+            alt="Troy Farmer — EVA Smart Systems Founder & Coach"
+            className={styles.heroImg}
+          />
+        </div>
 
         <div className="container">
           <div className={styles.heroInner}>
             <div className={styles.heroLeft}>
               <div className={styles.heroEyebrow}>
-                <span className={styles.heroDot} />
-                Coaching Services
+                Coaching that meets you where you are—<br />
+                and takes you where you're going.
               </div>
               <h1 className={styles.heroTitle}>
-                Scale with <span className={styles.heroGoldText}>Clarity.</span><br />
-                Lead with Confidence.<br />
-                Are you ready?
+                Coaching that sharpens decisions, systems, and{' '}
+                <span className={styles.heroAccent}>next-level growth.</span>
               </h1>
               <p className={styles.heroSubtitle}>
-                EVA coaches emerging and established high impact consultants, service providers, and founders seeking to refine viable systems, sharpen problem-solving, and scale with market-ready clarity.
+                Personalized coaching for emerging and established consultants, founders,
+                and service-based professionals who are ready to lead with clarity, build
+                stronger systems, and grow with confidence.
               </p>
               <div className={styles.heroCtas}>
-                <button className="btn btn-primary" onClick={() => navigate('/contact')}>
-                  Book a Coaching Call →
+                <button className={styles.btnPrimary} onClick={() => navigate('/contact')}>
+                  Book a Coaching Call
                 </button>
-                <button className={styles.heroSecondaryBtn} onClick={() => navigate('/events')}>
-                  <span>EVOLVE Retreat 2027 — Join the Waitlist</span>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                <button className={styles.btnOutline} onClick={() => navigate('/events')}>
+                  Join the EVOLVE Retreat Waitlist
                 </button>
-              </div>
-            </div>
-
-            <div className={styles.heroRight}>
-              <div className={styles.heroImgWrap}>
-                <img
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=700&q=85"
-                  alt="Strategic coaching"
-                  className={styles.heroImg}
-                />
-                <div className={styles.heroImgOverlay} />
-                <div className={styles.heroStatCard}>
-                  <div className={styles.heroStatNum}>14+</div>
-                  <div className={styles.heroStatLabel}>Years Coaching Experience</div>
-                </div>
               </div>
             </div>
           </div>
         </div>
-
-        <div className={styles.heroScrollLine} />
       </section>
 
-      {/* ══ 5-STAGE FRAMEWORK ══ */}
-      <section className={styles.labSection}>
+      {/* ══ THE EVOLVE PATHWAY — 5-column horizontal ══ */}
+      <section className={styles.pathwaySection}>
         <div className="container">
-          <div ref={stagesRef} className={`${styles.labInner} reveal`}>
-
-            <div className={styles.labHeader}>
-              <span className={styles.labBadge}>Coaching Journey</span>
-              <h2 className={styles.labTitle}>Five Stages to EVOLVE</h2>
-              <p className={styles.labDesc}>
-                A progression designed to meet you where you are and move you forward — from vision to sustained growth.
+          <div ref={pathwayRef} className={`${styles.pathwayInner} reveal`}>
+            <div className={styles.pathwayHeader}>
+              <span className={styles.eyebrowCenter}>The EVOLVE Pathway</span>
+              <h2 className={styles.sectionTitle}>Five Stages. One Transformation.</h2>
+              <p className={styles.sectionSub}>
+                A proven pathway to build the business and life you envision.
               </p>
             </div>
 
-            <div className={styles.labStepper}>
-              {stages.map((m) => (
-                <div key={m.letter} className={styles.labStep}>
-                  <span className={styles.labStepDot} />
-                  <div className={styles.labStepWord}>{m.letter}</div>
-                  <div className={styles.labStepDesc}>{m.desc}</div>
+            <div className={styles.pathwayArrows}>
+              {stages.map((s) => (
+                <div key={s.name} className={styles.pathwayArrow}>
+                  {s.name}
                 </div>
               ))}
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* ══ INTRO / WHY COACHING ══ */}
-      <section className={styles.introSection}>
-        <div className="container">
-          <div ref={introRef} className={`${styles.introGrid} reveal`}>
-            <div className={styles.introLeft}>
-              <div className="section-label">Why Coaching</div>
-              <h2 className={styles.introTitle}>
-                Designed for leaders already in motion
-              </h2>
-              <p className={styles.introDesc}>
-                These coaching experiences are designed for clients who are already in motion and need strategic thought partnership, accountability, and practical support to move with more precision. The work focuses on critical thinking, problem-solving, commercialization insight, viable systems, and aligned growth.
-              </p>
-              <button className="btn btn-primary" onClick={() => navigate('/contact')}>
-                Apply to Work Together →
-              </button>
-            </div>
-            <div className={styles.introRight}>
-              {['Critical thinking & problem-solving', 'Commercialization insight', 'Viable systems & structure', 'Aligned growth strategy', 'Accountability & practical support', 'Strategic thought partnership'].map((item, i) => (
-                <div key={item} className={styles.introItem} style={{ animationDelay: `${i * 0.08}s` }}>
-                  <span className={styles.introItemText}>{item}</span>
-                  <span className={styles.introItemArrow}>↗</span>
+            <div className={styles.pathwayGrid}>
+              {stages.map((s) => (
+                <div key={s.name} className={styles.pathwayCol}>
+                  <p className={styles.pathwayDesc}>{s.desc}</p>
+                  <div className={styles.pathwaySmartLabel}>{s.smartLabel}</div>
+                  <p className={styles.pathwaySmart}>{s.smart}</p>
                 </div>
               ))}
             </div>
@@ -188,55 +210,72 @@ export default function Coaching() {
         </div>
       </section>
 
-      {/* ══ COACHING FORMATS ══ */}
-      <section className={styles.servicesSection}>
+      {/* ══ COACHING OFFERINGS — 3 cards ══ */}
+      <section className={styles.offeringsSection}>
         <div className="container">
-          <div className={styles.servicesSectionHead}>
-            <div className="section-label">Coaching Formats</div>
-            <h2 className={styles.servicesSectionTitle}>
-              Find the right support path
-            </h2>
-          </div>
-          <div ref={servicesRef} className={`${styles.servicesGrid} reveal`}>
-            {contentBlocks.map((s, i) => (
-              <div key={s.title} className={styles.serviceCard} style={{ transitionDelay: `${i * 0.12}s` }}>
-                <div className={styles.serviceCardImg}>
-                  <img src={s.img} alt={s.title} />
-                  <div className={styles.serviceCardImgOverlay} />
-                </div>
-                <div className={styles.serviceCardBody}>
-                  <h3 className={styles.serviceCardTitle}>{s.title}</h3>
-                  <p className={styles.serviceCardDesc}>{s.desc}</p>
-                  <div className={styles.serviceCardTags}>
-                    {s.tags.map(tag => <span key={tag} className={styles.serviceCardTag}>{tag}</span>)}
-                  </div>
+          <div ref={offeringsRef} className={`${styles.offeringsInner} reveal`}>
+            <div className={styles.offeringsHeader}>
+              <span className={styles.eyebrowCenter}>Coaching Offerings</span>
+              <h2 className={styles.sectionTitle}>Coaching designed for your goals and growth.</h2>
+            </div>
+
+            <div className={styles.offeringsGrid}>
+              {offerings.map((o) => (
+                <div key={o.name} className={styles.offeringCard}>
+                  <h3 className={styles.offeringName}>{o.name}</h3>
+                  <p className={styles.offeringDesc}>{o.desc}</p>
+                  <ul className={styles.offeringBullets}>
+                    {o.bullets.map((b) => (
+                      <li key={b}>{b}</li>
+                    ))}
+                  </ul>
                   <button
-                    className={styles.serviceCardCta}
+                    className={styles.btnLearnMore}
                     onClick={() => navigate('/contact')}
                   >
-                    {s.cta} →
+                    Learn More
                   </button>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ══ CTA ══ */}
+      {/* ══ WHY EVA COACHING — dark navy band ══ */}
+      <section className={styles.whySection}>
+        <div className="container">
+          <div ref={whyRef} className={`${styles.whyInner} reveal`}>
+            <div className={styles.whyHeader}>
+              <span className={styles.eyebrowOnDark}>Why EVA Coaching</span>
+              <h2 className={styles.whyTitle}>Clarity. Strategy. Accountability. Results.</h2>
+            </div>
+            <div className={styles.whyGrid}>
+              {whyReasons.map((r) => (
+                <div key={r.title} className={styles.whyCol}>
+                  <div className={styles.whyColTitle}>{r.title}</div>
+                  <p className={styles.whyColDesc}>{r.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ BOTTOM CTA — royal blue band ══ */}
       <section className={styles.ctaSection}>
         <div className="container">
           <div ref={ctaRef} className={`${styles.ctaInner} reveal`}>
-            <h2 className={styles.ctaTitle}>Ready to EVOLVE?</h2>
-            <p className={styles.ctaDesc}>
-              Apply to work together or book a discovery call to identify the best support path.
-            </p>
+            <h2 className={styles.ctaTitle}>
+              Your next level is waiting.<br />
+              Let's build what's next—together.
+            </h2>
             <div className={styles.ctaBtns}>
-              <button className="btn btn-primary" onClick={() => navigate('/contact')}>
-                Book a Discovery Call →
+              <button className={styles.btnCtaWhite} onClick={() => navigate('/contact')}>
+                Book a Coaching Call
               </button>
-              <button className="btn btn-dark-outline" onClick={() => navigate('/events')}>
-                EVOLVE Retreat 2027
+              <button className={styles.btnCtaWhiteOutline} onClick={() => navigate('/events')}>
+                Join the EVOLVE Retreat Waitlist
               </button>
             </div>
           </div>

@@ -20,10 +20,11 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.navInner}>
         <button className={styles.navLogo} onClick={() => { navigate('/'); setMobileOpen(false) }}>
-          <div className={styles.logoMark}>EVA</div>
-          <div className={styles.logoText}>
-            <span>By EVA Enterprise</span>
-          </div>
+          <img
+            src={`${import.meta.env.BASE_URL}eva-smart-systems-logo.png`}
+            alt="EVA Smart Systems — Systems to Evolve. Lead. Transform."
+            className={styles.logoImg}
+          />
         </button>
 
         <ul className={`${styles.navTabs} ${mobileOpen ? styles.open : ''}`}>

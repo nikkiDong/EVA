@@ -13,17 +13,15 @@ export default function CTABanner() {
         className={`container reveal ${inView ? 'visible' : ''}`}
       >
         <div>
-          <h2>
-            Ready to take <em style={{ fontStyle: 'italic' }}>SMART Action</em> to EVOLVE in Your Business?
-          </h2>
-          <p>Schedule a discovery call.</p>
+          <h2>Let&rsquo;s Build What&rsquo;s Next&mdash;Together.</h2>
+          <p>Ready to gain clarity, create systems, and scale with confidence?</p>
         </div>
         <div style={{ display: 'flex', gap: '12px', flexShrink: 0, flexWrap: 'wrap' }}>
-          <button className={styles.ctaBtn} onClick={() => navigate('/coaching')}>
-            Take the Journey →
-          </button>
           <button className={styles.ctaBtn} onClick={() => navigate('/contact')}>
             Book a Discovery Call
+          </button>
+          <button className={styles.ctaBtn} onClick={() => navigate('/contact')}>
+            Join the Waitlist
           </button>
         </div>
       </div>

@@ -10,11 +10,13 @@ export interface Event {
 
 export const events: Event[] = [
   {
+    // Per Troy 2026-04-25: retreat location confirmed as Delaware coast
+    // (boardwalk / coastal — NOT Caribbean). Specific dates still TBD.
     badge: "Retreat",
     price: "By Invitation",
-    date: "Dates to be announced",
+    date: "Dates to be announced · Delaware Coast",
     title: "EVOLVE Retreat 2027",
-    description: "A high-touch retreat experience for visionary CEOs and founders ready to reset, realign, and grow with intention. Join the waitlist for updates, early access, and future details.",
+    description: "A high-touch retreat for visionary CEOs and founders ready to reset, realign, and grow with intention. Set along the Delaware coastline — quiet boardwalks, Atlantic shoreline, and the kind of distance that makes new clarity possible. Join the waitlist for updates, early access, and future details.",
     cta: "Join the Waitlist →",
   },
   {
@@ -37,55 +39,63 @@ export const events: Event[] = [
   },
 ];
 
+/* ── All 13 EVOLVE Community membership features (Troy's approved list) ── */
+export const membershipFeatures: string[] = [
+  "Access to the EVOLVE Community",
+  "Networking, referrals & relationship-building",
+  "Monthly Real Talk Session",
+  "Shared discussion & community engagement",
+  "Visibility with other members",
+  "Monthly Strategic Share",
+  "Monthly Deep Dive discussion",
+  "Peer Strategy Admin Session",
+  "Learning-centered conversation & insight",
+  "Monthly Office Session",
+  "Marketplace adaptation, decision-making & current business realities",
+  "Primary access to connecting through coaching, retreats & events",
+  "Tools & resources",
+];
+
 export interface MembershipPlan {
   name: string;
-  price: string;
-  period: string;
-  features: string[];
+  monthlyPrice: string;
+  annualPrice: string;
+  tagline: string;
+  includedCount: number;   // how many features (from the top) are included
+  footerText: string;
   cta: string;
   variant: 'default' | 'featured';
 }
 
 export const membershipPlans: MembershipPlan[] = [
   {
-    name: "EVOLVE Clarity",
-    price: "$49",
-    period: "Billed monthly",
-    features: [
-      "Private community access",
-      "One monthly live strategy session",
-      "Curated resources and reflections",
-      "Early announcements and updates",
-    ],
-    cta: "Join Clarity",
+    name: "EVOLVE Prime",
+    monthlyPrice: "$39",
+    annualPrice: "$390",
+    tagline: "Connection, conversation, and community to position for what's next.",
+    includedCount: 5,
+    footerText: "Being in the room, building connection, and positioning for what's next.",
+    cta: "Join Prime",
     variant: "default",
   },
   {
-    name: "EVOLVE Momentum",
-    price: "$149",
-    period: "Billed monthly",
-    features: [
-      "Everything in Clarity",
-      "Two live group coaching sessions per month",
-      "Hot-seat coaching opportunities",
-      "Event discounts",
-      "Planning prompts, templates, and tools",
-    ],
-    cta: "Join Momentum",
+    name: "EVOLVE Prestige",
+    monthlyPrice: "$69",
+    annualPrice: "$690",
+    tagline: "Deeper evolution, strategic growth, and intentional development.",
+    includedCount: 9,
+    footerText: "Moving with deliberate intentionality toward stronger growth, momentum, and viability.",
+    cta: "Join Prestige",
     variant: "featured",
   },
   {
-    name: "EVOLVE Expansion",
-    price: "$349",
-    period: "Billed monthly",
-    features: [
-      "Everything in Momentum",
-      "One monthly small-group advisory circle",
-      "Quarterly growth mapping session",
-      "Priority access to events and retreats",
-      "Priority Q&A support",
-    ],
-    cta: "Join Expansion",
+    name: "EVOLVE Premier",
+    monthlyPrice: "$149",
+    annualPrice: "$1,490",
+    tagline: "Elevated access, stronger support, and sustainability-focused growth.",
+    includedCount: 13,
+    footerText: "Elevated access, strategic relevance, and a more immersive EVOLVE experience for sustainability.",
+    cta: "Join Premier",
     variant: "default",
   },
 ];

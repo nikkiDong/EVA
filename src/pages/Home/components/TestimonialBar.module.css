@@ -1,5 +1,5 @@
 .testimonialBar {
-  background: #0a1628;
+  background: var(--accent);
   padding: 64px 0;
   overflow: hidden;
   position: relative;
@@ -8,7 +8,9 @@
 .testimonialBar::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(65,105,225,0.08), transparent);
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 50%, rgba(0,0,0,0.08) 0%, transparent 55%);
   pointer-events: none;
 }
 
@@ -36,11 +38,11 @@
 }
 .testimonialTrackWrapper::before {
   left: 0;
-  background: linear-gradient(to right, #0a1628 0%, transparent 100%);
+  background: linear-gradient(to right, #4169E1 0%, transparent 100%);
 }
 .testimonialTrackWrapper::after {
   right: 0;
-  background: linear-gradient(to left, #0a1628 0%, transparent 100%);
+  background: linear-gradient(to left, #4169E1 0%, transparent 100%);
 }
 
 @keyframes scrollLeft {
@@ -51,7 +53,7 @@
 .testimonialTrack {
   display: flex;
   gap: 24px;
-  animation: scrollLeft 30s linear infinite;
+  animation: scrollLeft 60s linear infinite;
   width: max-content;
 }
 
@@ -84,9 +86,9 @@
   border-radius: 50%;
   background: #4169E1;
   display: flex; align-items: center; justify-content: center;
-  font-weight: 700; color: #fff; font-size: 0.85rem;
+  font-weight: 700; color: #fff; font-size: 0.92rem;
   flex-shrink: 0;
 }
 
-.tName { font-weight: 700; color: #4169E1; font-size: 0.95rem; }
-.tRole { font-size: 0.8rem; color: #8a95a5; margin-top: 2px; }
+.tName { font-weight: 700; color: #4169E1; font-size: 1.02rem; }
+.tRole { font-size: 0.88rem; color: #6b7280; margin-top: 2px; }

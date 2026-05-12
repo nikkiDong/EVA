@@ -1,147 +1,726 @@
-.evolvePage { padding: 100px 0 60px; background: var(--bg-subtle); }
+/* ════════════════════════════════════════════════════════════════════
+   EVOLVE COMMUNITY PAGE — full rebuild 2026-04-26 to match Troy's
+   reference mockup. Same architecture as Coaching/Consulting/Connect:
+   contained 2-column hero with full-bleed-right photo, sectioned content,
+   royal-blue bottom CTA.
+   ════════════════════════════════════════════════════════════════════ */
 
-.pageHeader { text-align: center; padding: 50px 0 60px; }
-.pageHeader :global(.section-subtitle) { margin: 0 auto; max-width: 760px; }
+.evolvePage {
+  background: #ffffff;
+  min-height: 100vh;
+  padding-top: 128px;         /* clear of fixed navbar (~120px after logo bump) */
+}
+
+/* ═══════════ HERO ═══════════ */
+.hero {
+  background: #ffffff;
+  padding: 24px 0 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  align-items: center;
+  gap: 48px;
+  min-height: 480px;
+}
+
+.heroLeft {
+  padding: 32px 0;
+  max-width: 520px;
+}
+
+.heroEyebrow {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--eva-turquoise);
+  margin: 0 0 22px;
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 700;
+  color: var(--eva-navy);
+  /* Tightened line-height + removed display:block on the accent span so
+     the three lines (Join the / EVOLVE / Community.) sit flush with no
+     stray gap between "EVOLVE" and "Community.". */
+  line-height: 1;
+  letter-spacing: -0.018em;
+  margin: 0 0 24px;
+}
+
+.heroAccent {
+  color: var(--eva-royal);
+  font-weight: 700;
+}
+
+.heroDesc {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--eva-text);
+  margin: 0 0 30px;
+  max-width: 460px;
+}
+
+.heroAge {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--eva-royal);
+  margin: -16px 0 24px;
+  letter-spacing: 0.3px;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Right photo — extends to right viewport edge with soft left fade */
+.heroRight {
+  position: relative;
+  margin-right: calc(50% - 50vw);
+  align-self: stretch;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  /* Fade left edge into white background */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 8%,
+    rgba(0, 0, 0, 0.6) 18%,
+    #000 30%
+  );
+          mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 8%,
+    rgba(0, 0, 0, 0.6) 18%,
+    #000 30%
+  );
+}
+
+/* ═══════════ BUTTONS (page-scoped) ═══════════ */
+.btnPrimary,
+.btnOutline,
+.btnCtaWhite,
+.btnCtaWhiteOutline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 13px 24px;
+}
+
+.btnPrimary {
+  background: var(--eva-royal);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(31, 95, 175, 0.22);
+}
+.btnPrimary:hover {
+  background: var(--eva-navy);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(31, 95, 175, 0.3);
+}
+
+.btnOutline {
+  background: transparent;
+  color: var(--eva-royal);
+  border-color: var(--eva-royal);
+}
+.btnOutline:hover {
+  background: var(--eva-royal);
+  color: #fff;
+}
+
+/* ═══════════ SHARED SECTION HEADERS ═══════════ */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.eyebrowCenter {
+  display: block;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--eva-turquoise);
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--eva-navy);
+  margin: 0 auto 12px;
+  line-height: 1.2;
+}
+
+.sectionSub {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--eva-text);
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+/* ═══════════ Reusable 4-card grid ═══════════ */
+.cardGrid4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* ═══════════ WHAT YOU'LL FIND INSIDE EVOLVE ═══════════ */
+.findSection {
+  background: #ffffff;
+  padding: 64px 0 72px;
+}
+
+.findCard {
+  background: #ffffff;
+  border: 1px solid rgba(15, 39, 71, 0.1);
+  border-radius: 10px;
+  padding: 28px 24px;
+  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+}
+.findCard:hover {
+  box-shadow: 0 14px 32px rgba(15, 39, 71, 0.08);
+  transform: translateY(-2px);
+  border-color: rgba(31, 95, 175, 0.25);
+}
+
+.findCardTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--eva-royal);
+  margin: 0 0 16px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.findCardDesc {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--eva-text);
+  margin: 0;
+  text-align: center;
+}
+
+/* ═══════════ MEMBERSHIP PRICING — 3 tiers ═══════════
+   Added 2026-05-04 per Troy's 04-30 feedback. Positioned after "What You'll
+   Find Inside EVOLVE". Styling consistent with page design system. */
+.pricingSection {
+  background: var(--eva-light-blue);
+  padding: 72px 0 80px;
+}
 
 .tierGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 28px;
-  margin-bottom: 60px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
 .tierCard {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  padding: 38px 30px;
-  position: relative;
-  transition: all 0.3s;
+  background: #ffffff;
+  border: 1.5px solid rgba(15, 39, 71, 0.1);
+  border-radius: 12px;
+  padding: 36px 28px 32px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+}
+.tierCard:hover {
+  box-shadow: 0 16px 36px rgba(31, 95, 175, 0.1);
+  transform: translateY(-2px);
+  border-color: rgba(31, 95, 175, 0.25);
 }
 
-.tierCard:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-
 .tierFeatured {
-  border-color: var(--accent);
-  border-width: 2px;
-  box-shadow: 0 8px 24px rgba(65, 105, 225, 0.12);
+  border-color: var(--eva-royal);
+  box-shadow: 0 8px 28px rgba(31, 95, 175, 0.14);
 }
 
 .tierBadge {
   position: absolute;
-  top: -14px;
+  top: -13px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--accent);
-  color: var(--white);
+  background: var(--eva-royal);
+  color: #ffffff;
+  font-family: 'Inter', 'DM Sans', sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 1px;
-  padding: 6px 16px;
-  border-radius: 50px;
   text-transform: uppercase;
+  letter-spacing: 1.6px;
+  padding: 5px 18px;
+  border-radius: 20px;
+  white-space: nowrap;
 }
 
 .tierName {
-  font-size: 1.4rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
   font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 16px;
+  color: var(--eva-navy);
+  margin: 8px 0 18px;
+  line-height: 1.2;
+}
+
+.tierPricing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
 }
 
 .tierPrice {
   display: flex;
   align-items: baseline;
-  gap: 4px;
-  margin-bottom: 4px;
+  gap: 2px;
 }
 
 .tierPriceAmount {
-  font-size: 2.6rem;
-  font-weight: 800;
-  color: var(--accent);
-  letter-spacing: -0.02em;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--eva-royal);
+  line-height: 1;
 }
 
 .tierPricePeriod {
+  font-family: 'Inter', 'DM Sans', sans-serif;
   font-size: 1rem;
-  color: var(--text-light);
+  color: var(--eva-text);
   font-weight: 500;
 }
 
-.tierPeriod {
+.tierAnnual {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--eva-text);
+  opacity: 0.65;
+  font-weight: 500;
+}
+
+.tierTagline {
+  font-family: 'Inter', 'DM Sans', sans-serif;
   font-size: 0.85rem;
-  color: var(--text-light);
-  margin-bottom: 24px;
+  color: var(--eva-text);
+  line-height: 1.5;
+  text-align: center;
+  margin: 0 0 20px;
+  font-style: italic;
+}
+
+.tierFooter {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--eva-text);
+  opacity: 0.75;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0 0 20px;
+  border-top: 1px solid rgba(31, 95, 175, 0.1);
+  padding-top: 14px;
 }
 
 .tierFeatures {
   list-style: none;
   padding: 0;
-  margin: 0 0 28px 0;
-  flex: 1;
+  margin: 0 0 28px;
+  width: 100%;
+  text-align: left;
 }
 
 .tierFeatures li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--eva-text);
+  line-height: 1.55;
   padding: 9px 0;
-  border-bottom: 1px solid var(--border);
-  color: var(--text-dark);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  border-top: 1px solid rgba(15, 39, 71, 0.06);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.tierFeatures li:first-child {
+  border-top: none;
 }
 
-.tierFeatures li:last-child { border-bottom: none; }
-
 .tierCheck {
-  color: var(--accent);
+  color: var(--eva-turquoise);
   font-weight: 700;
+  font-size: 0.95rem;
   flex-shrink: 0;
 }
 
-.subSections {
+.tierDash {
+  color: rgba(15, 39, 71, 0.25);
+  font-weight: 400;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.tierFeatureExcluded {
+  opacity: 0.35;
+}
+
+/* tier card button takes full width */
+.tierCard .btnPrimary,
+.tierCard .btnOutline {
+  width: 100%;
+  margin-top: auto;
+}
+
+@media (max-width: 1024px) {
+  .tierGrid { grid-template-columns: 1fr; max-width: 420px; }
+}
+
+/* ═══════════ WHO IT'S FOR + WHAT MEMBERS GAIN — continuous light-blue band ═══════════
+   Updated 2026-04-26: per mockup, these two sections share a single
+   light-blue background for visual contrast against the white hero/cards
+   above and the royal-blue CTA below. */
+.whoSection {
+  background: var(--eva-light-blue);
+  padding: 64px 0 48px;
+}
+
+.audienceRow {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-bottom: 40px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
-.subCard {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 32px 28px;
+.audiencePill {
+  background: #ffffff;
+  border: 1px solid rgba(31, 95, 175, 0.12);
+  border-radius: 8px;
+  padding: 18px 16px;
+  text-align: center;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--eva-navy);
+  line-height: 1.4;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.audiencePill:hover {
+  background: #f7fbff;
+  border-color: rgba(31, 95, 175, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ═══════════ WHAT MEMBERS GAIN ═══════════ */
+.gainSection {
+  background: var(--eva-light-blue);     /* continues the band from .whoSection */
+  padding: 32px 0 80px;
+}
+
+.gainCard {
+  background: #ffffff;
+  border: 1px solid rgba(31, 95, 175, 0.1);
+  border-radius: 10px;
+  padding: 22px 22px 24px;
+  text-align: center;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.gainCard:hover {
+  border-color: rgba(31, 95, 175, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(31, 95, 175, 0.1);
+}
+
+.gainCardTitle {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--eva-royal);
+  margin: 0 0 12px;
+}
+
+.gainCardDesc {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--eva-text);
+  margin: 0;
+}
+
+/* ═══════════ BOTTOM CTA (royal blue band) ═══════════ */
+.ctaSection {
+  background: var(--eva-royal);
+  padding: 60px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.ctaInner {
+  position: relative;
+  text-align: center;
+}
+
+.ctaTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 14px;
+  line-height: 1.25;
+}
+
+.ctaDesc {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 auto 28px;
+  max-width: 580px;
+}
+
+.ctaBtns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btnCtaWhite {
+  background: #ffffff;
+  color: var(--eva-royal);
+  padding: 14px 28px;
+}
+.btnCtaWhite:hover {
+  background: var(--eva-navy);
+  color: #fff;
+}
+
+.btnCtaWhiteOutline {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+  padding: 14px 28px;
+}
+.btnCtaWhiteOutline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media (max-width: 1024px) {
+  .cardGrid4 { grid-template-columns: repeat(2, 1fr); }
+  .audienceRow { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    min-height: 0;
+  }
+  .heroLeft { padding: 0; max-width: none; }
+  .heroRight {
+    margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw);
+    min-height: 320px;
+    height: 320px;
+  }
+  .heroImg {
+    object-position: center 25%;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.6) 12%,
+      #000 28%
+    );
+            mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.6) 12%,
+      #000 28%
+    );
+  }
+  .cardGrid4 { grid-template-columns: 1fr; }
+  .audienceRow { grid-template-columns: 1fr; }
+}
+
+/* ═══════════ DISCLAIMER MODAL ═══════════ */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 20, 40, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modalBox {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 44px 40px 36px;
+  max-width: 560px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(10, 20, 40, 0.2);
+}
+
+.modalClose {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--eva-text);
   cursor: pointer;
-  transition: all 0.3s;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  line-height: 1;
+  padding: 4px 8px;
+}
+.modalClose:hover { opacity: 1; }
+
+.modalEyebrow {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--eva-turquoise);
+  margin-bottom: 10px;
 }
 
-.subCard:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
-
-.subCard h3 {
+.modalTitle {
+  font-family: 'Playfair Display', serif;
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--text-dark);
-  margin: 0 0 10px 0;
+  color: var(--eva-royal);   /* royal blue per Troy */
+  margin: 0 0 24px;
+  line-height: 1.3;
 }
 
-.subCard p {
-  color: var(--text-light);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin: 0 0 16px 0;
+.modalDisclaimer {
+  background: var(--eva-light-blue);
+  border: 1px solid rgba(31, 95, 175, 0.12);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 22px;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
-.subLink {
-  color: var(--accent);
-  font-weight: 600;
-  font-size: 0.95rem;
+/* Policy sections inside the scrollable disclaimer box */
+.policySection {
+  margin-bottom: 18px;
 }
 
-.ctaWrap {
-  text-align: center;
-  padding: 30px 0;
+.policySectionHeading {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--eva-royal);   /* royal blue per Troy */
+  margin: 0 0 6px;
 }
+
+.policySectionText {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--eva-text);
+  margin: 0 0 8px;
+}
+.policySectionText:last-child { margin-bottom: 0; }
+
+.modalCheckLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  margin-bottom: 28px;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  color: var(--eva-navy);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.modalCheckbox {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: var(--eva-royal);
+  cursor: pointer;
+}
+
+.modalActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.modalActions .btnPrimary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 600px) {
+  .modalBox { padding: 32px 22px 28px; }
+  .modalActions { flex-direction: column-reverse; }
+  .modalActions button { width: 100%; }
+}
+
+/* ═══════════ LEGACY classes — no-ops to swallow stale refs ═══════════ */
+.pageHeader,
+.subSections,
+.subCard,
+.subLink,
+.bottomCta { display: none; }

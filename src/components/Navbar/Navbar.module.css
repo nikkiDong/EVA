@@ -3,8 +3,8 @@
   top: 0; left: 0; right: 0;
   z-index: 1000;
   padding: 12px 0;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(24px) saturate(180%);
+  /* Solid pure white per user 2026-04-26 — removed translucency / blur */
+  background: #ffffff;
   border-bottom: 1px solid var(--border);
   transition: all var(--transition);
 }
@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1140px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 0 28px;
 }
@@ -29,6 +29,19 @@
   padding: 0;
 }
 
+/* Troy's official logo image
+   2026-04-25: 48 → 64px. 2026-04-26: 64 → 80px. 2026-05-07: 80 → 96px. 2026-05-11: 96 → 112px. */
+.logoImg {
+  height: 112px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+@media (max-width: 600px) {
+  .logoImg { height: 76px; }
+}
+
+/* Legacy text-logo classes — kept for any reference but no longer rendered */
 .logoMark {
   width: 38px; height: 38px;
   background: var(--accent);
@@ -67,9 +80,9 @@
 
 .navTab {
   display: block;
-  padding: 8px 15px;
+  padding: 10px 18px;
   text-decoration: none;
-  font-size: 0.84rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--text-body);
   border-radius: 8px;
@@ -88,9 +101,9 @@
   background: var(--accent) !important;
   color: var(--white) !important;
   font-weight: 600 !important;
-  padding: 8px 20px !important;
+  padding: 10px 22px !important;
   border-radius: 10px !important;
-  font-size: 0.84rem !important;
+  font-size: 0.95rem !important;
 }
 .navCta:hover { background: var(--accent-hover) !important; }
 .navCta.active { background: var(--accent-hover) !important; }

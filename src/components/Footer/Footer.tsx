@@ -9,9 +9,14 @@ export default function Footer() {
       <div className="container">
         <div className={styles.footerGrid}>
           <div>
+            <img
+              src={`${import.meta.env.BASE_URL}eva-smart-systems-logo.png`}
+              alt="EVA Smart Systems"
+              className={styles.footerLogo}
+            />
             <div className={styles.footerBrand}>
               Empowerment that Values All
-              <span>By EVA Enterprise</span>
+              <span>EVA Smart Systems · Systems to Evolve. Lead. Transform.</span>
             </div>
             <p className={styles.footerDesc}>
               Building your enterprise one SMART solution at a time through innovation and commercialization.
@@ -46,7 +51,7 @@ export default function Footer() {
           </div>
         </div>
         <div className={styles.footerBottom}>
-          <span>© 2026 E.V.A. Enterprise, LLC. All Rights Reserved.</span>
+          <span>© 2026 EVA Smart Systems · Empowerment That Values All, LLC. All Rights Reserved.</span>
           <span>NAICS: 541611 · 541612 · 611430</span>
         </div>
       </div>

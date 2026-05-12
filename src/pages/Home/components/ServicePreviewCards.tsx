@@ -2,34 +2,38 @@ import { useNavigate } from 'react-router-dom'
 import { useInView } from '../../../hooks/useInView'
 import styles from './ServicePreviewCards.module.css'
 
+// Updated 2026-04-25: card thumbnails switched from Unsplash URLs to
+// Troy's user-supplied photo library (generalpics/ + morepics/ folders),
+// each chosen to match the service it represents.
+const BASE = import.meta.env.BASE_URL
 const cards = [
   {
     tab: 'coaching',
     route: '/coaching',
-    img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80',
+    img: `${BASE}home-card-coaching.jpg`,
     title: 'Coaching',
-    desc: 'Coaching to refine business models, deepen customer insights and validate market direction.',
+    desc: '1:1 and group coaching for founders and leaders ready to clarify their vision, strengthen their leadership, and scale with confidence.',
   },
   {
     tab: 'consulting',
     route: '/consulting',
-    img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80',
+    img: `${BASE}home-card-consulting.jpg`,
     title: 'Consulting',
-    desc: 'High-touch consulting across sectors seeking stronger stakeholder alignment, organizational effectiveness, and scalable systems that drive viable ROI.',
+    desc: 'Strategic advisory to design systems, streamline operations, and build the infrastructure your business needs to grow sustainably.',
   },
   {
-    tab: 'bizdev',
-    route: '/consulting',
-    img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80',
-    title: 'Business Development',
-    desc: 'Identifying viable revenue pathways and targeted opportunities for business momentum.',
+    tab: 'speaking',
+    route: '/speaking',
+    img: `${BASE}troy-speaking-podium.jpg`,
+    title: 'Speaking',
+    desc: 'Dynamic keynotes and workshops that inspire action, ignite transformation, and equip audiences to lead and grow.',
   },
   {
-    tab: 'innovation',
-    route: '/consulting',
-    img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80',
-    title: 'Innovation & Commercialization',
-    desc: 'Driving innovation and commercialization to define and validate your Ideal Customer Profile (ICP).',
+    tab: 'community',
+    route: '/evolve-community',
+    img: `${BASE}home-card-community.jpg`,
+    title: 'EVOLVE Community',
+    desc: 'A private community for ambitious professionals to connect, collaborate, and grow together.',
   },
 ]
 
@@ -47,9 +51,8 @@ export default function ServicePreviewCards() {
         >
           <div>
             <div className="section-label">What We Offer</div>
-            <h2 className="section-title">SMART Services</h2>
+            <h2 className="section-title">Solutions that Elevate. Strategies that Endure.</h2>
           </div>
-          <p className="section-subtitle">Designed to support at every growth stage,<br />from emerging vision to sustainable expansion.</p>
         </div>
 
         <div ref={gridRef} className={styles.homeSvcGrid}>

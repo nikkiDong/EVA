@@ -1,142 +1,159 @@
-import { useState } from 'react'
-import { useLocation } from 'react-router-dom'
-import { testimonials } from '../../data/testimonials'
+import { useNavigate } from 'react-router-dom'
 import styles from './About.module.css'
 
-type Tab = 'story' | 'founder' | 'testimonials'
+const heroImg = `${import.meta.env.BASE_URL}troy-sideways-building.jpg`
+// 2026-04-26: My Story / Our Mission section uses the B&W editorial close-up
+// (hand-under-chin pose) — different from the full-body color hero, gives the
+// page two visually distinct moments instead of two crops of the same photo.
+const storyImg = `${import.meta.env.BASE_URL}troy-portrait.png`
 
-const ABOUT_TABS: Tab[] = ['story', 'founder', 'testimonials']
+/* (Stats band removed 2026-04-26 per user — was duplicating the same
+   14+/1700+/125K+/100% block already shown on the Home StatsBar.) */
 
-function getTabFromState(state: unknown): Tab | null {
-  const tab = (state as { tab?: string } | null)?.tab
-  return tab && (ABOUT_TABS as string[]).includes(tab) ? (tab as Tab) : null
-}
+/* Why EVA — 4 belief/positioning columns. Each ends with a royal-blue tagline. */
+const beliefs = [
+  {
+    title: 'Who We Are',
+    body:
+      'EVA Systems is a coaching, consulting, and speaking firm that helps leaders and organizations build systems that create clarity, drive results, and sustain growth.',
+    tagline: 'We bring strategy, structure, and heart to everything we do.',
+  },
+  {
+    title: 'What We Believe',
+    body:
+      'We believe people do their best work in systems that support them.',
+    tagline: 'Clarity creates confidence. Structure creates freedom. Community creates lasting impact.',
+  },
+  {
+    title: 'How EVA Works',
+    body:
+      'We partner with you to assess, design, and implement practical systems that align with your mission and move your goals forward.',
+    tagline: 'Strategic. Collaborative. Sustainable.',
+  },
+  {
+    title: 'Why Clients Choose EVA',
+    body:
+      'Deep listening. Clear thinking. Proven frameworks. Tailored solutions. Real results.',
+    tagline: 'We show up as a partner—not just a provider.',
+  },
+]
 
 export default function About() {
-  const location = useLocation()
-  const [activeTab, setActiveTab] = useState<Tab>(
-    () => getTabFromState(location.state) ?? 'story'
-  )
-  const [prevLocationState, setPrevLocationState] = useState(location.state)
-
-  if (location.state !== prevLocationState) {
-    setPrevLocationState(location.state)
-    const nextTab = getTabFromState(location.state)
-    if (nextTab) {
-      setActiveTab(nextTab)
-    }
-  }
+  const navigate = useNavigate()
 
   return (
     <div className={styles.aboutPage}>
-      <div className="container">
-        <div className={styles.aboutPageHeader}>
-          <div className="section-label">About EVA</div>
-          <h2 className="section-title">Empowerment That Values All</h2>
+
+      {/* ══ HERO — text (left, in container) + full-bleed photo (right, spans viewport height) ══ */}
+      <section className={styles.hero}>
+        {/* Image lives outside the container so it can reach the viewport edge */}
+        <div className={styles.heroRight}>
+          <img
+            src={heroImg}
+            alt="Troy Farmer — Founder of EVA Systems"
+            className={styles.heroImg}
+          />
         </div>
 
-        <div className={styles.aboutSubTabs}>
-          {(['story', 'founder', 'testimonials'] as Tab[]).map((tab) => (
-            <button
-              key={tab}
-              className={`${styles.aboutSubTab} ${activeTab === tab ? styles.active : ''}`}
-              onClick={() => setActiveTab(tab)}
-            >
-              {tab === 'story' ? 'Our Story' : tab === 'founder' ? 'Meet the Founder' : 'Testimonials'}
-            </button>
-          ))}
+        <div className="container">
+          <div className={styles.heroInner}>
+            <div className={styles.heroLeft}>
+              <h1 className={styles.heroTitle}>
+                Meet<br />Troy Farmer
+              </h1>
+              <div className={styles.heroEyebrow}>Founder of EVA Systems</div>
+              <p className={styles.heroDesc}>
+                Coach. Consultant. Speaker. Systems-minded strategist. Troy Farmer helps
+                organizations and leaders build what lasts—across small business, nonprofit,
+                government, corporate, and founder ecosystems.
+              </p>
+              <div className={styles.heroCtas}>
+                <button className={styles.btnPrimary} onClick={() => navigate('/contact')}>
+                  Work With Troy
+                </button>
+                <button className={styles.btnOutline} onClick={() => navigate('/coaching')}>
+                  Explore Services
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        {activeTab === 'story' && (
-          <div className={styles.aboutPanel}>
-            <div className={styles.aboutGrid}>
-              <div>
-                <div className={`${styles.aboutImgWrapper} ${styles.storyImgWrapper}`} />
+      {/* (Stats band removed 2026-04-26 — was duplicating Home page numbers.) */}
+
+      {/* ══ WHY EVA — 4 belief columns ══ */}
+      <section className={styles.beliefsSection}>
+        <div className="container">
+          <div className={styles.beliefsGrid}>
+            {beliefs.map((b) => (
+              <div key={b.title} className={styles.beliefCol}>
+                <h3 className={styles.beliefTitle}>{b.title}</h3>
+                <p className={styles.beliefBody}>{b.body}</p>
+                <p className={styles.beliefTagline}>{b.tagline}</p>
               </div>
-              <div>
-                <h3 className="section-title" style={{ fontSize: '1.8rem' }}>About EVA</h3>
-                <p className={styles.aboutText}>Empowerment That Values All, LLC was founded in 2012 from a deep belief that growth is most powerful when it is both strategic and human-centered. EVA was created to help individuals, businesses, and organizations move beyond ideas into aligned action by building the clarity, confidence, systems, and structure needed to grow with intention.</p>
-                <p className={styles.aboutText}>Over time, the work has evolved into a focused platform for coaching, speaking, strategic advising, commercialization insight, and transformational support for leaders who are ready to scale what they have built.</p>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                <h3 className="section-title" style={{ fontSize: '1.4rem', marginTop: '2rem' }}>Mission</h3>
-                <p className={styles.aboutText}>Our mission is to empower leaders, businesses, and organizations through strategic guidance, aligned systems, and transformational support that foster growth, innovation, and sustainable success.</p>
+      {/* ══ MY STORY / OUR MISSION — 2-column with photo ══ */}
+      <section className={styles.storySection}>
+        <div className="container">
+          <div className={styles.storyInner}>
+            <div className={styles.storyLeft}>
+              <span className={styles.storyEyebrow}>Built from experience. Driven by purpose.</span>
+              <h2 className={styles.storyTitle}>My Story. Our Mission.</h2>
 
-                <h3 className="section-title" style={{ fontSize: '1.4rem', marginTop: '1.5rem' }}>Vision</h3>
-                <p className={styles.aboutText}>We envision a future where purpose-driven leaders scale with clarity, lead with confidence, and create lasting impact through strategy, innovation, and aligned execution.</p>
+              <p className={styles.storyText}>
+                EVA Systems was born from my belief that systems change everything. After
+                more than 14 years serving organizations across industries and sectors, I
+                saw a common truth: brilliant people often struggle not because they lack
+                talent, but because they lack the right systems.
+              </p>
+              <p className={styles.storyText}>I founded EVA Systems to change that.</p>
+              <p className={styles.storyText}>
+                Today, I partner with mission-driven leaders and teams to create systems
+                that simplify operations, elevate leadership, and unlock sustainable
+                growth—so you can lead with confidence and build what lasts.
+              </p>
 
-                <h3 className="section-title" style={{ fontSize: '1.4rem', marginTop: '1.5rem' }}>Core Values</h3>
-                <div className={styles.aboutValues}>
-                  {['Empowerment', 'Integrity', 'Transformation', 'Inclusivity'].map((v) => (
-                    <div key={v} className={styles.aboutValue}>
-                      <div className={styles.aboutValueIcon}>◆</div>
-                      {v}
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <p className={styles.storyTagline}>
+                This is more than my work.<br />It&rsquo;s my purpose.
+              </p>
+            </div>
+
+            <div className={styles.storyRight}>
+              <img
+                src={storyImg}
+                alt="Troy Farmer — editorial portrait"
+                className={styles.storyImg}
+              />
             </div>
           </div>
-        )}
+        </div>
+      </section>
 
-        {activeTab === 'founder' && (
-          <div className={styles.aboutPanel}>
-            <div className={styles.aboutGrid}>
-              <div style={{ position: 'relative' }}>
-                <div className={styles.aboutImgWrapper} />
-                <div className={styles.aboutAccent} />
-              </div>
-              <div>
-                <h3 className="section-title" style={{ fontSize: '1.8rem' }}>Meet Troy</h3>
-                <p className={styles.aboutText} style={{ fontWeight: 600, color: 'var(--text-dark)' }}>
-                  Troy C. Farmer, MSW, MCC, CPC, CGC, CLAC
-                  <br />
-                  <span style={{ fontWeight: 400, fontSize: '0.95rem', color: 'var(--text-light)' }}>Founder, Speaker & Strategy Coach</span>
-                </p>
-                <p className={styles.aboutText}>Troy Farmer is the founder of Empowerment That Values All, LLC and a highly regarded Speaker and Strategy Coach known for helping leaders and founders move from vision to aligned growth. Her work sits at the intersection of executive coaching, commercialization, customer discovery, strategic advising, business readiness, and leadership development.</p>
-                <p className={styles.aboutText}>Troy blends behavioral insight with business acumen, supporting clients as they strengthen their thinking, refine their strategy, and build viable systems for growth.</p>
-
-                <h3 className="section-title" style={{ fontSize: '1.3rem', marginTop: '2rem' }}>Key Credentials</h3>
-                <p className={styles.aboutText} style={{ fontSize: '0.95rem' }}>
-                  Founder of EVA since 2012 · Master Certified Coach (MCC) · Certified Professional Coach (CPC) · Certified Group Coach (CGC) · Certified Laser Coach (CLAC) · NSF I-Corps Instructor · 2024 UD Supplier Diversity Outstanding Community Engagement Award · 2023 Delaware Business Times Top Women in Business
-                </p>
-
-                <h3 className="section-title" style={{ fontSize: '1.3rem', marginTop: '1.5rem' }}>Personal Philosophy</h3>
-                <p className={styles.aboutText} style={{ fontStyle: 'italic' }}>
-                  "I believe meaningful growth requires more than motivation. It requires clarity, strategy, viable systems, and the courage to evolve. My work is driven by a desire to help leaders think critically, grow intentionally, and build something sustainable that reflects both their vision and their values."
-                </p>
-
-                <h3 className="section-title" style={{ fontSize: '1.3rem', marginTop: '2rem' }}>Selected Impact</h3>
-                <p className={styles.aboutText} style={{ fontSize: '0.95rem' }}>
-                  2,800+ individuals trained · 420+ training and outreach events · 50+ strategic and network partners · 20+ advisors managed · 20,000+ reached through outreach and engagement
-                </p>
-
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-light)', marginTop: '16px', fontStyle: 'italic' }}>* Professional photo coming soon</p>
-              </div>
+      {/* ══ BOTTOM CTA — royal-blue band ══ */}
+      <section className={styles.ctaSection}>
+        <div className="container">
+          <div className={styles.ctaInner}>
+            <h2 className={styles.ctaTitle}>Let&rsquo;s Build What&rsquo;s Next—Together.</h2>
+            <p className={styles.ctaDesc}>
+              Ready to gain clarity, create systems, and scale with confidence?
+            </p>
+            <div className={styles.ctaBtns}>
+              <button className={styles.btnCtaWhite} onClick={() => navigate('/contact')}>
+                Book a Discovery Call
+              </button>
+              <button className={styles.btnCtaWhiteOutline} onClick={() => navigate('/contact')}>
+                Join the Waitlist
+              </button>
             </div>
           </div>
-        )}
+        </div>
+      </section>
 
-        {activeTab === 'testimonials' && (
-          <div className={styles.aboutPanel}>
-            <div className={styles.testimonialGrid}>
-              {testimonials.map((t, i) => (
-                <div key={i} className={styles.testimonialGridCard}>
-                  <div className={styles.tgStars}>★★★★★</div>
-                  <p className={styles.tgQuote}>"{t.quote}"</p>
-                  <div className={styles.tgAuthor}>
-                    <div className={styles.tgAvatar}>{t.initials}</div>
-                    <div>
-                      <div className={styles.tgName}>{t.name}</div>
-                      <div className={styles.tgRole}>{t.role}</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p className={styles.note}>* Verified client testimonials pending — current entries are placeholders to be replaced.</p>
-          </div>
-        )}
-      </div>
     </div>
   )
 }

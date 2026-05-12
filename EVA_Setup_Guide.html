@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EVA Smart Systems — Setup Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    line-height: 1.6;
+    padding: 40px 20px;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  header p {
+    font-size: 1.05rem;
+    color: #94a3b8;
+  }
+
+  .section {
+    margin-bottom: 44px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #3b82f6;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .section-header h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+
+  .steps {
+    list-style: none;
+    counter-reset: step;
+  }
+
+  .steps li {
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 14px;
+    font-size: 1rem;
+    color: #cbd5e1;
+  }
+
+  .steps li:last-child { margin-bottom: 0; }
+
+  .steps li::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #334155;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .highlight {
+    color: #60a5fa;
+    font-weight: 500;
+  }
+
+  .url {
+    display: inline-block;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 2px 10px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: #7dd3fc;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .url:hover {
+    background: #1e293b;
+    border-color: #60a5fa;
+  }
+
+  code {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: #a5f3fc;
+  }
+
+  .code-block {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 14px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: #a5f3fc;
+    line-height: 1.8;
+    overflow-x: auto;
+  }
+
+  .tip {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: rgba(59, 130, 246, 0.1);
+    border-left: 3px solid #3b82f6;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9rem;
+    color: #93c5fd;
+  }
+
+  .tip strong {
+    color: #60a5fa;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid #1e293b;
+    margin: 36px 0;
+  }
+
+  .reference {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .reference h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #64748b;
+    margin-bottom: 16px;
+  }
+
+  .ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+  }
+
+  .ref-item {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+  }
+
+  .ref-item .label {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+
+  .ref-item .value {
+    font-size: 0.9rem;
+    color: #7dd3fc;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>EVA Smart Systems — Setup Guide</h1>
+    <p>Everything you need to get your website live at EVASmartSystems.com</p>
+  </header>
+
+  <!-- Step 1 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="step-number">1</div>
+      <h2>Buy Your Domain</h2>
+    </div>
+    <div class="card">
+      <ol class="steps">
+        <li>Pick a registrar:</li>
+      </ol>
+      <div style="display:flex; gap:10px; margin:12px 0 16px 32px; flex-wrap:wrap;">
+        <a href="https://www.namecheap.com" target="_blank" style="flex:1; min-width:140px; text-decoration:none; background:#0f172a; border:1px solid #334155; border-radius:8px; padding:12px 16px; text-align:center;">
+          <div style="font-weight:600; color:#fff; font-size:0.95rem;">Namecheap</div>
+          <div style="color:#7dd3fc; font-size:0.8rem; margin-top:2px;">namecheap.com</div>
+          <div style="color:#64748b; font-size:0.75rem; margin-top:4px;">~$10/yr · Free privacy</div>
+        </a>
+        <a href="https://www.godaddy.com" target="_blank" style="flex:1; min-width:140px; text-decoration:none; background:#0f172a; border:1px solid #334155; border-radius:8px; padding:12px 16px; text-align:center;">
+          <div style="font-weight:600; color:#fff; font-size:0.95rem;">GoDaddy</div>
+          <div style="color:#7dd3fc; font-size:0.8rem; margin-top:2px;">godaddy.com</div>
+          <div style="color:#64748b; font-size:0.75rem; margin-top:4px;">~$12/yr · 24/7 support</div>
+        </a>
+        <a href="https://dash.cloudflare.com" target="_blank" style="flex:1; min-width:140px; text-decoration:none; background:#0f172a; border:1px solid #334155; border-radius:8px; padding:12px 16px; text-align:center;">
+          <div style="font-weight:600; color:#fff; font-size:0.95rem;">Cloudflare</div>
+          <div style="color:#7dd3fc; font-size:0.8rem; margin-top:2px;">dash.cloudflare.com</div>
+          <div style="color:#64748b; font-size:0.75rem; margin-top:4px;">At-cost pricing · Best DNS</div>
+        </a>
+      </div>
+      <ol class="steps" start="2">
+        <li>Search for <span class="highlight">EVASmartSystems.com</span> or any domain name you like</li>
+        <li>Add to cart and complete checkout</li>
+        <li>Turn on <span class="highlight">privacy protection</span> (keeps your personal info hidden)</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="step-number">2</div>
+      <h2>Download the Code</h2>
+    </div>
+    <div class="card">
+      <ol class="steps">
+        <li>Go to <a class="url" href="https://github.com/nikkiDong/EVA" target="_blank">github.com/nikkiDong/EVA</a></li>
+        <li>Click the green <span class="highlight">Code</span> button</li>
+        <li>Click <span class="highlight">Download ZIP</span></li>
+        <li>Unzip the file — this is your entire website</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="step-number">3</div>
+      <h2>Build the Site</h2>
+    </div>
+    <div class="card">
+      <ol class="steps">
+        <li>Install <span class="highlight">Node.js</span> from <a class="url" href="https://nodejs.org" target="_blank">nodejs.org</a> (LTS version)</li>
+        <li>Open <span class="highlight">Terminal</span> (Mac) or <span class="highlight">Command Prompt</span> (Windows)</li>
+        <li>Navigate to the project folder, then run:</li>
+      </ol>
+      <div class="code-block">
+        npm install<br>
+        npm run build
+      </div>
+      <div class="tip"><strong>Result:</strong> This creates a <code>dist</code> folder — that's what you'll deploy.</div>
+    </div>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="step-number">4</div>
+      <h2>Deploy to Netlify</h2>
+    </div>
+    <div class="card">
+      <ol class="steps">
+        <li>Go to <a class="url" href="https://www.netlify.com" target="_blank">netlify.com</a> and create a free account</li>
+        <li>On the dashboard, find the <span class="highlight">drag-and-drop</span> area</li>
+        <li>Drag your <code>dist</code> folder onto it</li>
+        <li>Wait a few seconds — your site is live at a temporary URL!</li>
+      </ol>
+      <div class="tip"><strong>Why Netlify?</strong> React is the tool that <em>builds</em> the site. Netlify is what <em>hosts</em> it online. It's free, secure, and requires no server setup.</div>
+    </div>
+  </div>
+
+  <!-- Step 5 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="step-number">5</div>
+      <h2>Connect Your Domain</h2>
+    </div>
+    <div class="card">
+      <ol class="steps">
+        <li><strong>In Netlify:</strong> Site settings → Domain management → Add <span class="highlight">EVASmartSystems.com</span></li>
+        <li>Netlify will show you DNS records to copy</li>
+        <li><strong>In your registrar:</strong> Go to Advanced DNS → Add the records Netlify provided</li>
+        <li>Save and wait a few minutes for it to take effect</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Step 6 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="step-number">6</div>
+      <h2>Enable HTTPS</h2>
+    </div>
+    <div class="card">
+      <ol class="steps">
+        <li><strong>In Netlify:</strong> Domain management → HTTPS</li>
+        <li>Click <span class="highlight">Provision certificate</span></li>
+        <li>Done — your site now has the secure lock icon</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Step 7 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="step-number" style="background: #22c55e;">✓</div>
+      <h2>Verify</h2>
+    </div>
+    <div class="card">
+      <ol class="steps">
+        <li>Visit <span class="highlight">EVASmartSystems.com</span> — homepage should load</li>
+        <li>Click through all pages (Home, About, Coaching, etc.)</li>
+        <li>Test on your phone — the site is fully responsive</li>
+        <li>Check that the lock icon appears in the address bar</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Quick Reference -->
+  <div class="reference">
+    <h3>Quick Reference</h3>
+    <div class="ref-grid">
+      <div class="ref-item">
+        <div class="label">Domain</div>
+        <div class="value">namecheap.com</div>
+      </div>
+      <div class="ref-item">
+        <div class="label">Code</div>
+        <div class="value">github.com/nikkiDong/EVA</div>
+      </div>
+      <div class="ref-item">
+        <div class="label">Node.js</div>
+        <div class="value">nodejs.org</div>
+      </div>
+      <div class="ref-item">
+        <div class="label">Hosting</div>
+        <div class="value">netlify.com</div>
+      </div>
+      <div class="ref-item">
+        <div class="label">DNS Check</div>
+        <div class="value">dnschecker.org</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

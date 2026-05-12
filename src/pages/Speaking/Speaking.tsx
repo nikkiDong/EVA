@@ -32,6 +32,25 @@ export default function Speaking() {
 
   return (
     <div className={styles.speakingPage}>
+      {/* Hero banner with real Troy podium photo (added 2026-04-25 per Troy's
+          Speaking-page imagery direction) */}
+      <div className={styles.speakingHero}>
+        <img
+          src={`${import.meta.env.BASE_URL}troy-speaking-podium.jpg`}
+          alt="Troy Farmer speaking on stage"
+          className={styles.speakingHeroImg}
+        />
+        <div className={styles.speakingHeroOverlay} />
+        <div className="container">
+          <div className={styles.speakingHeroContent}>
+            <div className={styles.speakingHeroEyebrow}>Be Intentional. Grow and Go.</div>
+            <h1 className={styles.speakingHeroTitle}>
+              Speaking that moves leaders, ideas,<br />and organizations forward.
+            </h1>
+          </div>
+        </div>
+      </div>
+
       <div className="container">
         <div className={styles.pageHeader}>
           <div className="section-label">Engage & Inspire</div>

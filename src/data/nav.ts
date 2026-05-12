@@ -19,7 +19,7 @@ export const navItems: NavItem[] = [
       { label: "Testimonials", path: "/about", hash: "testimonials" },
     ],
   },
-  { label: "Events", path: "/events" },
   { label: "EVOLVE Community", path: "/evolve-community" },
+  { label: "Events", path: "/events" },
   { label: "Connect", path: "/contact", cta: true },
 ];

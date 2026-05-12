@@ -42,7 +42,14 @@ export default function WhyEVA() {
       <div className="container">
         <div ref={ref} className={styles.whyEvaGrid}>
           <div className={`${styles.whyEvaImage} revealLeft ${inView ? 'visible' : ''}`}>
-            <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Diverse team discussion" />
+            {/* Updated 2026-04-25: switched from Unsplash to Troy's user-supplied
+                photo (generalpics/Divers Women-Lets Talk Systems pic.jpg).
+                Title literally is "Lets Talk Systems" — direct match for this
+                "Working with EVA is BOLD and BETTER" partnership section. */}
+            <img
+              src={`${import.meta.env.BASE_URL}home-whyeva.jpg`}
+              alt="Three women in active strategic conversation"
+            />
           </div>
           <div className={`revealRight ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.15s' }}>
             <div className="section-label">Why Empowerment that Values All</div>

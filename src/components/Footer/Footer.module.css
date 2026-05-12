@@ -10,6 +10,16 @@
   margin-bottom: 40px;
 }
 
+/* Logo image in footer — added 2026-04-25 */
+.footerLogo {
+  display: block;
+  height: 76px;
+  width: auto;
+  margin-bottom: 12px;
+  /* Logo is on dark navy background — slight backdrop helps PNG with white sparkles */
+  filter: brightness(1.05);
+}
+
 .footerBrand {
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;

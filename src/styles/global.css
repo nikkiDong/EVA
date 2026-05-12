@@ -1,46 +1,61 @@
 /* ═══════════ CSS VARIABLES ═══════════ */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+/* Updated 2026-04-25: Aligned with Troy's design tokens (per her 04-24 mockup docx).
+   Body font added: Inter (Troy's spec). DM Sans kept for backward compatibility. */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --primary: #2c3e50;
-  --primary-deep: #003366;
-  --accent: #4169E1;
-  --accent-hover: #003366;
-  --accent-light: #87CEEB;
-  --accent-soft: rgba(65,105,225,0.08);
-  --accent-border: rgba(65,105,225,0.18);
+  /* === Troy's brand palette (authoritative) === */
+  --eva-navy: #0F2747;        /* Headings, dark band, footer */
+  --eva-royal: #1F5FAF;       /* Primary CTA */
+  --eva-turquoise: #33C7C9;   /* Accent / hover */
+  --eva-light-blue: #D9EAF7;  /* Section soft background */
+  --eva-text: #1D2740;        /* Body text */
+  --eva-white: #FFFFFF;
+
+  /* === Legacy aliases mapped to Troy's palette ===
+     Existing CSS Modules across the site reference --primary / --accent / etc.
+     Rather than touching every file, we re-point those to Troy's colors. */
+  --primary: var(--eva-navy);
+  --primary-deep: var(--eva-navy);
+  --accent: var(--eva-royal);
+  --accent-hover: var(--eva-navy);
+  --accent-light: var(--eva-turquoise);
+  --accent-soft: rgba(31, 95, 175, 0.08);
+  --accent-border: rgba(31, 95, 175, 0.18);
+  /* All-white site backgrounds (per user 2026-04-25). Light-blue alt
+     sections were dropped. Intentionally-dark bands (Why EVA, CTA,
+     footer) are NOT controlled by these variables. */
   --bg-main: #ffffff;
-  --bg-section: #ffffff;
-  --bg-subtle: #ffffff;
-  --text-dark: #2c3e50;
-  --text-body: #556270;
-  --text-light: #8a95a5;
-  --text-muted: #b0b8c4;
+  --bg-section: #f7f9fc;
+  --bg-subtle: #f4f6fa;
+  --text-dark: var(--eva-navy);
+  --text-body: var(--eva-text);
+  --text-light: #6B7280;
+  --text-muted: #9CA3AF;
   --white: #ffffff;
-  --charcoal: #34495e;
-  --success: #5ca87e;
-  --border: rgba(0,0,0,0.06);
-  --border-accent: rgba(65,105,225,0.2);
-  --shadow-xs: 0 1px 3px rgba(0,0,0,0.04);
-  --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
-  --shadow-md: 0 8px 30px rgba(0,0,0,0.07);
-  --shadow-lg: 0 20px 50px rgba(0,0,0,0.1);
-  --shadow-card: 0 1px 4px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
+  --charcoal: var(--eva-navy);
+  --success: #2E7D32;
+  --border: rgba(15, 39, 71, 0.08);
+  --border-accent: rgba(31, 95, 175, 0.2);
+  --shadow-xs: 0 1px 3px rgba(15, 39, 71, 0.04);
+  --shadow-sm: 0 2px 10px rgba(15, 39, 71, 0.05);
+  --shadow-md: 0 8px 30px rgba(15, 39, 71, 0.07);
+  --shadow-lg: 0 10px 28px rgba(15, 39, 71, 0.08);
+  --shadow-card: 0 1px 4px rgba(15, 39, 71, 0.04), 0 4px 16px rgba(15, 39, 71, 0.04);
   --radius: 12px;
   --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-xl: 18px; /* Troy's spec */
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body.custom-cursor,
-body.custom-cursor * { cursor: none !important; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; font-size: 17.5px; }
 body {
-  font-family: 'DM Sans', sans-serif;
-  color: var(--text-dark);
+  /* Troy's spec: Inter for body. DM Sans kept as fallback for legacy class refs. */
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  color: var(--text-body);
   background: var(--bg-main);
-  line-height: 1.75;
+  line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -48,14 +63,14 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-section); }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
-::selection { background: rgba(65,105,225,0.2); color: var(--primary); }
+::selection { background: rgba(31, 95, 175, 0.2); color: var(--primary); }
 
 /* ═══════════ UTILITY ═══════════ */
-.container { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+.container { max-width: 1320px; margin: 0 auto; padding: 0 28px; }
 .section-label {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 3.5px;
+  font-size: 1rem;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--accent);
   font-weight: 600;
@@ -71,7 +86,7 @@ body {
   letter-spacing: -0.02em;
 }
 .section-subtitle {
-  font-size: 1.02rem;
+  font-size: 1.08rem;
   color: var(--text-body);
   max-width: 560px;
   line-height: 1.8;
@@ -85,7 +100,7 @@ body {
   align-items: center;
   gap: 8px;
   padding: 14px 30px;
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
   border-radius: 10px;
@@ -98,9 +113,9 @@ body {
 .btn-primary {
   background: var(--accent);
   color: var(--white);
-  box-shadow: 0 2px 12px rgba(65,105,225,0.25);
+  box-shadow: 0 2px 12px rgba(31, 95, 175, 0.25);
 }
-.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(65,105,225,0.3); }
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(31, 95, 175, 0.3); }
 .btn-outline {
   border: 1.5px solid rgba(255,255,255,0.3);
   color: rgba(255,255,255,0.9);
@@ -114,7 +129,7 @@ body {
   background: transparent;
 }
 .btn-dark-outline:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
-.btn-sm { padding: 11px 22px; font-size: 0.84rem; }
+.btn-sm { padding: 11px 22px; font-size: 0.9rem; }
 
 /* ═══════════ ANIMATIONS ═══════════ */
 @keyframes fadeIn {

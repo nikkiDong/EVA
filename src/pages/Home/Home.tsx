@@ -1,6 +1,5 @@
 import Hero from './components/Hero'
 import StatsBar from './components/StatsBar'
-import WhyEVA from './components/WhyEVA'
 import SmartPillars from './components/SmartPillars'
 import ServicePreviewCards from './components/ServicePreviewCards'
 import TestimonialBar from './components/TestimonialBar'
@@ -12,10 +11,9 @@ export default function Home() {
       <Hero />
       <StatsBar />
       <ServicePreviewCards />
-      <WhyEVA />
       <SmartPillars />
-      <CTABanner />
       <TestimonialBar />
+      <CTABanner />
     </>
   )
 }

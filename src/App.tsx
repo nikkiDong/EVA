@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
-import CustomCursor from './components/CustomCursor/CustomCursor'
 import Home from './pages/Home/Home'
 import About from './pages/About/About'
 import SmartSolutions from './pages/SmartSolutions/SmartSolutions'
@@ -14,8 +13,7 @@ import EvolveCommunity from './pages/EvolveCommunity/EvolveCommunity'
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <CustomCursor />
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

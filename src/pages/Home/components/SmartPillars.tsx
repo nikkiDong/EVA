@@ -4,7 +4,7 @@ import styles from './SmartPillars.module.css'
 const pillars = [
   {
     title: 'SMART Systems',
-    desc: 'Building structure, testing creating workflows, and tactical decision-making to support business needs to scale using our SMART Framework.',
+    desc: 'Build the foundation with intentional systems that create clarity, consistency, and capacity.',
     icon: (
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
         <circle cx="18" cy="18" r="7" stroke="#4169E1" strokeWidth="2" />
@@ -17,7 +17,7 @@ const pillars = [
   },
   {
     title: 'SMART Results',
-    desc: 'Aligning efforts with measurable progress, stronger performance-based outcomes utilizing SMART Systems.',
+    desc: 'Drive measurable outcomes with strategies designed to deliver sustainable and profitable results.',
     icon: (
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
         <rect x="5" y="20" width="6" height="12" rx="1.5" fill="#1a1a2e" opacity="0.2" />
@@ -32,7 +32,7 @@ const pillars = [
   },
   {
     title: 'SMART Impact',
-    desc: 'Creating outcomes that strengthen your business, traction, and market presence with a focus on SMART Results.',
+    desc: 'Lead with purpose and influence—creating meaningful impact for your clients, team, and community.',
     icon: (
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
         <circle cx="18" cy="18" r="14" stroke="#1a1a2e" strokeWidth="1.5" opacity="0.12" />
@@ -49,7 +49,7 @@ const pillars = [
   },
   {
     title: 'SMART Growth',
-    desc: 'Sharpening systems, strengthening execution, and advancing with intention by creating SMART Impact leading to growth opportunities.',
+    desc: 'Scale with confidence through aligned systems, strong leadership, and market-ready growth.',
     icon: (
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
         <path d="M18 32c0 0 0-6-1-10s-3-6-3-10a4 4 0 018 0c0 4-2 6-3 10s-1 10-1 10z" fill="#4169E1" opacity="0.2" />
@@ -77,9 +77,8 @@ export default function SmartPillars() {
           ref={headerRef}
           className={`${styles.pillarsHeader} reveal ${headerInView ? 'visible' : ''}`}
         >
-          <div className="section-label">The SMART Framework</div>
-          <h2 className="section-title">How EVA Supports Aligned SMART Action</h2>
-          <p className="section-subtitle" style={{ margin: '0 auto' }}>Our SMART Methodology connects strategy, systems, results and impact to go and grow with greater clarity and sustainability.</p>
+          <div className="section-label">The EVA SMART Framework</div>
+          <h2 className="section-title">A Smarter Way to Build and Grow</h2>
         </div>
         <div ref={gridRef} className={styles.pillarsGrid}>
           {pillars.map((p, i) => (

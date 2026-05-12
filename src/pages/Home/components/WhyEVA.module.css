@@ -1,6 +1,6 @@
 .whyEva {
   padding: 96px 0;
-  background: var(--white);
+  background: var(--bg-subtle);
   position: relative;
   overflow: hidden;
 }

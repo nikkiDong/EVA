@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { membershipPlans } from '../../data/events'
+import { membershipPlans, membershipFeatures } from '../../data/events'
 import styles from './Pricing.module.css'
 
 export default function Pricing() {
@@ -20,11 +20,11 @@ export default function Pricing() {
               {plan.variant === 'featured' && <div className={styles.membershipPopular}>Most Popular</div>}
               <h3>{plan.name}</h3>
               <div className={styles.membershipPrice} style={plan.variant === 'featured' ? { color: 'var(--accent)' } : undefined}>
-                {plan.price}<span>/mo</span>
+                {plan.monthlyPrice}<span>/mo</span>
               </div>
-              <div className={styles.membershipPeriod}>{plan.period}</div>
+              <div className={styles.membershipPeriod}>{plan.annualPrice}/year</div>
               <ul className={styles.membershipFeatures}>
-                {plan.features.map((f) => (
+                {membershipFeatures.slice(0, plan.includedCount).map((f) => (
                   <li key={f}><span className={styles.check}>✓</span>{f}</li>
                 ))}
               </ul>

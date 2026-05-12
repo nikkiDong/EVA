@@ -1,147 +1,477 @@
-.aboutPage { padding: 100px 0 60px; background: var(--bg-main); }
+/* ════════════════════════════════════════════════════════════════════
+   ABOUT PAGE — full rebuild 2026-04-26 to match new mockup.
+   Architecture: hero (text + striped photo), navy stats band,
+   4-column "Why EVA", My Story 2-column section, royal-blue CTA.
+   ════════════════════════════════════════════════════════════════════ */
 
-.aboutPageHeader { text-align: center; padding: 50px 0 60px; }
-
-.aboutSubTabs {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 50px;
+.aboutPage {
+  background: #ffffff;
+  min-height: 100vh;
 }
 
-.aboutSubTab {
-  padding: 10px 24px;
-  border: 2px solid var(--border);
-  border-radius: 50px;
-  background: transparent;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.86rem; font-weight: 600;
-  color: var(--text-body);
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.aboutSubTab:hover { border-color: var(--accent); color: var(--primary); }
-
-.aboutSubTab.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--primary);
-  box-shadow: 0 4px 15px rgba(65,105,225,0.2);
-}
-
-.aboutPanel {
-  animation: fadeIn 0.4s ease forwards;
-}
-
-/* About Grid */
-.aboutGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 70px;
-  align-items: center;
-  margin-bottom: 80px;
-}
-
-.aboutImgWrapper {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  aspect-ratio: 4/5;
-  background: linear-gradient(135deg, var(--primary), var(--charcoal));
+/* ═══════════ HERO ═══════════
+   Full-viewport hero: image is absolutely positioned to span the full
+   screen height on the right half (edge-to-edge). The text column lives
+   in the normal container flow on the left. */
+.hero {
+  background: #ffffff;
+  padding: 0;
   position: relative;
+  overflow: hidden;
+  min-height: 100vh;
 }
 
-.aboutImgWrapper::after {
-  content: 'Founder Photo Coming Soon';
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.35);
-  letter-spacing: 2px;
+.heroInner {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding-top: 128px;          /* clear fixed navbar (~120px) */
+  padding-bottom: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.heroLeft {
+  padding: 0;
+  max-width: 560px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 40px;
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 5.2vw, 4rem);
+  font-weight: 700;
+  color: var(--eva-navy);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+}
+
+.heroEyebrow {
+  font-family: 'Inter', 'DM Sans', sans-serif;
   text-transform: uppercase;
-  text-align: center;
-  padding: 20px;
+  letter-spacing: 2.4px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--eva-royal);
+  margin: 0 0 24px;
 }
 
-.storyImgWrapper {
-  aspect-ratio: 16/10;
+.heroDesc {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--eva-text);
+  margin: 0 0 30px;
+  max-width: 480px;
 }
 
-.aboutAccent {
+.heroCtas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Full-bleed right column — image hangs from the top of the viewport, ending
+   slightly below the belt with a soft gradient fade into the page background. */
+.heroRight {
   position: absolute;
-  bottom: -16px; right: -16px;
-  width: 140px; height: 140px;
-  border: 3px solid var(--accent);
-  border-radius: var(--radius-lg);
-  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 52%;
+  height: 84vh;
+  /* Soft fade on the LEFT edge: the photo dissolves into the white text area
+     instead of meeting it with a hard vertical seam. */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 24%, #000 100%);
+          mask-image: linear-gradient(to right, transparent 0%, #000 24%, #000 100%);
 }
 
-.aboutText { color: var(--text-body); margin-bottom: 20px; font-size: 1.02rem; line-height: 1.8; }
-
-.aboutValues {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-top: 28px;
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Top-anchored crop: visible range runs from head down to slightly below
+     the belt, after which the container ends. */
+  object-position: center top;
+  display: block;
 }
 
-.aboutValue {
-  display: flex; align-items: center; gap: 12px;
-  padding: 14px 16px;
-  background: var(--bg-subtle);
-  border-radius: var(--radius);
-  font-size: 0.88rem; font-weight: 500;
-}
-
-.aboutValueIcon {
-  width: 34px; height: 34px;
+/* ═══════════ BUTTONS (page-scoped) ═══════════ */
+.btnPrimary,
+.btnOutline,
+.btnCtaWhite,
+.btnCtaWhiteOutline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  border: 1.5px solid transparent;
   border-radius: 8px;
-  background: var(--accent);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.9rem; flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 13px 24px;
 }
 
-/* Testimonial Grid */
-.testimonialGrid {
+.btnPrimary {
+  background: var(--eva-royal);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(31, 95, 175, 0.22);
+}
+.btnPrimary:hover {
+  background: var(--eva-navy);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(31, 95, 175, 0.3);
+}
+
+.btnOutline {
+  background: transparent;
+  color: var(--eva-royal);
+  border-color: var(--eva-royal);
+}
+.btnOutline:hover {
+  background: var(--eva-royal);
+  color: #fff;
+}
+
+/* ═══════════ STATS BAND (royal blue) ═══════════ */
+.statsBand {
+  background: var(--eva-royal);
+  padding: 44px 0;
+  position: relative;
+  overflow: hidden;
+}
+.statsBand::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.statsGrid {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  text-align: center;
 }
 
-.testimonialGridCard {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  transition: all 0.3s;
+.statCol {
+  padding: 8px 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+.statCol:last-child { border-right: none; }
+
+.statNum {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.05;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
 }
 
-.testimonialGridCard:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-
-.tgStars { color: var(--accent); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 14px; }
-.tgQuote { color: var(--text-body); font-size: 0.93rem; line-height: 1.75; font-style: italic; margin-bottom: 18px; }
-.tgAuthor { display: flex; align-items: center; gap: 12px; }
-
-.tgAvatar {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  background: var(--accent);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; color: var(--white); font-size: 0.8rem;
-  flex-shrink: 0;
+.statLabel {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
 }
 
-.tgName { font-weight: 600; font-size: 0.88rem; }
-.tgRole { font-size: 0.76rem; color: var(--text-light); }
-
-.note { text-align: center; margin-top: 32px; color: var(--text-light); font-size: 0.85rem; font-style: italic; }
-
-@media(max-width: 1024px) {
-  .aboutGrid { grid-template-columns: 1fr; gap: 40px; }
+.statSub {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-@media(max-width: 768px) {
-  .aboutValues { grid-template-columns: 1fr; }
-  .aboutSubTabs { gap: 6px; }
-  .aboutSubTab { padding: 9px 18px; font-size: 0.8rem; }
+/* ═══════════ WHY EVA — 4 belief columns ═══════════ */
+.beliefsSection {
+  background: #ffffff;
+  padding: 64px 0 72px;
 }
+
+.beliefsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.beliefCol {
+  padding: 12px 26px;
+  border-right: 1px solid rgba(15, 39, 71, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+.beliefCol:last-child { border-right: none; }
+
+.beliefTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--eva-royal);
+  text-align: center;
+  margin: 0 0 22px;
+  line-height: 1.2;
+}
+
+.beliefBody {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--eva-text);
+  margin: 0 0 22px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.beliefTagline {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--eva-royal);
+  line-height: 1.45;
+  margin: 0;
+  text-align: center;
+}
+
+/* ═══════════ MY STORY / OUR MISSION ═══════════ */
+.storySection {
+  background: #ffffff;
+  padding: 56px 0 72px;
+}
+
+.storyInner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.storyLeft {
+  max-width: 560px;
+}
+
+.storyEyebrow {
+  display: block;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--eva-turquoise);
+  margin: 0 0 14px;
+}
+
+.storyTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--eva-navy);
+  margin: 0 0 22px;
+  line-height: 1.2;
+}
+
+.storyText {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--eva-text);
+  margin: 0 0 16px;
+}
+
+.storyTagline {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--eva-royal);
+  line-height: 1.45;
+  margin: 24px 0 0;
+}
+
+.storyRight {
+  position: relative;
+  border-left: 4px solid var(--eva-light-blue);
+  padding-left: 14px;
+}
+
+.storyImg {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  /* Troy's face sits right-of-center in this source frame; shift the crop
+     window rightward so her face lands on the horizontal centerline of the
+     card instead of pushing into the right edge. */
+  object-position: 78% 35%;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(15, 39, 71, 0.08);
+}
+
+/* ═══════════ BOTTOM CTA (royal-blue band) ═══════════ */
+.ctaSection {
+  background: var(--eva-royal);
+  padding: 60px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.ctaInner {
+  position: relative;
+  text-align: center;
+}
+
+.ctaTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 14px;
+  line-height: 1.25;
+}
+
+.ctaDesc {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 auto 28px;
+  max-width: 580px;
+}
+
+.ctaBtns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btnCtaWhite {
+  background: #ffffff;
+  color: var(--eva-royal);
+  padding: 14px 28px;
+}
+.btnCtaWhite:hover {
+  background: var(--eva-navy);
+  color: #fff;
+}
+
+.btnCtaWhiteOutline {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+  padding: 14px 28px;
+}
+.btnCtaWhiteOutline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media (max-width: 1024px) {
+  .beliefsGrid { grid-template-columns: repeat(2, 1fr); }
+  .beliefCol:nth-child(2n) { border-right: none; }
+  .beliefCol {
+    border-bottom: 1px solid rgba(15, 39, 71, 0.08);
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+  }
+  .beliefCol:nth-last-child(-n+2) {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .statsGrid { grid-template-columns: repeat(2, 1fr); gap: 32px 0; }
+  .statCol:nth-child(2n) { border-right: none; }
+}
+
+@media (max-width: 768px) {
+  .hero { min-height: 0; }
+  .heroInner {
+    flex-direction: column;
+    gap: 28px;
+    min-height: 0;
+    padding-top: 128px;
+    padding-bottom: 32px;
+    align-items: stretch;
+  }
+  .heroLeft {
+    padding: 0;
+    max-width: none;
+    width: 100%;
+  }
+  .heroRight {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: 420px;
+  }
+  .heroImg {
+    height: 100%;
+    object-position: center 18%;
+    border-radius: 14px;
+  }
+  .beliefsGrid { grid-template-columns: 1fr; }
+  .beliefCol { border-right: none; border-bottom: 1px solid rgba(15, 39, 71, 0.08); padding: 24px 0; }
+  .beliefCol:last-child { border-bottom: none; }
+  .statsGrid { grid-template-columns: 1fr; gap: 24px; }
+  .statCol { border-right: none; }
+  .storyInner { grid-template-columns: 1fr; gap: 36px; }
+  .storyLeft { max-width: none; }
+  .storyImg { height: 360px; }
+}
+
+/* ═══════════ LEGACY classes — no-ops ═══════════ */
+.aboutPageHeader,
+.aboutSubTabs,
+.aboutSubTab,
+.aboutPanel,
+.aboutGrid,
+.aboutImgWrapper,
+.aboutImg,
+.aboutHero,
+.aboutHeroInner,
+.aboutHeroText,
+.aboutHeroTitle,
+.aboutHeroLead,
+.aboutHeroDesc,
+.aboutHeroBtns,
+.aboutAnchorStrip,
+.aboutHeroImageWrap,
+.aboutHeroImage,
+.aboutSection,
+.aboutSectionAlt,
+.aboutH2,
+.aboutH3,
+.aboutEyebrowSmall,
+.aboutAccent,
+.storyImgWrapper,
+.aboutText,
+.aboutValues,
+.aboutValue,
+.aboutValueIcon,
+.testimonialsHeader,
+.testimonialGrid,
+.testimonialGridCard,
+.tgStars,
+.tgQuote,
+.tgAuthor,
+.tgAvatar,
+.tgName,
+.tgRole,
+.note { display: none; }
